@@ -611,7 +611,7 @@ section {
   opacity: 1;
   left: 0;
   right: 0;
-  bottom: -60px;
+  bottom: -100%;
   z-index: 3;
   position: absolute;
   transition: all ease-in-out 0.3s;
