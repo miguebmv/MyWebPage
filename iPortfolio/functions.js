@@ -39,3 +39,17 @@ function enablePageScroll() {
   document.body.style.overflow = "";
 }
 //_____________________________________________________________________________________________________________-->
+function toggleTables() {
+  var table1 = document.getElementById("table1");
+  var table2 = document.getElementById("table2");
+
+  if (table1.style.display === "none") {
+    table1.style.display = "table";
+    table2.style.display = "none";
+    toggleButton.textContent = "See Macro Results";
+  } else {
+    table1.style.display = "none";
+    table2.style.display = "table";
+    toggleButton.textContent = "See Weighted Results";
+  }
+}
