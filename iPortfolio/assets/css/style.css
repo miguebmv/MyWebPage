@@ -310,17 +310,35 @@ h6 {
 
 @media (min-width: 1180px) and (max-width: 1500px) {
   #hero h1,
-  h2,
-  p {
+  #hero h2,
+  #hero p {
     margin-left: 260px; /* Ajusta el margen izquierdo según sea necesario */
   }
 }
 
 @media (max-width: 1180px) {
   #hero h1,
-  h2,
-  p {
+  #hero h2,
+  #hero p {
     margin-left: 30px; /* Ajusta el margen izquierdo según sea necesario */
+  }
+}
+
+/*--------------------------------------------------------------
+# Resume config 
+--------------------------------------------------------------*/
+/* A continuación modifico para que en dispositivos pequeños no se muestre el CV, solo la option de descarga
+/* Mostrar el PDF solo en pantallas más grandes */
+@media (min-width: 768px) {
+  .embed {
+    display: block;
+  }
+}
+
+/* Ocultar el PDF en dispositivos móviles */
+@media (max-width: 767px) {
+  .embed {
+    display: none;
   }
 }
 
