@@ -330,15 +330,29 @@ h6 {
 /* A continuación modifico para que en dispositivos pequeños no se muestre el CV, solo la option de descarga
 /* Mostrar el PDF solo en pantallas más grandes */
 @media (min-width: 768px) {
+  #pdf_format {
+    display: block;
+  }
   .embed {
     display: block;
+  }
+  #pdf-unavailable {
+    display: none;
   }
 }
 
 /* Ocultar el PDF en dispositivos móviles */
 @media (max-width: 767px) {
+  #pdf_format {
+    display: none;
+  }
   .embed {
     display: none;
+  }
+  #pdf-unavailable {
+    display: block;
+    color: red;
+    text-align: center;
   }
 }
 

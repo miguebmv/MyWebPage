@@ -108,3 +108,11 @@ p {
   /* Ajusta el margen alrededor del botón */
 }
 /* ------------------------------------------------------------------------------------- */
+/* Creo esta seccion para incluir la conferencia en la que he estado */
+.img-carousel {
+  height: 470px; /* Ajusta la altura que desees */
+  object-fit: contain; /* Mantiene la relación de aspecto y agrega espacio en blanco si es necesario */
+  background-color: #f8f9fa; /* Color de fondo para las áreas vacías */
+}
+
+/* ------------------------------------------------------------------------------------- */

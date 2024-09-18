@@ -11,8 +11,11 @@
 
   <!-- añadimos nuestro archivo functions.js-->
   <script src="functions.js"></script>
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
+  <!--CSS para embed y otras cosas creadas por mi-->
+  <link href="assets/css/my_style.css" rel="stylesheet" />
 
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -102,88 +105,85 @@
   <!-- End Header -->
 
   <main id="main">
-    <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Portfolio Details</h2>
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Portfolio Details</li>
-          </ol>
-        </div>
-      </div>
-    </section>
-    <!-- End Breadcrumbs -->
-
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-5">
-            <div class="portfolio-info">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Category</strong>: Interactive Campus Map</li>
-                <li><strong>Course</strong>: Data Visualization</li>
-                <li><strong>Project date</strong>: 11 October, 2023</li>
-                <!--<li>
-                  <div class="portfolio-links">
-                    <strong>Project Execution</strong>:
-                    <a title="App 1" onclick="openModal('https://editor.p5js.org/mbravomartinez0754/full/l_7HYeyAB')"
-                      onmouseover="this.style.color='blue'; this.style.fontWeight='bold'; this.style.textDecoration='underline'"
-                      onmouseout="this.style.color=''; this.style.fontWeight='normal'; this.style.textDecoration='none'">
-                      EXECUTE
-                    </a>
-                </li>-->
-              </ul>
-              <hr>
-            </div>
+        <!-- Título y descripción del proyecto -->
+        <div class="row">
+          <h2>WUSS 2024 Conference, Sacramento</h2>
+          <h2><strong><i>[Western Users of SAS and Open-Source Software]</i></strong></h2>
+          <div class="portfolio-description col-6">
+            <p><strong>In</strong> September 2024, I had the incredible opportunity to attend <a
+                href="https://www.wuss.org/"><strong>WUSS 2024 (Western Users
+                  of SAS and
+                  Open-Source Software)</strong></a><br>
+              in Sacramento, California. The conference brought together experts and enthusiasts from various fields to
+              explore
+              innovative approaches to data analysis, focusing on both proprietary tools like SAS and open-source
+              solutions. I had the privilege of presenting my machine learning project, <strong>"Flight Delay Analysis
+                and
+                Prediction"</strong>, where
+              I demonstrated predictive techniques using open-source data and machine learning algorithms. The project
+              received
+              positive feedback, reinforcing the importance of using data to tackle real-world problems. <br>
 
-            <div class="portfolio-info">
-              <h3>How does it work?</h3>
-              Interactive map of the campus of my university, SDSU
-              <hr>
-              <ul>
-                <li type="disc">Double Click a building to see info</li>
+              Additionally, I was honored to receive a student scholarship, which not only recognized my academic
+              achievements but
+              also enabled me to participate in hands-on workshops and discussions. These sessions focused on
+              open-source tools such
+              as <strong>R</strong> and <strong>Python</strong>, allowing me to deepen my knowledge of how these
+              technologies are driving the future of
+              data analysis.
+              The conference provided a platform to engage with leading professionals, exchange ideas, and learn about
+              cutting-edge
+              techniques in analytics and machine learning. <br>
 
-                <li type="disc">Try searching for a builing, e.g. "Storm Hall" <strong></strong>(press enter)</li>
-                <li type="disc">Red buildings contains either information and/or a picture of the building</li>
-              </ul>
-            </div>
+              For more details about the scholarship, please visit <a
+                href="https://www.wuss.org/scholarships/"><strong>here</strong></a>.</p>
           </div>
-          <div class="col-lg-7" id="iframeContainer" onmouseover="disablePageScroll()" onmouseout="enablePageScroll()">
-            <div style="overflow: hidden;">
-              <!-- Inserta tu programa usando un iframe -->
-              <iframe id="myIframe" src="https://editor.p5js.org/mbravomartinez0754/full/aTKaZh4p9" width="100%"
-                height="550px" frameborder="0" scrolling="no"></iframe>
+          <div id="carouselExample" class="carousel slide col-6" data-bs-ride="carousel" data-bs-interval="4000">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="assets/img/conferences/me_wuss.jpg" class="d-block w-100 img-carousel" alt="Image 1">
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/conferences/scholarship_wuss.jpg" class="d-block w-100 img-carousel" alt="Image 2">
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/conferences/wuss_speaker.png" class="d-block w-100 img-carousel" alt="Image 3">
+              </div>
             </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="container">
-        <div class="col-lg-11">
-          <div class="portfolio-description">
-            <h2>Interactive Campus Map</h2>
-            <strong>Characteristics:</strong>
-            <ul>
-              <li type="disc">Interactive map of the campus, with navigation functionality (zooming in/out, panning),
-              </li>
-              <li type="disc">Interactive functionality to allow users to reveal or illustrate additional information
-                about the campus (building names, photos...)</li>
-            </ul>
-            <strong>Primary Provided Datasets:</strong>
-            <ul>
-              <li type="disc">Campus aerial photo at three resolutions – 100, 200, 300 dpi</li>
-              <li type="disc">Campus buildings at three resolutions – 100, 200, 300 dpi. The building data set is also
-                available as an SVG file</li>
-            </ul>
-            If you want to take a look into de code, feel free to visit my
-            <a href="https://github.com/miguebmv/Data-Visualization-Projects/tree/main/Lab2">GitHub Repository!</a>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
+
+
+
+        <hr>
+
+
+        <!-- Otra columna para el enlace al informe final -->
+        <a href="https://github.com/miguebmv/BDA602_MachineLearning"><strong>Link
+            To
+            the project GitHub</strong></a>
+        <div class="portfolio-description" id="pdf_format" style="padding-top: 20px;">
+          <h2>Final Paper [WUSS Format]</h2>
+        </div>
+        <div id="pdf-unavailable">
+          <p><strong><em>The PDF is not available for this screen size</em></strong></p>
+        </div>
+        <div class="embed">
+          <embed src="MachineLearning_FinalPaper_WUSS_EDITION.pdf#toolbar=0" width="100%" height="1050px" />
+        </div>
       </div>
+
       <!-- Modal ____________________________________________________________________________-->
       <div class="modal fade" id="myModal">
         <div class="modal-dialog modal-lg">
