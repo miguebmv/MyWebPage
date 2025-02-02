@@ -53,3 +53,23 @@ function toggleTables() {
     toggleButton.textContent = "See Weighted Results";
   }
 }
+
+//_____________________________________________________________________________________
+function calculateAge(birthDate) {
+  const today = new Date();
+  const birth = new Date(birthDate);
+  let age = today.getFullYear() - birth.getFullYear();
+  const monthDiff = today.getMonth() - birth.getMonth();
+  const dayDiff = today.getDate() - birth.getDate();
+
+  if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+    age--;
+  }
+
+  document.getElementById("age").textContent = age;
+}
+
+// Ejecutar cuando el DOM esté completamente cargado
+document.addEventListener("DOMContentLoaded", function () {
+  calculateAge("2000-05-15"); // Cambia la fecha por tu cumpleaños
+});
