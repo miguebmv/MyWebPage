@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+  <title>Portfolio</title>
+  <meta content="" name="description" />
+  <meta content="" name="keywords" />
+
+  <!-- añadimos nuestro archivo functions.js-->
+  <script src="functions.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+  <!--CSS para embed y otras cosas creadas por mi-->
+  <link href="assets/css/my_style.css" rel="stylesheet" />
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Agrega los estilos y scripts de Bootstrap -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon2.png" rel="icon" />
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+      <div class="profile">
+        <img src="assets/img/profile-img.jpg" alt=""
+          style="border-radius: 150px; width: 150px; height: 150px; object-fit: cover; object-position: 80% 20%;">
+        <h1 class="text-light">
+          <a href="index.html">Miguel Angel Bravo</a>
+        </h1>
+        <div class="social-links mt-3 text-center">
+          <!-- he quitado la funtion de instagram, ya que no se si es muy profesional-->
+          <!--<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a> -->
+
+          <!--hasta aqui _________________________________________________________ -->
+          <a href="https://www.linkedin.com/in/miguel-angel-bravo" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+
+          <!-- funcion y todo para poder hacer al usuario que copie mi gmail -->
+          <a class="gmail" onclick="copyEmail()">
+            <i class="bx bxl-gmail"></i>
+          </a>
+          <span id="copyMessage" style="display: none">Copied to Clipboard!</span>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li>
+            <a href="index.html#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a>
+          </li>
+          <li>
+            <a href="index.html#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a>
+          </li>
+          <li>
+            <a href="index.html#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i>
+              <span>Resume</span></a>
+          </li>
+          <li>
+            <a href="index.html#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i>
+              <span>Portfolio</span></a>
+          </li>
+          <!--<li>
+                <a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a>
+              </li>
+              <li>
+                <a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a>
+              </li>-->
+        </ul>
+      </nav>
+      <!-- .nav-menu -->
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <main id="main">
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+        <!-- Título y descripción del proyecto -->
+        <div class="row">
+          <h2>MWSUG 2024 Conference &nbsp; &nbsp; Waukesha, Wisconsin</h2>
+          <h2><strong><i>[Midwestern SAS Software Users Group]</i></strong></h2>
+          <div class="portfolio-description col-6">
+            <p><strong>In</strong> October 2024, I had the privilege of attending the Midwestern SAS Users Group <a
+                href="https://www.mwsug.org/"><strong>MWSUG </strong></a> Conference in Waukesha, Wisconsin — a
+              vibrant gathering
+              of data scientists, statisticians, and analytics professionals from across the
+              region. The event
+              highlighted innovative applications of analytics in industry and academia, with a strong focus on both
+              traditional SAS
+              tools and modern integrations with open-source technologies.
+              <br>
+              Together with Ryan Paul Lafler <a href="https://www.premier-analytics.com/"> <strong>[Premier
+                  Analytics]</strong></a>, I co-authored and
+              presented a paper on the integration of
+              Python’s
+              libraries for data
+              cleaning, processing, and modeling within the SAS Viya framework. Our work showcased how Python’s
+              flexibility and SAS
+              Viya’s enterprise-scale capabilities can be seamlessly combined to build reproducible, efficient, and
+              production-ready
+              machine learning pipelines. The presentation sparked insightful conversations on hybrid workflows,
+              reproducibility in
+              analytics, and the growing role of open-source ecosystems within SAS environments.
+              <br>
+              The conference also offered a fantastic platform to network with industry leaders, exchange practical
+              techniques, and
+              explore real-world case studies. Beyond the technical sessions, MWSUG fostered a collaborative spirit
+              where new ideas,
+              coding strategies, and best practices were shared openly — reinforcing the importance of bridging
+              proprietary and
+              open-source technologies in today’s data-driven world.
+            </p>
+          </div>
+          <div class="col-6">
+            <div class="carousel-item active">
+              <img src="assets/img/conferences/PRCO_Python_SAS_VIYA_MWSUG_2024.png" class="d-block w-100 img-carousel"
+                alt="Image 1">
+            </div>
+
+          </div>
+        </div>
+        <hr>
+        <!-- Otra columna para el enlace al informe final -->
+        <div class="portfolio-description" id="pdf_format" style="padding-top: 20px;">
+          <h2>Paper</h2>
+        </div>
+        <div id="pdf-unavailable">
+          <p><strong><em>The PDF is not available for this screen size</em></strong></p>
+        </div>
+        <div class="embed">
+          <embed src="PROC_PYTHON_SAS_Viya_MWSUG2024.pdf#toolbar=0" width="100%" height="1050px" />
+        </div>
+      </div>
+
+      <!-- Modal ____________________________________________________________________________-->
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <!-- Carga el contenido del iframe dentro del modal -->
+            <iframe src="" id="modalFrame" class="modal-body" style="width: 100%; height: 550px"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--_________________________________________________________________________________________-->
+    <!-- End Portfolio Details Section -->
+  </main>
+  <!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
