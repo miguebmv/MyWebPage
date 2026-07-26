@@ -194,6 +194,8 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 if (portraitStage && draggablePortrait) {
   let drag = null;
   let animationFrame = 0;
+  let lastFrameTime = 0;
+  let bounds = { maxX: 0, maxY: 0 };
   const state = {
     x: 0,
     y: 0,
@@ -213,64 +215,83 @@ if (portraitStage && draggablePortrait) {
     };
   };
 
+  const updateBounds = () => {
+    bounds = getBounds();
+  };
+
   const renderPortrait = () => {
     draggablePortrait.style.setProperty("--portrait-x", `${state.x}px`);
     draggablePortrait.style.setProperty("--portrait-y", `${state.y}px`);
   };
 
-  const animatePortrait = () => {
+  const animatePortrait = (timestamp) => {
     animationFrame = 0;
-    const { maxX, maxY } = getBounds();
+    const deltaSeconds = lastFrameTime
+      ? Math.min((timestamp - lastFrameTime) / 1000, 0.034)
+      : 1 / 60;
+    lastFrameTime = timestamp;
 
     if (state.dragging) {
-      state.velocityX = (state.velocityX + (state.targetX - state.x) * 0.14) * 0.72;
-      state.velocityY = (state.velocityY + (state.targetY - state.y) * 0.14) * 0.72;
+      const stiffness = 55;
+      const damping = 9;
+      state.velocityX += (
+        (state.targetX - state.x) * stiffness - state.velocityX * damping
+      ) * deltaSeconds;
+      state.velocityY += (
+        (state.targetY - state.y) * stiffness - state.velocityY * damping
+      ) * deltaSeconds;
     } else {
-      state.velocityX *= 0.965;
-      state.velocityY *= 0.965;
+      const inertia = Math.exp(-2.2 * deltaSeconds);
+      state.velocityX *= inertia;
+      state.velocityY *= inertia;
     }
 
-    state.x += state.velocityX;
-    state.y += state.velocityY;
+    state.x += state.velocityX * deltaSeconds;
+    state.y += state.velocityY * deltaSeconds;
 
-    if (Math.abs(state.x) > maxX) {
-      state.x = Math.sign(state.x) * maxX;
-      state.velocityX = state.dragging ? 0 : -state.velocityX * 0.58;
+    if (Math.abs(state.x) > bounds.maxX) {
+      state.x = Math.sign(state.x) * bounds.maxX;
+      state.velocityX = state.dragging ? 0 : -state.velocityX * 0.68;
     }
-    if (Math.abs(state.y) > maxY) {
-      state.y = Math.sign(state.y) * maxY;
-      state.velocityY = state.dragging ? 0 : -state.velocityY * 0.58;
+    if (Math.abs(state.y) > bounds.maxY) {
+      state.y = Math.sign(state.y) * bounds.maxY;
+      state.velocityY = state.dragging ? 0 : -state.velocityY * 0.68;
     }
 
     renderPortrait();
 
     const targetDistance = Math.hypot(state.targetX - state.x, state.targetY - state.y);
     const speed = Math.hypot(state.velocityX, state.velocityY);
-    if (state.dragging || targetDistance > 0.12 || speed > 0.12) {
+    if (state.dragging || targetDistance > 0.25 || speed > 2) {
       animationFrame = requestAnimationFrame(animatePortrait);
+    } else {
+      lastFrameTime = 0;
     }
   };
 
   const requestPortraitFrame = () => {
-    if (!animationFrame) animationFrame = requestAnimationFrame(animatePortrait);
+    if (!animationFrame) {
+      lastFrameTime = 0;
+      animationFrame = requestAnimationFrame(animatePortrait);
+    }
   };
 
   const movePortrait = (event) => {
     if (!drag) return;
-    const { maxX, maxY } = getBounds();
     state.targetX = Math.max(
-      -maxX,
-      Math.min(maxX, drag.originX + event.clientX - drag.pointerX)
+      -bounds.maxX,
+      Math.min(bounds.maxX, drag.originX + event.clientX - drag.pointerX)
     );
     state.targetY = Math.max(
-      -maxY,
-      Math.min(maxY, drag.originY + event.clientY - drag.pointerY)
+      -bounds.maxY,
+      Math.min(bounds.maxY, drag.originY + event.clientY - drag.pointerY)
     );
     requestPortraitFrame();
   };
 
   draggablePortrait.addEventListener("pointerdown", (event) => {
     if (!desktopPortrait.matches || reducedMotion.matches) return;
+    updateBounds();
     drag = {
       pointerX: event.clientX,
       pointerY: event.clientY,
@@ -309,13 +330,15 @@ if (portraitStage && draggablePortrait) {
   });
 
   window.addEventListener("resize", () => {
-    const { maxX, maxY } = getBounds();
-    state.x = Math.max(-maxX, Math.min(maxX, state.x));
-    state.y = Math.max(-maxY, Math.min(maxY, state.y));
+    updateBounds();
+    state.x = Math.max(-bounds.maxX, Math.min(bounds.maxX, state.x));
+    state.y = Math.max(-bounds.maxY, Math.min(bounds.maxY, state.y));
     state.targetX = state.x;
     state.targetY = state.y;
     renderPortrait();
   });
+
+  updateBounds();
 }
 
 document.querySelectorAll("[data-current-year]").forEach((element) => {

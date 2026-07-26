@@ -8,12 +8,14 @@
 
   const sketch = (p) => {
     const SEED = 260326;
-    const NODE_COUNT = 58;
-    const INFLUENCE_RADIUS = 185;
+    const NODE_COUNT = 68;
+    const INFLUENCE_RADIUS = 220;
     const nodes = [];
     let fieldWidth = 0;
     let fieldHeight = 0;
     let pointerActive = false;
+    let pointerX = 0;
+    let pointerY = 0;
     let fieldVisible = true;
 
     const cssColor = (name, fallback) =>
@@ -47,14 +49,21 @@
       if (staticMode) p.redraw();
     };
 
-    const drawConnection = (first, second, firstInfluence, secondInfluence, lineColor) => {
+    const drawConnection = (
+      first,
+      second,
+      firstInfluence,
+      secondInfluence,
+      lineColor,
+      lightMode
+    ) => {
       const distance = p.dist(first.x, first.y, second.x, second.y);
       const strength = Math.min(firstInfluence, secondInfluence);
-      if (distance > 78 || strength < 0.18) return;
+      if (distance > (lightMode ? 116 : 82) || strength < (lightMode ? 0.11 : 0.18)) return;
 
-      lineColor.setAlpha(16 + strength * 74);
+      lineColor.setAlpha(lightMode ? 48 + strength * 150 : 16 + strength * 74);
       p.stroke(lineColor);
-      p.strokeWeight(0.7);
+      p.strokeWeight(lightMode ? 0.95 : 0.7);
       p.line(first.x, first.y, second.x, second.y);
     };
 
@@ -80,6 +89,22 @@
       const resizeObserver = new ResizeObserver(resizeField);
       resizeObserver.observe(container);
 
+      container.addEventListener("pointermove", (event) => {
+        const bounds = container.getBoundingClientRect();
+        pointerX = event.clientX - bounds.left;
+        pointerY = event.clientY - bounds.top;
+        pointerActive =
+          pointerX >= 0 &&
+          pointerX <= bounds.width &&
+          pointerY >= 0 &&
+          pointerY <= bounds.height;
+        if (!staticMode && fieldVisible) p.loop();
+      }, { passive: true });
+
+      container.addEventListener("pointerleave", () => {
+        pointerActive = false;
+      }, { passive: true });
+
       if (staticMode) {
         p.noLoop();
         p.redraw();
@@ -92,10 +117,11 @@
       const accent = p.color(cssColor("--data-field-accent", "#087f77"));
       const muted = p.color(cssColor("--muted", "#68727e"));
       const lineColor = p.color(cssColor("--data-field-accent", "#087f77"));
+      const lightMode = document.documentElement.dataset.theme === "light";
       const staticX = fieldWidth * 0.64;
       const staticY = fieldHeight * 0.52;
-      const focusX = staticMode ? staticX : p.mouseX;
-      const focusY = staticMode ? staticY : p.mouseY;
+      const focusX = staticMode ? staticX : pointerX;
+      const focusY = staticMode ? staticY : pointerY;
       const focusActive = staticMode || pointerActive;
 
       nodes.forEach((node) => {
@@ -124,7 +150,8 @@
             nodes[otherIndex],
             node.influence,
             nodes[otherIndex].influence,
-            lineColor
+            lineColor,
+            lightMode
           );
         }
       });
@@ -132,28 +159,20 @@
       nodes.forEach((node) => {
         const active = node.influence > 0.12;
         const pointColor = active ? accent : muted;
-        pointColor.setAlpha(active ? 90 + node.influence * 105 : 42);
+        pointColor.setAlpha(
+          active
+            ? lightMode ? 175 + node.influence * 80 : 90 + node.influence * 105
+            : lightMode ? 56 : 42
+        );
         p.noStroke();
         p.fill(pointColor);
-        const size = node.weight + node.influence * 1.35;
+        const size = node.weight + node.influence * (lightMode ? 2.1 : 1.35);
         p.circle(node.x, node.y, size);
       });
 
       if (staticMode || !fieldVisible) p.noLoop();
     };
 
-    p.mouseMoved = () => {
-      pointerActive =
-        p.mouseX >= 0 &&
-        p.mouseX <= fieldWidth &&
-        p.mouseY >= 0 &&
-        p.mouseY <= fieldHeight;
-      return false;
-    };
-
-    p.mouseOut = () => {
-      pointerActive = false;
-    };
   };
 
   new window.p5(sketch);
