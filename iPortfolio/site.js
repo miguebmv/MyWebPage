@@ -334,7 +334,6 @@ if (portraitStage && draggablePortrait) {
     const clampVelocity = (velocity) => Math.max(-1800, Math.min(1800, velocity));
     const dragDistanceX = releasedDrag.lastPointerX - releasedDrag.pointerX;
     const dragDistanceY = releasedDrag.lastPointerY - releasedDrag.pointerY;
-    const dragDistance = Math.hypot(dragDistanceX, dragDistanceY);
     drag = null;
     state.dragging = false;
     state.targetX = state.x;
@@ -347,11 +346,14 @@ if (portraitStage && draggablePortrait) {
       state.velocityY * 0.35 +
       releasedDrag.pointerVelocityY * retainedPointerVelocity * 0.9
     );
-    const launchSpeed = Math.hypot(state.velocityX, state.velocityY);
-    if (dragDistance > 24 && launchSpeed < 480) {
-      state.velocityX = (dragDistanceX / dragDistance) * 480;
-      state.velocityY = (dragDistanceY / dragDistance) * 480;
-    }
+    const preserveAxisMomentum = (velocity, distance, minimumSpeed) => {
+      if (Math.abs(distance) < 18 || Math.abs(velocity) >= minimumSpeed) {
+        return velocity;
+      }
+      return Math.sign(distance) * minimumSpeed;
+    };
+    state.velocityX = preserveAxisMomentum(state.velocityX, dragDistanceX, 480);
+    state.velocityY = preserveAxisMomentum(state.velocityY, dragDistanceY, 540);
     draggablePortrait.classList.remove("is-dragging");
     if (draggablePortrait.hasPointerCapture(event.pointerId)) {
       draggablePortrait.releasePointerCapture(event.pointerId);
