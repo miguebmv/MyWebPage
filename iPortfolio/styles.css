@@ -27,7 +27,7 @@
   --line: rgba(18, 24, 32, 0.12);
   --line-strong: rgba(18, 24, 32, 0.22);
   --accent: #087f77;
-  --data-field-accent: #b76036;
+  --data-field-accent: #a94f28;
   --accent-soft: rgba(8, 127, 119, 0.1);
   --shadow: 0 24px 70px rgba(50, 44, 35, 0.12);
 }
@@ -297,6 +297,7 @@ main {
   justify-content: center;
   min-height: 100vh;
   padding-top: 72px;
+  padding-bottom: 0;
   overflow: hidden;
 }
 
@@ -366,8 +367,9 @@ main {
 .data-field {
   position: relative;
   width: 100%;
-  height: clamp(155px, 21vh, 220px);
-  flex-shrink: 0;
+  height: auto;
+  min-height: 220px;
+  flex: 1 0 220px;
   margin-top: 26px;
   overflow: hidden;
   border-top: 1px solid var(--line);
@@ -466,7 +468,7 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(175px, 21vw, 230px);
+  width: clamp(155px, 18vw, 205px);
   aspect-ratio: 1;
   padding: 7px;
   border: 1px solid color-mix(in srgb, var(--data-field-accent) 72%, var(--line-strong));

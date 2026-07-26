@@ -8,8 +8,8 @@
 
   const sketch = (p) => {
     const SEED = 260326;
-    const NODE_COUNT = 46;
-    const INFLUENCE_RADIUS = 170;
+    const NODE_COUNT = 58;
+    const INFLUENCE_RADIUS = 185;
     const nodes = [];
     let fieldWidth = 0;
     let fieldHeight = 0;
@@ -26,7 +26,7 @@
 
       for (let index = 0; index < NODE_COUNT; index += 1) {
         const normalizedX = p.random(0.025, 0.975);
-        const normalizedY = p.random(0.12, 0.88);
+        const normalizedY = p.random(0.06, 0.94);
         nodes.push({
           x: normalizedX * fieldWidth,
           y: normalizedY * fieldHeight,
@@ -107,7 +107,7 @@
           : 0;
         const smoothedInfluence = rawInfluence * rawInfluence * (3 - 2 * rawInfluence);
         const influence = staticMode ? smoothedInfluence * 0.48 : smoothedInfluence;
-        const bandY = fieldHeight * (0.25 + node.band * 0.17);
+        const bandY = fieldHeight * (0.16 + node.band * 0.225);
         const drift = staticMode ? 0 : Math.sin(p.frameCount * 0.018 + node.phase) * 1.7;
         const targetX = homeX + Math.sin(node.phase * 1.7) * influence * 5;
         const targetY = p.lerp(homeY + drift, bandY, influence * 0.86);
