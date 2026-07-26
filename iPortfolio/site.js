@@ -232,8 +232,8 @@ if (portraitStage && draggablePortrait) {
     lastFrameTime = timestamp;
 
     if (state.dragging) {
-      const stiffness = 55;
-      const damping = 9;
+      const stiffness = 95;
+      const damping = 11;
       state.velocityX += (
         (state.targetX - state.x) * stiffness - state.velocityX * damping
       ) * deltaSeconds;
@@ -241,7 +241,7 @@ if (portraitStage && draggablePortrait) {
         (state.targetY - state.y) * stiffness - state.velocityY * damping
       ) * deltaSeconds;
     } else {
-      const inertia = Math.exp(-2.2 * deltaSeconds);
+      const inertia = Math.exp(-1.45 * deltaSeconds);
       state.velocityX *= inertia;
       state.velocityY *= inertia;
     }
@@ -251,11 +251,11 @@ if (portraitStage && draggablePortrait) {
 
     if (Math.abs(state.x) > bounds.maxX) {
       state.x = Math.sign(state.x) * bounds.maxX;
-      state.velocityX = state.dragging ? 0 : -state.velocityX * 0.68;
+      state.velocityX = state.dragging ? 0 : -state.velocityX * 0.78;
     }
     if (Math.abs(state.y) > bounds.maxY) {
       state.y = Math.sign(state.y) * bounds.maxY;
-      state.velocityY = state.dragging ? 0 : -state.velocityY * 0.68;
+      state.velocityY = state.dragging ? 0 : -state.velocityY * 0.78;
     }
 
     renderPortrait();

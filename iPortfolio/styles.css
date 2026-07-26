@@ -11,6 +11,8 @@
   --accent: #66d1c4;
   --data-field-accent: #54c1b4;
   --accent-soft: rgba(102, 209, 196, 0.12);
+  --cursor-glow: rgba(102, 209, 196, 0.075);
+  --cursor-glow-mobile: rgba(102, 209, 196, 0.07);
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
   --serifless: "Manrope", "Helvetica Neue", Arial, sans-serif;
   --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
@@ -29,6 +31,8 @@
   --accent: #087f77;
   --data-field-accent: #a94f28;
   --accent-soft: rgba(8, 127, 119, 0.1);
+  --cursor-glow: rgba(169, 79, 40, 0.14);
+  --cursor-glow-mobile: rgba(169, 79, 40, 0.085);
   --shadow: 0 24px 70px rgba(50, 44, 35, 0.12);
 }
 
@@ -93,7 +97,7 @@ img {
   pointer-events: none;
   background: radial-gradient(
     600px circle at var(--mouse-x, 15%) var(--mouse-y, 10%),
-    rgba(102, 209, 196, 0.075),
+    var(--cursor-glow),
     transparent 52%
   );
 }
@@ -468,7 +472,7 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(140px, 16vw, 180px);
+  width: clamp(130px, 14.5vw, 165px);
   aspect-ratio: 1;
   padding: 7px;
   border: 1px solid color-mix(in srgb, var(--data-field-accent) 72%, var(--line-strong));
@@ -1576,7 +1580,7 @@ footer a:hover {
 
 @media (max-width: 900px) {
   .ambient {
-    background: radial-gradient(500px circle at 10% 0%, rgba(102, 209, 196, 0.07), transparent 60%);
+    background: radial-gradient(500px circle at 10% 0%, var(--cursor-glow-mobile), transparent 60%);
   }
 
   .page-shell {
