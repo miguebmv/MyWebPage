@@ -232,8 +232,8 @@ if (portraitStage && draggablePortrait) {
     lastFrameTime = timestamp;
 
     if (state.dragging) {
-      const stiffness = 95;
-      const damping = 11;
+      const stiffness = 120;
+      const damping = 14;
       state.velocityX += (
         (state.targetX - state.x) * stiffness - state.velocityX * damping
       ) * deltaSeconds;
@@ -241,7 +241,7 @@ if (portraitStage && draggablePortrait) {
         (state.targetY - state.y) * stiffness - state.velocityY * damping
       ) * deltaSeconds;
     } else {
-      const inertia = Math.exp(-0.65 * deltaSeconds);
+      const inertia = Math.exp(-0.42 * deltaSeconds);
       state.velocityX *= inertia;
       state.velocityY *= inertia;
     }
@@ -251,20 +251,21 @@ if (portraitStage && draggablePortrait) {
 
     if (Math.abs(state.x) > bounds.maxX) {
       state.x = Math.sign(state.x) * bounds.maxX;
-      state.velocityX = state.dragging ? 0 : -state.velocityX * 0.88;
+      state.velocityX = state.dragging ? 0 : -state.velocityX * 0.9;
     }
     if (Math.abs(state.y) > bounds.maxY) {
       state.y = Math.sign(state.y) * bounds.maxY;
-      state.velocityY = state.dragging ? 0 : -state.velocityY * 0.88;
+      state.velocityY = state.dragging ? 0 : -state.velocityY * 0.9;
     }
 
     renderPortrait();
 
-    const targetDistance = Math.hypot(state.targetX - state.x, state.targetY - state.y);
     const speed = Math.hypot(state.velocityX, state.velocityY);
-    if (state.dragging || targetDistance > 0.25 || speed > 2) {
+    if (state.dragging || speed > 2) {
       animationFrame = requestAnimationFrame(animatePortrait);
     } else {
+      state.targetX = state.x;
+      state.targetY = state.y;
       lastFrameTime = 0;
     }
   };
@@ -309,6 +310,7 @@ if (portraitStage && draggablePortrait) {
     drag = {
       pointerX: event.clientX,
       pointerY: event.clientY,
+      startedAt: event.timeStamp,
       originX: state.x,
       originY: state.y,
       lastPointerX: event.clientX,
@@ -331,29 +333,35 @@ if (portraitStage && draggablePortrait) {
     const releasedDrag = drag;
     const releaseAge = Math.max(0, event.timeStamp - releasedDrag.lastPointerTime);
     const retainedPointerVelocity = Math.exp(-releaseAge / 180);
-    const clampVelocity = (velocity) => Math.max(-1800, Math.min(1800, velocity));
+    const clampVelocity = (velocity) => Math.max(-950, Math.min(950, velocity));
     const dragDistanceX = releasedDrag.lastPointerX - releasedDrag.pointerX;
     const dragDistanceY = releasedDrag.lastPointerY - releasedDrag.pointerY;
+    const dragDistance = Math.hypot(dragDistanceX, dragDistanceY);
+    const gestureDuration = Math.max(
+      80,
+      Math.min(450, event.timeStamp - releasedDrag.startedAt)
+    );
+    const averageVelocityX = (dragDistanceX / gestureDuration) * 1000;
+    const averageVelocityY = (dragDistanceY / gestureDuration) * 1000;
     drag = null;
     state.dragging = false;
     state.targetX = state.x;
     state.targetY = state.y;
     state.velocityX = clampVelocity(
-      state.velocityX * 0.35 +
-      releasedDrag.pointerVelocityX * retainedPointerVelocity * 0.9
+      state.velocityX * 0.15 +
+      releasedDrag.pointerVelocityX * retainedPointerVelocity * 0.65 +
+      averageVelocityX * 0.35
     );
     state.velocityY = clampVelocity(
-      state.velocityY * 0.35 +
-      releasedDrag.pointerVelocityY * retainedPointerVelocity * 0.9
+      state.velocityY * 0.15 +
+      releasedDrag.pointerVelocityY * retainedPointerVelocity * 0.65 +
+      averageVelocityY * 0.35
     );
-    const preserveAxisMomentum = (velocity, distance, minimumSpeed) => {
-      if (Math.abs(distance) < 18 || Math.abs(velocity) >= minimumSpeed) {
-        return velocity;
-      }
-      return Math.sign(distance) * minimumSpeed;
-    };
-    state.velocityX = preserveAxisMomentum(state.velocityX, dragDistanceX, 480);
-    state.velocityY = preserveAxisMomentum(state.velocityY, dragDistanceY, 540);
+    const launchSpeed = Math.hypot(state.velocityX, state.velocityY);
+    if (dragDistance > 22 && launchSpeed < 360) {
+      state.velocityX = (dragDistanceX / dragDistance) * 360;
+      state.velocityY = (dragDistanceY / dragDistance) * 360;
+    }
     draggablePortrait.classList.remove("is-dragging");
     if (draggablePortrait.hasPointerCapture(event.pointerId)) {
       draggablePortrait.releasePointerCapture(event.pointerId);
