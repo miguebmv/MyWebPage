@@ -9,7 +9,7 @@
   --line: rgba(219, 229, 239, 0.12);
   --line-strong: rgba(219, 229, 239, 0.22);
   --accent: #66d1c4;
-  --data-field-accent: #66d1c4;
+  --data-field-accent: #54c1b4;
   --accent-soft: rgba(102, 209, 196, 0.12);
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
   --serifless: "Manrope", "Helvetica Neue", Arial, sans-serif;
@@ -27,7 +27,7 @@
   --line: rgba(18, 24, 32, 0.12);
   --line-strong: rgba(18, 24, 32, 0.22);
   --accent: #087f77;
-  --data-field-accent: #c76f3f;
+  --data-field-accent: #b76036;
   --accent-soft: rgba(8, 127, 119, 0.1);
   --shadow: 0 24px 70px rgba(50, 44, 35, 0.12);
 }
@@ -366,7 +366,8 @@ main {
 .data-field {
   position: relative;
   width: 100%;
-  height: clamp(130px, 17vh, 180px);
+  height: clamp(155px, 21vh, 220px);
+  flex-shrink: 0;
   margin-top: 26px;
   overflow: hidden;
   border-top: 1px solid var(--line);
@@ -465,7 +466,7 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(210px, 27vw, 290px);
+  width: clamp(175px, 21vw, 230px);
   aspect-ratio: 1;
   padding: 7px;
   border: 1px solid color-mix(in srgb, var(--data-field-accent) 72%, var(--line-strong));
@@ -1611,8 +1612,7 @@ footer a:hover {
   }
 
   .data-field {
-    height: 130px;
-    pointer-events: none;
+    display: none;
   }
 
   .portrait__stage {

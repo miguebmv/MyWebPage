@@ -155,6 +155,17 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("mabravo-mockup-theme", nextTheme);
 });
 
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+systemTheme.addEventListener?.("change", (event) => {
+  try {
+    if (!localStorage.getItem("mabravo-mockup-theme")) {
+      applyTheme(event.matches ? "dark" : "light");
+    }
+  } catch {
+    applyTheme(event.matches ? "dark" : "light");
+  }
+});
+
 resumePreviewLinks.forEach((link) => {
   link.addEventListener("click", (event) => {
     if (!resumeDialog || typeof resumeDialog.showModal !== "function" || compactResumeViewer.matches) {
@@ -182,20 +193,80 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 if (portraitStage && draggablePortrait) {
   let drag = null;
+  let animationFrame = 0;
+  const state = {
+    x: 0,
+    y: 0,
+    targetX: 0,
+    targetY: 0,
+    velocityX: 0,
+    velocityY: 0,
+    dragging: false
+  };
+
+  const getBounds = () => {
+    const stageBox = portraitStage.getBoundingClientRect();
+    const radius = draggablePortrait.offsetWidth / 2;
+    return {
+      maxX: Math.max(0, stageBox.width / 2 - radius - 18),
+      maxY: Math.max(0, stageBox.height / 2 - radius - 18)
+    };
+  };
+
+  const renderPortrait = () => {
+    draggablePortrait.style.setProperty("--portrait-x", `${state.x}px`);
+    draggablePortrait.style.setProperty("--portrait-y", `${state.y}px`);
+  };
+
+  const animatePortrait = () => {
+    animationFrame = 0;
+    const { maxX, maxY } = getBounds();
+
+    if (state.dragging) {
+      state.velocityX = (state.velocityX + (state.targetX - state.x) * 0.14) * 0.72;
+      state.velocityY = (state.velocityY + (state.targetY - state.y) * 0.14) * 0.72;
+    } else {
+      state.velocityX *= 0.965;
+      state.velocityY *= 0.965;
+    }
+
+    state.x += state.velocityX;
+    state.y += state.velocityY;
+
+    if (Math.abs(state.x) > maxX) {
+      state.x = Math.sign(state.x) * maxX;
+      state.velocityX = state.dragging ? 0 : -state.velocityX * 0.58;
+    }
+    if (Math.abs(state.y) > maxY) {
+      state.y = Math.sign(state.y) * maxY;
+      state.velocityY = state.dragging ? 0 : -state.velocityY * 0.58;
+    }
+
+    renderPortrait();
+
+    const targetDistance = Math.hypot(state.targetX - state.x, state.targetY - state.y);
+    const speed = Math.hypot(state.velocityX, state.velocityY);
+    if (state.dragging || targetDistance > 0.12 || speed > 0.12) {
+      animationFrame = requestAnimationFrame(animatePortrait);
+    }
+  };
+
+  const requestPortraitFrame = () => {
+    if (!animationFrame) animationFrame = requestAnimationFrame(animatePortrait);
+  };
 
   const movePortrait = (event) => {
     if (!drag) return;
-    const stageBox = portraitStage.getBoundingClientRect();
-    const portraitBox = draggablePortrait.getBoundingClientRect();
-    const radius = portraitBox.width / 2;
-    const maxX = Math.max(0, stageBox.width / 2 - radius - 18);
-    const maxY = Math.max(0, stageBox.height / 2 - radius - 18);
-    const nextX = Math.max(-maxX, Math.min(maxX, drag.originX + event.clientX - drag.pointerX));
-    const nextY = Math.max(-maxY, Math.min(maxY, drag.originY + event.clientY - drag.pointerY));
-    draggablePortrait.style.setProperty("--portrait-x", `${nextX}px`);
-    draggablePortrait.style.setProperty("--portrait-y", `${nextY}px`);
-    draggablePortrait.dataset.x = String(nextX);
-    draggablePortrait.dataset.y = String(nextY);
+    const { maxX, maxY } = getBounds();
+    state.targetX = Math.max(
+      -maxX,
+      Math.min(maxX, drag.originX + event.clientX - drag.pointerX)
+    );
+    state.targetY = Math.max(
+      -maxY,
+      Math.min(maxY, drag.originY + event.clientY - drag.pointerY)
+    );
+    requestPortraitFrame();
   };
 
   draggablePortrait.addEventListener("pointerdown", (event) => {
@@ -203,24 +274,47 @@ if (portraitStage && draggablePortrait) {
     drag = {
       pointerX: event.clientX,
       pointerY: event.clientY,
-      originX: Number(draggablePortrait.dataset.x || 0),
-      originY: Number(draggablePortrait.dataset.y || 0)
+      originX: state.x,
+      originY: state.y
     };
+    state.targetX = state.x;
+    state.targetY = state.y;
+    state.dragging = true;
     draggablePortrait.classList.add("is-dragging");
     draggablePortrait.setPointerCapture(event.pointerId);
+    requestPortraitFrame();
   });
 
   draggablePortrait.addEventListener("pointermove", movePortrait);
   draggablePortrait.addEventListener("pointerup", (event) => {
     if (!drag) return;
     drag = null;
+    state.dragging = false;
+    state.targetX = state.x;
+    state.targetY = state.y;
     draggablePortrait.classList.remove("is-dragging");
-    draggablePortrait.releasePointerCapture(event.pointerId);
+    if (draggablePortrait.hasPointerCapture(event.pointerId)) {
+      draggablePortrait.releasePointerCapture(event.pointerId);
+    }
+    requestPortraitFrame();
   });
 
   draggablePortrait.addEventListener("pointercancel", () => {
     drag = null;
+    state.dragging = false;
+    state.targetX = state.x;
+    state.targetY = state.y;
     draggablePortrait.classList.remove("is-dragging");
+    requestPortraitFrame();
+  });
+
+  window.addEventListener("resize", () => {
+    const { maxX, maxY } = getBounds();
+    state.x = Math.max(-maxX, Math.min(maxX, state.x));
+    state.y = Math.max(-maxY, Math.min(maxY, state.y));
+    state.targetX = state.x;
+    state.targetY = state.y;
+    renderPortrait();
   });
 }
 
