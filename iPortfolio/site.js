@@ -241,7 +241,7 @@ if (portraitStage && draggablePortrait) {
         (state.targetY - state.y) * stiffness - state.velocityY * damping
       ) * deltaSeconds;
     } else {
-      const inertia = Math.exp(-1.45 * deltaSeconds);
+      const inertia = Math.exp(-0.65 * deltaSeconds);
       state.velocityX *= inertia;
       state.velocityY *= inertia;
     }
@@ -251,11 +251,11 @@ if (portraitStage && draggablePortrait) {
 
     if (Math.abs(state.x) > bounds.maxX) {
       state.x = Math.sign(state.x) * bounds.maxX;
-      state.velocityX = state.dragging ? 0 : -state.velocityX * 0.78;
+      state.velocityX = state.dragging ? 0 : -state.velocityX * 0.88;
     }
     if (Math.abs(state.y) > bounds.maxY) {
       state.y = Math.sign(state.y) * bounds.maxY;
-      state.velocityY = state.dragging ? 0 : -state.velocityY * 0.78;
+      state.velocityY = state.dragging ? 0 : -state.velocityY * 0.88;
     }
 
     renderPortrait();
@@ -278,6 +278,20 @@ if (portraitStage && draggablePortrait) {
 
   const movePortrait = (event) => {
     if (!drag) return;
+    const elapsed = event.timeStamp - drag.lastPointerTime;
+    if (elapsed > 0 && elapsed < 120) {
+      const instantVelocityX = ((event.clientX - drag.lastPointerX) / elapsed) * 1000;
+      const instantVelocityY = ((event.clientY - drag.lastPointerY) / elapsed) * 1000;
+      drag.pointerVelocityX = drag.pointerVelocityX * 0.35 + instantVelocityX * 0.65;
+      drag.pointerVelocityY = drag.pointerVelocityY * 0.35 + instantVelocityY * 0.65;
+    } else if (elapsed >= 120) {
+      drag.pointerVelocityX = 0;
+      drag.pointerVelocityY = 0;
+    }
+    drag.lastPointerX = event.clientX;
+    drag.lastPointerY = event.clientY;
+    drag.lastPointerTime = event.timeStamp;
+
     state.targetX = Math.max(
       -bounds.maxX,
       Math.min(bounds.maxX, drag.originX + event.clientX - drag.pointerX)
@@ -296,7 +310,12 @@ if (portraitStage && draggablePortrait) {
       pointerX: event.clientX,
       pointerY: event.clientY,
       originX: state.x,
-      originY: state.y
+      originY: state.y,
+      lastPointerX: event.clientX,
+      lastPointerY: event.clientY,
+      lastPointerTime: event.timeStamp,
+      pointerVelocityX: 0,
+      pointerVelocityY: 0
     };
     state.targetX = state.x;
     state.targetY = state.y;
@@ -309,10 +328,30 @@ if (portraitStage && draggablePortrait) {
   draggablePortrait.addEventListener("pointermove", movePortrait);
   draggablePortrait.addEventListener("pointerup", (event) => {
     if (!drag) return;
+    const releasedDrag = drag;
+    const releaseAge = Math.max(0, event.timeStamp - releasedDrag.lastPointerTime);
+    const retainedPointerVelocity = Math.exp(-releaseAge / 180);
+    const clampVelocity = (velocity) => Math.max(-1800, Math.min(1800, velocity));
+    const dragDistanceX = releasedDrag.lastPointerX - releasedDrag.pointerX;
+    const dragDistanceY = releasedDrag.lastPointerY - releasedDrag.pointerY;
+    const dragDistance = Math.hypot(dragDistanceX, dragDistanceY);
     drag = null;
     state.dragging = false;
     state.targetX = state.x;
     state.targetY = state.y;
+    state.velocityX = clampVelocity(
+      state.velocityX * 0.35 +
+      releasedDrag.pointerVelocityX * retainedPointerVelocity * 0.9
+    );
+    state.velocityY = clampVelocity(
+      state.velocityY * 0.35 +
+      releasedDrag.pointerVelocityY * retainedPointerVelocity * 0.9
+    );
+    const launchSpeed = Math.hypot(state.velocityX, state.velocityY);
+    if (dragDistance > 24 && launchSpeed < 480) {
+      state.velocityX = (dragDistanceX / dragDistance) * 480;
+      state.velocityY = (dragDistanceY / dragDistance) * 480;
+    }
     draggablePortrait.classList.remove("is-dragging");
     if (draggablePortrait.hasPointerCapture(event.pointerId)) {
       draggablePortrait.releasePointerCapture(event.pointerId);
