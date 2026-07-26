@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#101722">
+    <title>Page not found — Miguel Bravo</title>
+    <script>
+      try {
+        const savedTheme = localStorage.getItem("mabravo-mockup-theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const savedLanguage = localStorage.getItem("mabravo-mockup-language");
+        const systemLanguage = (navigator.languages?.[0] || navigator.language || "en").toLowerCase();
+        document.documentElement.dataset.theme =
+          ["dark", "light"].includes(savedTheme) ? savedTheme : prefersDark ? "dark" : "light";
+        document.documentElement.lang =
+          ["en", "es"].includes(savedLanguage) ? savedLanguage : systemLanguage.startsWith("es") ? "es" : "en";
+      } catch {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+      .not-found {
+        display: grid;
+        min-height: 100vh;
+        padding: clamp(28px, 5vw, 72px);
+        place-content: space-between;
+      }
+      .not-found__mark { color: var(--accent); font-family: var(--mono); }
+      .not-found__copy { max-width: 980px; }
+      .not-found h1 {
+        max-width: 900px;
+        margin: 0 0 28px;
+        color: var(--ink-strong);
+        font-size: clamp(56px, 10vw, 138px);
+        font-weight: 500;
+        letter-spacing: -0.075em;
+        line-height: 0.9;
+      }
+      .not-found p { max-width: 620px; color: var(--muted); font-size: 18px; }
+      .not-found a {
+        display: inline-block;
+        margin-top: 30px;
+        border-bottom: 1px solid var(--accent);
+        color: var(--ink-strong);
+      }
+      html[lang="en"] [data-es], html[lang="es"] [data-en] { display: none; }
+    </style>
+  </head>
+  <body>
+    <main class="not-found">
+      <a class="wordmark" href="/" aria-label="Miguel Bravo, home">MB<span>.</span></a>
+      <div class="not-found__copy">
+        <span class="not-found__mark">404 · OUT OF RANGE</span>
+        <h1 data-en>This coordinate does not exist.</h1>
+        <h1 data-es>Esta coordenada no existe.</h1>
+        <p data-en>The page may have moved during the redesign. The complete project archive is still waiting on the homepage.</p>
+        <p data-es>Puede que la página se haya movido durante el rediseño. El archivo completo de proyectos sigue en la página principal.</p>
+        <a href="/" data-en>Return home →</a>
+        <a href="/" data-es>Volver al inicio →</a>
+      </div>
+      <span class="not-found__mark">MAD · 40.4168° N, 3.7038° W</span>
+    </main>
+  </body>
+</html>

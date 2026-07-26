@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projects — Miguel Bravo</title>
+    <meta
+      name="description"
+      content="Selected case studies and the complete project archive of Miguel Bravo: AI, machine learning, geospatial analytics, data engineering and visualization."
+    >
+    <meta name="theme-color" content="#061826">
+    <link rel="canonical" href="https://mabravo.com/projects">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Projects — Miguel Bravo">
+    <meta
+      property="og:description"
+      content="Case studies and complete project archive across AI, data engineering, geospatial analytics and visualization."
+    >
+    <meta property="og:image" content="https://mabravo.com/assets/img/cloudya-interface.jpg">
+    <script>
+      document.documentElement.classList.add("js");
+      try {
+        const queryLanguage = new URLSearchParams(window.location.search).get("lang");
+        const savedLanguage = localStorage.getItem("mabravo-language");
+        const systemLanguage = (navigator.languages?.[0] || navigator.language || "en").toLowerCase();
+        const language = ["en", "es"].includes(queryLanguage)
+          ? queryLanguage
+          : ["en", "es"].includes(savedLanguage)
+            ? savedLanguage
+            : systemLanguage.startsWith("es") ? "es" : "en";
+        document.documentElement.lang = language;
+        document.documentElement.dataset.language = language;
+      } catch {
+        document.documentElement.dataset.language = "en";
+      }
+    </script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2250%22 fill=%22%23061826%22/><circle cx=%2267%22 cy=%2234%22 r=%2211%22 fill=%22%23ff6b4a%22/><path d=%22M20 68C31 42 43 73 54 47S74 68 82 28%22 fill=%22none%22 stroke=%22%2345c7e8%22 stroke-width=%228%22 stroke-linecap=%22round%22/></svg>">
+    <link rel="stylesheet" href="assets/css/site.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="site-nav container" aria-label="Primary navigation">
+        <a class="brand" href="index.html" aria-label="Miguel Bravo, home">
+          <span class="brand-mark" aria-hidden="true">MB</span>
+          <span>Miguel Bravo</span>
+        </a>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-menu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+        <ul class="nav-links" id="primary-menu">
+          <li><a href="index.html#work">Selected work</a></li>
+          <li><a href="projects.html" aria-current="page">All projects</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="speaking.html">Speaking</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li class="language-menu-item">
+            <div class="language-switcher" role="group" aria-label="Language selector">
+              <button type="button" data-language="en" aria-pressed="true" title="View in English">EN</button>
+              <button type="button" data-language="es" aria-pressed="false" title="View in Spanish">ES</button>
+            </div>
+          </li>
+          <li><a class="nav-cta" href="index.html#contact">Get in touch</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <header class="page-hero">
+        <div class="container">
+          <p class="eyebrow">Project fieldbook</p>
+          <h1>Depth first. <span class="accent">Nothing hidden.</span></h1>
+          <p>
+            Four projects receive the full case-study treatment because they best represent my current
+            work. The complete index below keeps every project—from production systems to early
+            visualization experiments—in context.
+          </p>
+          <div class="page-hero__meta">
+            <span class="chip">12 projects</span>
+            <span class="chip">2013–2025 data</span>
+            <span class="chip">Academic + professional work</span>
+            <span class="chip">Reports, code &amp; live demos</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="section section--white section--tight" aria-labelledby="case-studies-title">
+        <div class="container">
+          <div class="section-heading section-heading--single">
+            <p class="eyebrow">Featured case studies</p>
+            <h2 id="case-studies-title">The work that best shows <span class="accent">how I think.</span></h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="container case-study" id="iheatapp" aria-labelledby="iheatapp-title">
+        <div class="case-study__aside reveal">
+          <div class="case-visual" aria-hidden="true">
+            <div class="heat-map"></div>
+            <span class="heat-map-label">Forecast · Translate · Explain · Act</span>
+          </div>
+          <div class="case-study__meta">
+            <div class="signal">
+              <span class="signal-label">Context</span>
+              <strong>Professional research</strong>
+            </div>
+            <div class="signal">
+              <span class="signal-label">Period</span>
+              <strong>2024–2025</strong>
+            </div>
+            <div class="signal">
+              <span class="signal-label">Region</span>
+              <strong>Imperial Valley, CA</strong>
+            </div>
+            <div class="signal">
+              <span class="signal-label">Languages</span>
+              <strong>English + Spanish</strong>
+            </div>
+          </div>
+        </div>
+        <div class="case-study__copy">
+          <p class="project-kicker">Climate informatics · Full-stack AI</p>
+          <h2 id="iheatapp-title">iHeatApp</h2>
+          <p class="case-study__lead">
+            A mobile-focused platform that turns hourly weather forecasts into understandable heat-risk
+            maps and contextual guidance for agricultural communities in California’s Imperial Valley.
+          </p>
+
+          <div class="case-section">
+            <h3>The problem</h3>
+            <p>
+              Outdoor heat exposure is not fully represented by air temperature alone. Workers and
+              supervisors need localized Wet Bulb Globe Temperature information, but the underlying
+              forecast data and technical definitions are difficult to access and interpret.
+            </p>
+          </div>
+          <div class="case-section">
+            <h3>My role</h3>
+            <p>
+              As Junior AI &amp; Data Scientist, I developed and validated Python forecast pipelines using
+              NOAA NBM data, integrated hourly WBGT outputs into the visualization workflow, and helped
+              build the bilingual AI assistant and full-stack product.
+            </p>
+          </div>
+          <div class="case-section">
+            <h3>System approach</h3>
+            <ul>
+              <li>Download and process structured forecast data with Herbie and xarray.</li>
+              <li>Calculate and validate geospatial heat-risk outputs for hourly map updates.</li>
+              <li>Render location-aware risk layers in a mobile-focused interface.</li>
+              <li>Use a specialized assistant to explain indices and product usage in English and Spanish.</li>
+            </ul>
+          </div>
+          <div class="case-section">
+            <h3>Outcome</h3>
+            <p>
+              The work produced a publicly documented SDSU research product and supported peer-reviewed
+              research on its system architecture, modeling framework and user-centered evaluation.
+            </p>
+          </div>
+
+          <div class="button-row case-actions">
+            <a
+              class="button"
+              href="https://ruralheatislands.sdsu.edu/products.html"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View official project
+            </a>
+            <a
+              class="button button--secondary"
+              href="https://storymaps.arcgis.com/stories/3a8f8baa353e47dab1f55e9a1f03fa12"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Read project story
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="container case-study" id="cloudya" aria-labelledby="cloudya-title">
+        <div class="case-study__aside reveal">
+          <video
+            src="assets/img/cloudya-demo.mp4"
+            poster="assets/img/cloudya-interface.jpg"
+            controls
+            muted
+            playsinline
+            preload="none"
+            aria-label="Demonstration of the Weather with Cloudya interface"
+          ></video>
+          <div class="case-study__meta">
+            <div class="signal">
+              <span class="signal-label">Source grid</span>
+              <strong>NOAA RTMA · 2.5 km</strong>
+            </div>
+            <div class="signal">
+              <span class="signal-label">Variables</span>
+              <strong>5 weather layers</strong>
+            </div>
+            <div class="signal">
+              <span class="signal-label">Local cache</span>
+              <strong>80–100 rolling days</strong>
+            </div>
+            <div class="signal">
+              <span class="signal-label">Host</span>
+              <strong>Raspberry Pi 4</strong>
+            </div>
+          </div>
+        </div>
+        <div class="case-study__copy">
+          <p class="project-kicker">Capstone · Data product engineering</p>
+          <h2 id="cloudya-title">Weather with Cloudya</h2>
+          <p class="case-study__lead">
+            A full-stack application that makes hourly climate data explorable through a fast map
+            interface and an AI assistant that can interpret screenshots and weather patterns.
+          </p>
+
+          <div class="case-section">
+            <h3>The problem</h3>
+            <p>
+              NOAA’s real-time mesoscale analysis is scientifically valuable, but its source archive is
+              enormous and its file formats are not designed for casual exploration in a web browser.
+            </p>
+          </div>
+          <div class="case-section">
+            <h3>My contribution</h3>
+            <p>
+              I contributed across the stack: environmental data processing, API design, geospatial
+              conversion, React and Deck.gl visualization, Docker deployment and the physical
+              Raspberry Pi infrastructure.
+            </p>
+          </div>
+          <div class="case-section">
+            <h3>System approach</h3>
+            <ul>
+              <li>Acquire hourly RTMA files and process them with xarray, rioxarray and SciPy.</li>
+              <li>Serve compact JSON and PNG payloads through FastAPI and ORJSON.</li>
+              <li>Render interactive layers with React and Deck.gl.</li>
+              <li>Run containerized services from an external SSD with Cloudflare Tunnel access.</li>
+              <li>Connect a LLaMA 3.2 Vision assistant to screenshots and map context.</li>
+            </ul>
+          </div>
+          <div class="case-section">
+            <h3>What it proves</h3>
+            <p>
+              The project demonstrates end-to-end ownership under real hardware constraints. The
+              source archive exceeds 91 TB; instead of pretending one device can hold it all, the
+              system keeps a focused rolling cache and serves the slice a user needs.
+            </p>
+          </div>
+
+          <div class="button-row case-actions">
+            <a class="button" href="https://datamigos.win/" target="_blank" rel="noreferrer">
+              Open live app
+            </a>
+            <a class="button button--secondary" href="assets/docs/weather-with-cloudya.pdf" target="_blank">
+              Read full report
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="container case-study" id="flight-delay" aria-labelledby="flight-title">
+        <div class="case-study__aside reveal">
+          <img
+            src="assets/img/wuss-speaking.jpg"
+            alt="Miguel presenting the flight-delay machine-learning work at WUSS 2024"
+            width="1500"
+            height="1125"
+            loading="lazy"
+          >
+          <div class="case-study__meta">
+            <div class="signal">
+              <span class="signal-label">Source</span>
+              <strong>~3M flight rows</strong>
+            </div>
+            <div class="signal">
+              <span class="signal-label">Modeled</span>
+              <strong>1.25M observations</strong>
+            </div>
+            <div class="signal">
+              <span class="signal-label">Weighted F1</span>
+              <strong>0.70</strong>
+            </div>
+            <div class="signal">
+              <span class="signal-label">Macro F1</span>
+              <strong>0.62</strong>
+            </div>
+          </div>
+        </div>
+        <div class="case-study__copy">
+          <p class="project-kicker">Machine learning · Conference research</p>
+          <h2 id="flight-title">Flight Delay &amp; Cancellation Prediction</h2>
+          <p class="case-study__lead">
+            A large-scale classification study combining United States flight history with weather
+            context, evaluated across several model families and communicated at WUSS 2024.
+          </p>
+
+          <div class="case-section">
+            <h3>The challenge</h3>
+            <p>
+              Delays and cancellations are imbalanced outcomes affected by time, route, carrier and
+              weather. A useful comparison required careful merging, feature engineering and metrics
+              that did not hide minority-class performance.
+            </p>
+          </div>
+          <div class="case-section">
+            <h3>My contribution</h3>
+            <p>
+              I worked within the project team on the machine-learning workflow, analysis and
+              communication, then presented the research publicly as a WUSS student scholar.
+            </p>
+          </div>
+          <div class="case-section">
+            <h3>Modeling approach</h3>
+            <ul>
+              <li>Merge aviation and weather sources and reduce the analysis set to 1.25M rows.</li>
+              <li>Compare logistic regression, trees, random forests, boosting, KNN and neural networks.</li>
+              <li>Evaluate accuracy alongside macro and weighted F1 to make imbalance visible.</li>
+              <li>Package the analysis in an interactive Streamlit application.</li>
+            </ul>
+          </div>
+          <div class="case-section">
+            <h3>Result, stated precisely</h3>
+            <p>
+              XGBoost delivered approximately 0.68 accuracy, 0.70 weighted F1 and 0.62 macro F1. The
+              gap between weighted and macro performance is part of the finding—not a number to hide.
+            </p>
+          </div>
+
+          <div class="button-row case-actions">
+            <a
+              class="button"
+              href="https://github.com/miguebmv/BDA602_MachineLearning"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View repository
+            </a>
+            <a class="button button--secondary" href="assets/docs/flight-delay-wuss-paper.pdf" target="_blank">
+              Read WUSS paper
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="container case-study" id="california-traffic" aria-labelledby="traffic-title">
+        <div class="case-study__aside reveal">
+          <img
+            src="assets/img/california-traffic.jpg"
+            alt="Homepage of the California traffic and demographic trends project"
+            width="1500"
+            height="586"
+            loading="lazy"
+          >
+          <div class="case-study__meta">
+            <div class="signal">
+              <span class="signal-label">Period</span>
+              <strong>2013–2022</strong>
+            </div>
+            <div class="signal">
+              <span class="signal-label">Traffic data</span>
+              <strong>~65k records</strong>
+            </div>
+            <div class="signal">
+              <span class="signal-label">Sources</span>
+              <strong>Caltrans + Census</strong>
+            </div>
+            <div class="signal">
+              <span class="signal-label">Methods</span>
+              <strong>OLS + Random Forest</strong>
+            </div>
+          </div>
+        </div>
+        <div class="case-study__copy">
+          <p class="project-kicker">Geospatial analytics · Team project</p>
+          <h2 id="traffic-title">California Traffic, Economic &amp; Demographic Trends</h2>
+          <p class="case-study__lead">
+            An observational analysis connecting a decade of traffic counts with county-level
+            population and income data, delivered through maps, dashboards and statistical models.
+          </p>
+
+          <div class="case-section">
+            <h3>The question</h3>
+            <p>
+              How do traffic patterns vary alongside population growth, geographic location and
+              economic conditions across a state as large and diverse as California?
+            </p>
+          </div>
+          <div class="case-section">
+            <h3>My contribution</h3>
+            <p>
+              I cleaned and analyzed population data, contributed to the combined dataset and
+              visualizations, and helped design and write the public-facing project website.
+            </p>
+          </div>
+          <div class="case-section">
+            <h3>Analytical approach</h3>
+            <ul>
+              <li>Normalize and combine Caltrans traffic records with Census population and income.</li>
+              <li>Explore county, coordinate and time patterns in Tableau, Python and R.</li>
+              <li>Compare OLS and Random Forest models under different feature selections.</li>
+              <li>Document multicollinearity and the limits of interpreting observational relationships.</li>
+            </ul>
+          </div>
+          <div class="case-section">
+            <h3>What I would improve now</h3>
+            <p>
+              Several high-scoring model variants relied on closely related traffic measures or
+              geographic coordinates. Today I would add spatial cross-validation and stricter leakage
+              controls before treating predictive performance as generalizable.
+            </p>
+          </div>
+
+          <div class="button-row case-actions">
+            <a
+              class="button"
+              href="https://sites.google.com/sdsu.edu/miguelsamigos"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View project site
+            </a>
+            <a class="button button--secondary" href="assets/docs/california-traffic.pdf" target="_blank">
+              Read full report
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--white" id="all-projects" aria-labelledby="all-projects-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Complete index</p>
+              <h2 id="all-projects-title">Every project, <span class="accent">in context.</span></h2>
+            </div>
+            <p>
+              The early experiments stay because they show progression. Filters make the archive easy
+              to scan without pretending every project has the same scope.
+            </p>
+          </div>
+
+          <div class="filters" role="group" aria-label="Filter projects">
+            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">
+              All · 12
+            </button>
+            <button class="filter-button" type="button" data-filter="ai" aria-pressed="false">AI / ML</button>
+            <button class="filter-button" type="button" data-filter="climate" aria-pressed="false">
+              Climate / Geo
+            </button>
+            <button class="filter-button" type="button" data-filter="data" aria-pressed="false">
+              Data systems
+            </button>
+            <button class="filter-button" type="button" data-filter="visualization" aria-pressed="false">
+              Visualization
+            </button>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card" data-category="ai climate data">
+              <div class="project-card__top">
+                <span class="project-glyph" aria-hidden="true">WBGT</span>
+                <span class="meta">2024–25 · Professional</span>
+              </div>
+              <h3>iHeatApp</h3>
+              <p>Bilingual heat-risk forecasts, geospatial maps and an AI assistant for Imperial Valley.</p>
+              <ul class="skills">
+                <li class="chip">Python</li>
+                <li class="chip">xarray</li>
+                <li class="chip">LLM</li>
+              </ul>
+              <div class="card-actions">
+                <a href="#iheatapp">Case study</a>
+                <a href="https://ruralheatislands.sdsu.edu/products.html" target="_blank" rel="noreferrer">Official site ↗</a>
+              </div>
+            </article>
+
+            <article class="project-card" data-category="ai climate data">
+              <div class="project-card__top">
+                <span class="project-glyph" aria-hidden="true">RTMA</span>
+                <span class="meta">2025 · Capstone</span>
+              </div>
+              <h3>Weather with Cloudya</h3>
+              <p>A containerized climate platform with interactive maps and vision-assisted interpretation.</p>
+              <ul class="skills">
+                <li class="chip">FastAPI</li>
+                <li class="chip">React</li>
+                <li class="chip">Docker</li>
+              </ul>
+              <div class="card-actions">
+                <a href="#cloudya">Case study</a>
+                <a href="https://datamigos.win/" target="_blank" rel="noreferrer">Live app ↗</a>
+                <a href="assets/docs/weather-with-cloudya.pdf" target="_blank">Paper</a>
+              </div>
+            </article>
+
+            <article class="project-card" data-category="ai data">
+              <div class="project-card__top">
+                <span class="project-glyph" aria-hidden="true">F1</span>
+                <span class="meta">2024 · Research</span>
+              </div>
+              <h3>Flight Delay Prediction</h3>
+              <p>Large-scale aviation and weather classification presented at WUSS 2024.</p>
+              <ul class="skills">
+                <li class="chip">XGBoost</li>
+                <li class="chip">Streamlit</li>
+                <li class="chip">Pandas</li>
+              </ul>
+              <div class="card-actions">
+                <a href="#flight-delay">Case study</a>
+                <a href="https://github.com/miguebmv/BDA602_MachineLearning" target="_blank" rel="noreferrer">Code ↗</a>
+                <a href="assets/docs/flight-delay-wuss-paper.pdf" target="_blank">Paper</a>
+              </div>
+            </article>
+
+            <article class="project-card" data-category="climate data visualization">
+              <div class="project-card__top">
+                <span class="project-glyph" aria-hidden="true">CA</span>
+                <span class="meta">2023 · Academic</span>
+              </div>
+              <h3>California Traffic Trends</h3>
+              <p>Traffic, population and income patterns across California from 2013 to 2022.</p>
+              <ul class="skills">
+                <li class="chip">Tableau</li>
+                <li class="chip">R</li>
+                <li class="chip">ArcGIS</li>
+              </ul>
+              <div class="card-actions">
+                <a href="#california-traffic">Case study</a>
+                <a href="https://sites.google.com/sdsu.edu/miguelsamigos" target="_blank" rel="noreferrer">Site ↗</a>
+                <a href="assets/docs/california-traffic.pdf" target="_blank">Paper</a>
+              </div>
+            </article>
+
+            <article class="project-card" data-category="ai data">
+              <div class="project-card__top">
+                <span class="project-glyph" aria-hidden="true">RMSE</span>
+                <span class="meta">2024 · Academic</span>
+              </div>
+              <h3>Diamond Price Modeling</h3>
+              <p>Six regression approaches compared on 53,940 diamonds, including transformed targets.</p>
+              <ul class="skills">
+                <li class="chip">Neural nets</li>
+                <li class="chip">Random Forest</li>
+                <li class="chip">EDA</li>
+              </ul>
+              <div class="card-actions">
+                <a href="assets/docs/diamond-prices.pdf" target="_blank">Read paper</a>
+              </div>
+            </article>
+
+            <article class="project-card" data-category="data ai">
+              <div class="project-card__top">
+                <span class="project-glyph" aria-hidden="true">DB</span>
+                <span class="meta">2024 · Academic</span>
+              </div>
+              <h3>PharmaSys</h3>
+              <p>Relational database design, AWS RDS deployment and analytical dashboards for pharmacy operations.</p>
+              <ul class="skills">
+                <li class="chip">MySQL</li>
+                <li class="chip">AWS RDS</li>
+                <li class="chip">Plotly</li>
+              </ul>
+              <div class="card-actions">
+                <a href="https://colab.research.google.com/drive/1uCPlmbss821ahzybFM6u0MFWT-WA0nnj?usp=sharing" target="_blank" rel="noreferrer">Notebook ↗</a>
+                <a href="assets/docs/pharmasys.pdf" target="_blank">Paper</a>
+              </div>
+            </article>
+
+            <article class="project-card" data-category="data ai">
+              <div class="project-card__top">
+                <span class="project-glyph" aria-hidden="true">SAR</span>
+                <span class="meta">2024 · Academic</span>
+              </div>
+              <h3>Walmart Sales Forecasting</h3>
+              <p>Seasonal weekly sales forecasting for Store 13 using a focused SARIMA model comparison.</p>
+              <ul class="skills">
+                <li class="chip">SARIMA</li>
+                <li class="chip">Time series</li>
+                <li class="chip">R</li>
+              </ul>
+              <div class="card-actions">
+                <a href="assets/docs/walmart-sales.pdf" target="_blank">Read paper</a>
+              </div>
+            </article>
+
+            <article class="project-card" data-category="ai data">
+              <div class="project-card__top">
+                <span class="project-glyph" aria-hidden="true">PCA</span>
+                <span class="meta">2024 · Academic</span>
+              </div>
+              <h3>Mental Health &amp; Technology</h3>
+              <p>A multivariate study whose weak predictive signal became an important methodological result.</p>
+              <ul class="skills">
+                <li class="chip">PCA</li>
+                <li class="chip">ANOVA</li>
+                <li class="chip">Clustering</li>
+              </ul>
+              <div class="card-actions">
+                <a href="assets/docs/mental-health-tech.pdf" target="_blank">Read paper</a>
+              </div>
+            </article>
+
+            <article class="project-card" data-category="visualization">
+              <div class="project-card__top">
+                <span class="project-glyph" aria-hidden="true">P5·1</span>
+                <span class="meta">2023 · Lab</span>
+              </div>
+              <h3>Getting Started with p5.js</h3>
+              <p>An interactive game used to learn the p5.js drawing loop, events and collision logic.</p>
+              <ul class="skills">
+                <li class="chip">p5.js</li>
+                <li class="chip">Interaction</li>
+              </ul>
+              <div class="card-actions">
+                <a href="https://github.com/miguebmv/Data-Visualization-Projects/tree/main/Lab1%20(Getting%20Started%20with%20p5.js)" target="_blank" rel="noreferrer">Code ↗</a>
+              </div>
+            </article>
+
+            <article class="project-card" data-category="visualization climate">
+              <div class="project-card__top">
+                <span class="project-glyph" aria-hidden="true">P5·2</span>
+                <span class="meta">2023 · Lab</span>
+              </div>
+              <h3>Interactive Campus Map</h3>
+              <p>A zoomable, searchable SDSU campus map with building-level information and imagery.</p>
+              <ul class="skills">
+                <li class="chip">p5.js</li>
+                <li class="chip">Maps</li>
+                <li class="chip">Search</li>
+              </ul>
+              <div class="card-actions">
+                <a href="https://github.com/miguebmv/Data-Visualization-Projects/tree/main/Lab2" target="_blank" rel="noreferrer">Code ↗</a>
+              </div>
+            </article>
+
+            <article class="project-card" data-category="visualization climate data">
+              <div class="project-card__top">
+                <span class="project-glyph" aria-hidden="true">P5·3</span>
+                <span class="meta">2023 · Lab</span>
+              </div>
+              <h3>News Geovisualization</h3>
+              <p>A map that searches recent news, locates results and connects place to story context.</p>
+              <ul class="skills">
+                <li class="chip">p5.js</li>
+                <li class="chip">API</li>
+                <li class="chip">Geocoding</li>
+              </ul>
+              <div class="card-actions">
+                <a href="https://github.com/miguebmv/Data-Visualization-Projects/tree/main/Lab3" target="_blank" rel="noreferrer">Code ↗</a>
+              </div>
+            </article>
+
+            <article class="project-card" data-category="visualization data">
+              <div class="project-card__top">
+                <span class="project-glyph" aria-hidden="true">P5·4</span>
+                <span class="meta">2023 · Lab</span>
+              </div>
+              <h3>US Crime Trend Explorer</h3>
+              <p>Multivariate and multitemporal views of state crime rates and moving geographic centroids.</p>
+              <ul class="skills">
+                <li class="chip">p5.js</li>
+                <li class="chip">Time</li>
+                <li class="chip">Choropleth</li>
+              </ul>
+              <div class="card-actions">
+                <a href="https://github.com/miguebmv/Data-Visualization-Projects/tree/main/Lab4" target="_blank" rel="noreferrer">Code ↗</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="contact-panel reveal">
+            <div>
+              <p class="eyebrow">Next</p>
+              <h2>Want the short version?</h2>
+              <p>
+                The résumé condenses the project archive into the experience and skills most relevant
+                to professional work.
+              </p>
+            </div>
+            <div class="button-row">
+              <a class="button" href="assets/docs/miguel-bravo-resume.pdf" download>Download résumé</a>
+              <a class="button button--secondary" href="index.html#contact">Contact me</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-row container">
+        <p>© <span data-current-year></span> Miguel Bravo · Complete project archive.</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="speaking.html">Speaking</a>
+          <a href="#main-content">Back to top ↑</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/i18n.js" defer></script>
+    <script src="assets/js/site.js" defer></script>
+  </body>
+</html>

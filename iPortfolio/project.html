@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Project case study by Miguel Bravo.">
+    <meta name="theme-color" content="#101722">
+    <title>Project — Miguel Bravo</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101722'/%3E%3Cpath d='M15 43V20h6l11 14 11-14h6v23h-6V29L32 42 21 29v14z' fill='%2366d1c4'/%3E%3C/svg%3E">
+    <script>
+      document.documentElement.classList.add("js");
+      try {
+        const savedTheme = localStorage.getItem("mabravo-mockup-theme");
+        const savedLanguage = localStorage.getItem("mabravo-mockup-language");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const systemLanguage = (navigator.languages?.[0] || navigator.language || "en").toLowerCase();
+        document.documentElement.dataset.theme =
+          savedTheme === "dark" || savedTheme === "light" ? savedTheme : prefersDark ? "dark" : "light";
+        document.documentElement.lang =
+          savedLanguage === "es" || savedLanguage === "en"
+            ? savedLanguage
+            : systemLanguage.startsWith("es") ? "es" : "en";
+      } catch {
+        document.documentElement.dataset.theme = "dark";
+        document.documentElement.lang = "en";
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="detail-page">
+    <a class="skip-link" href="#project-content">Skip to project</a>
+    <div class="ambient" aria-hidden="true"></div>
+
+    <div class="detail-shell">
+      <header class="detail-sidebar">
+        <div>
+          <a class="wordmark" href="index.html" aria-label="Miguel Bravo, home">MB<span>.</span></a>
+          <a class="back-link" href="index.html#work"><span aria-hidden="true">←</span><span data-ui="allWork">All work</span></a>
+          <p class="detail-position"><span data-project-position>01</span> / 12</p>
+        </div>
+
+        <nav class="project-index" aria-label="Project index" data-project-index></nav>
+
+        <div class="identity-footer">
+          <div class="controls" aria-label="Display controls">
+            <button class="control" type="button" data-language-toggle aria-label="Cambiar idioma">
+              <span class="language-current">ES</span>
+            </button>
+            <button class="control theme-toggle" type="button" data-theme-toggle aria-label="Change colour theme">
+              <svg class="sun" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="3.5"></circle>
+                <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+              </svg>
+              <svg class="moon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 15.4A8 8 0 0 1 8.6 4a8 8 0 1 0 11.4 11.4Z"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="socials">
+            <a href="https://www.linkedin.com/in/miguel-angel-bravo" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/miguebmv" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="project-main" id="project-content">
+        <article>
+          <header class="detail-hero">
+            <p class="detail-kicker"><span data-project-context></span><span>·</span><span data-project-year></span></p>
+            <h1 data-project-title></h1>
+            <p class="detail-lead" data-project-lead></p>
+            <div class="detail-actions" data-project-actions></div>
+          </header>
+
+          <figure class="detail-cover">
+            <img data-project-cover src="" alt="" width="1200" height="800">
+          </figure>
+
+          <dl class="detail-facts" data-project-facts></dl>
+
+          <section class="detail-story" aria-labelledby="story-title">
+            <p class="section-label"><span>01</span><span data-ui="caseStudy">Case study</span></p>
+            <div data-project-story></div>
+          </section>
+
+          <section class="detail-media" data-project-media hidden aria-labelledby="media-title">
+            <div class="detail-section-heading">
+              <div>
+                <p class="section-label"><span>02</span><span data-ui="demonstration">Demonstration</span></p>
+                <h2 id="media-title" data-ui="seeIt">See the system in context.</h2>
+              </div>
+              <p data-ui="mediaNote">A closer look at the interface and how the project behaves.</p>
+            </div>
+            <div data-media-container></div>
+          </section>
+
+          <section class="detail-report" data-project-report hidden aria-labelledby="report-title">
+            <div class="detail-section-heading">
+              <div>
+                <p class="section-label"><span data-report-number>02</span><span data-ui="fullReport">Full report</span></p>
+                <h2 id="report-title"><span data-ui="readResearch">Read the research</span><span class="report-pages" data-report-pages></span></h2>
+              </div>
+              <p data-ui="reportNote">The complete document is embedded below. You can also open or download the original PDF.</p>
+            </div>
+            <div class="report-actions" data-report-actions></div>
+            <div class="pdf-frame">
+              <object data-pdf-object data="" type="application/pdf" aria-label="Embedded project report">
+                <div class="pdf-fallback">
+                  <p data-ui="pdfFallback">This browser cannot display the embedded PDF.</p>
+                  <a data-pdf-fallback href="" target="_blank"><span data-ui="openPdf">Open PDF</span> ↗</a>
+                </div>
+              </object>
+            </div>
+          </section>
+
+          <nav class="project-pagination" aria-label="Adjacent projects">
+            <a data-previous-project href="">
+              <span data-ui="previous">Previous project</span>
+              <strong data-previous-title></strong>
+            </a>
+            <a data-next-project href="">
+              <span data-ui="next">Next project</span>
+              <strong data-next-title></strong>
+            </a>
+          </nav>
+
+          <footer class="detail-footer">
+            <span>© <span data-current-year>2026</span> Miguel Bravo</span>
+            <a href="index.html#work"><span data-ui="backPortfolio">Back to portfolio</span> ↑</a>
+          </footer>
+        </article>
+      </main>
+    </div>
+
+    <script src="project.js" defer></script>
+  </body>
+</html>

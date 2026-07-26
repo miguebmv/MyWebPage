@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page not found — Miguel Bravo</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#061826">
+    <script>
+      document.documentElement.classList.add("js");
+      try {
+        const queryLanguage = new URLSearchParams(window.location.search).get("lang");
+        const savedLanguage = localStorage.getItem("mabravo-language");
+        const systemLanguage = (navigator.languages?.[0] || navigator.language || "en").toLowerCase();
+        const language = ["en", "es"].includes(queryLanguage)
+          ? queryLanguage
+          : ["en", "es"].includes(savedLanguage)
+            ? savedLanguage
+            : systemLanguage.startsWith("es") ? "es" : "en";
+        document.documentElement.lang = language;
+        document.documentElement.dataset.language = language;
+      } catch {
+        document.documentElement.dataset.language = "en";
+      }
+    </script>
+    <link rel="stylesheet" href="/assets/css/site.css">
+  </head>
+  <body>
+    <div class="language-switcher standalone-language" role="group" aria-label="Language selector">
+      <button type="button" data-language="en" aria-pressed="true" title="View in English">EN</button>
+      <button type="button" data-language="es" aria-pressed="false" title="View in Spanish">ES</button>
+    </div>
+    <main class="hero" id="main-content">
+      <div class="container">
+        <p class="eyebrow">404 · Signal lost</p>
+        <h1>This coordinate does not exist.</h1>
+        <p class="hero-lead">
+          The page may have moved during the redesign. The project archive and homepage are still online.
+        </p>
+        <div class="button-row">
+          <a class="button" href="/">Return home</a>
+          <a class="button button--secondary" href="/projects">Browse projects</a>
+        </div>
+      </div>
+    </main>
+    <script src="/assets/js/i18n.js" defer></script>
+  </body>
+</html>

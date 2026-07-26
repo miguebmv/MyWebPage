@@ -1,0 +1,250 @@
+const translations = {
+  es: {
+    skip: "Saltar al contenido",
+    location: "Madrid, España",
+    role: "Ingeniero de datos e IA",
+    intro: "Construyo sistemas útiles donde se encuentran los datos, el machine learning y el software.",
+    navAbout: "Sobre mí",
+    navExperience: "Experiencia",
+    navWork: "Trabajo",
+    navArchive: "Archivo",
+    navContact: "Contacto",
+    resume: "CV 2026 ↗",
+    opening: "Mi trabajo empieza con datos reales y desordenados y termina en algo que las personas pueden entender, utilizar y en lo que pueden confiar.",
+    focusLabel: "En qué trabajo",
+    focus: "Inteligencia de procesos, IA aplicada y valor empresarial medible en Celonis.",
+    explore: "Explorar el trabajo",
+    aboutLabel: "Sobre mí",
+    aboutOne: "Soy ingeniero de datos e IA, de Granada y ahora afincado en Madrid. Trabajo en todo el recorrido: desde los datos en bruto y los modelos hasta las APIs, interfaces y el despliegue.",
+    aboutTwo: "La robótica me enseñó a pensar en sistemas. La investigación en informática climática, a construirlos con rigor. Y la consultoría mantiene el resultado conectado con lo que las personas y las organizaciones necesitan de verdad.",
+    portraitCaption: "Ingeniero, investigador y creador compulsivo.",
+    experienceLabel: "Experiencia",
+    dateCelonis: "Mar 2026 — actualidad",
+    celonisRole: "Applied Value Engineer",
+    celonisCopy: "Analizo procesos empresariales, cuantifico su valor operativo y diseño prototipos con agentes de IA y automatizaciones sobre la plataforma de inteligencia de procesos de Celonis.",
+    datePremier: "May 2025 — feb 2026",
+    premierRole: "Consultor de IA y ciencia de datos",
+    premierCopy: "Construyo pipelines de datos en producción, backends con FastAPI, sistemas de IA en contenedores y asistentes multilingües para entornos cloud y on-premise.",
+    dateIheat: "Jun 2024 — nov 2025",
+    iheatRole: "Científico de datos e IA junior",
+    iheatCopy: "Desarrollé predicciones horarias de riesgo térmico, pipelines geoespaciales y un producto bilingüe asistido por IA para comunidades de Imperial Valley, California.",
+    dateCics: "Ago 2023 — may 2024",
+    cicsRole: "Asistente de investigación en ciencia de datos",
+    cicsCopy: "Creé flujos reproducibles en R para limpiar y analizar datos espaciotemporales de nutrientes de cuencas agrícolas irlandesas.",
+    resumeDocument: "Currículum",
+    resumeUpdated: "Actualizado en mayo de 2026 · PDF · 1 página",
+    fullResume: "Ver el CV completo",
+    workLabel: "Trabajo destacado",
+    workNote: "Cuatro proyectos que representan especialmente bien cómo pienso y construyo.",
+    projectHeat: "Una plataforma bilingüe que convierte predicciones horarias en mapas locales de riesgo térmico y orientación contextual.",
+    projectCloudya: "Datos climáticos de NOAA en tiempo real, mapas interactivos y un asistente visual servidos desde una Raspberry Pi.",
+    flightTitle: "Predicción de retrasos de vuelos",
+    projectFlight: "Tres millones de vuelos, contexto meteorológico y una comparación honesta de siete familias de modelos.",
+    trafficTitle: "Tendencias de tráfico de California",
+    projectTraffic: "Diez años de tráfico, población e ingresos combinados en una única historia analítica geoespacial.",
+    archiveLabel: "Archivo de proyectos",
+    archiveNote: "Ocho proyectos más completan el recorrido, desde modelado aplicado hasta los primeros experimentos interactivos.",
+    year: "Año",
+    project: "Proyecto",
+    madeWith: "Tecnologías",
+    flightPlain: "Predicción de retrasos de vuelos",
+    trafficPlain: "Tendencias de tráfico de California",
+    diamond: "Modelado de precios de diamantes",
+    diamondCopy: "Seis enfoques de regresión comparados sobre 53.940 diamantes y objetivos transformados.",
+    pharmaCopy: "Diseño de bases de datos relacionales, despliegue en AWS y vistas analíticas para operaciones farmacéuticas.",
+    walmart: "Predicción de ventas de Walmart",
+    walmartCopy: "Predicción estacional de ventas semanales para una tienda mediante una comparación específica de modelos SARIMA.",
+    mental: "Salud mental y tecnología",
+    mentalCopy: "Un estudio multivariante donde la débil señal predictiva se convirtió en el resultado metodológico importante.",
+    p5one: "Primeros pasos con p5.js",
+    p5oneCopy: "Un pequeño juego interactivo para aprender el bucle de dibujo, los eventos y la lógica de colisiones.",
+    p5two: "Mapa interactivo del campus",
+    p5twoCopy: "Un mapa ampliable y con búsqueda que ofrece información e imágenes de cada edificio.",
+    p5three: "Geovisualización de noticias",
+    p5threeCopy: "Búsqueda de noticias recientes, resultados geocodificados y el contexto geográfico de cada historia.",
+    p5four: "Explorador de tendencias delictivas de EE. UU.",
+    p5fourCopy: "Vistas multivariantes y multitemporales de tasas estatales y centroides geográficos móviles.",
+    beyondCode: "Más allá del código",
+    speakingEyebrow: "Charlas y publicaciones",
+    speakingTitle: "Explicar modelos, código abierto y mejores formas de trabajar con datos.",
+    contactLabel: "Contacto",
+    contactTitle: "Contacto y perfiles",
+    contactBased: "Ubicación",
+    contactCity: "Madrid, España",
+    contactEmail: "Correo",
+    contactResume: "Currículum",
+    contactResumeValue: "Actualizado en mayo de 2026 · PDF",
+    resumePreviewEyebrow: "Currículum · PDF",
+    resumePreviewNote: "Una página · Actualizado en mayo de 2026",
+    resumeOpen: "Abrir PDF",
+    resumeDownload: "Descargar",
+    resumeFallback: "Este navegador no puede mostrar el currículum embebido.",
+    backTop: "Volver arriba"
+  }
+};
+
+const defaultCopy = new Map(
+  [...document.querySelectorAll("[data-i18n]")].map((element) => [
+    element.dataset.i18n,
+    element.innerHTML
+  ])
+);
+
+const languageButton = document.querySelector("[data-language-toggle]");
+const languageCurrent = document.querySelector(".language-current");
+const themeButton = document.querySelector("[data-theme-toggle]");
+const metaTheme = document.querySelector('meta[name="theme-color"]');
+const resumeDialog = document.querySelector("[data-resume-dialog]");
+const resumeClose = document.querySelector("[data-resume-close]");
+const resumePreviewLinks = document.querySelectorAll("[data-resume-preview]");
+const compactResumeViewer = window.matchMedia("(max-width: 700px)");
+
+function applyLanguage(language) {
+  const nextLanguage = language === "es" ? "es" : "en";
+  document.documentElement.lang = nextLanguage;
+  document.title = nextLanguage === "es"
+    ? "Miguel Bravo — Ingeniero de datos e IA"
+    : "Miguel Bravo — AI & Data Engineer";
+
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const key = element.dataset.i18n;
+    element.innerHTML = nextLanguage === "es" && translations.es[key]
+      ? translations.es[key]
+      : defaultCopy.get(key);
+  });
+
+  languageCurrent.textContent = nextLanguage === "es" ? "EN" : "ES";
+  languageButton.setAttribute(
+    "aria-label",
+    nextLanguage === "es" ? "View in English" : "Cambiar a español"
+  );
+  document.querySelector("[data-resume-callout]")?.setAttribute(
+    "aria-label",
+    nextLanguage === "es"
+      ? "Abrir el currículum completo de Miguel Bravo en PDF"
+      : "View Miguel Bravo's full résumé PDF"
+  );
+  resumeClose?.setAttribute(
+    "aria-label",
+    nextLanguage === "es" ? "Cerrar vista del currículum" : "Close résumé preview"
+  );
+}
+
+function applyTheme(theme) {
+  const nextTheme = theme === "light" ? "light" : "dark";
+  document.documentElement.dataset.theme = nextTheme;
+  themeButton.setAttribute(
+    "aria-label",
+    nextTheme === "dark" ? "Use light colour theme" : "Usar tema oscuro"
+  );
+  if (metaTheme) metaTheme.content = nextTheme === "dark" ? "#101722" : "#f4f2ed";
+}
+
+applyLanguage(document.documentElement.lang);
+applyTheme(document.documentElement.dataset.theme);
+
+languageButton.addEventListener("click", () => {
+  const nextLanguage = document.documentElement.lang === "es" ? "en" : "es";
+  applyLanguage(nextLanguage);
+  localStorage.setItem("mabravo-mockup-language", nextLanguage);
+});
+
+themeButton.addEventListener("click", () => {
+  const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  applyTheme(nextTheme);
+  localStorage.setItem("mabravo-mockup-theme", nextTheme);
+});
+
+resumePreviewLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    if (!resumeDialog || typeof resumeDialog.showModal !== "function" || compactResumeViewer.matches) {
+      return;
+    }
+    event.preventDefault();
+    resumeDialog.showModal();
+    document.body.classList.add("resume-is-open");
+    resumeClose?.focus();
+  });
+});
+
+resumeClose?.addEventListener("click", () => resumeDialog?.close());
+resumeDialog?.addEventListener("click", (event) => {
+  if (event.target === resumeDialog) resumeDialog.close();
+});
+resumeDialog?.addEventListener("close", () => {
+  document.body.classList.remove("resume-is-open");
+});
+
+const portraitStage = document.querySelector("[data-portrait-stage]");
+const draggablePortrait = document.querySelector("[data-draggable-portrait]");
+const desktopPortrait = window.matchMedia("(min-width: 901px)");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+if (portraitStage && draggablePortrait) {
+  let drag = null;
+
+  const movePortrait = (event) => {
+    if (!drag) return;
+    const stageBox = portraitStage.getBoundingClientRect();
+    const portraitBox = draggablePortrait.getBoundingClientRect();
+    const radius = portraitBox.width / 2;
+    const maxX = Math.max(0, stageBox.width / 2 - radius - 18);
+    const maxY = Math.max(0, stageBox.height / 2 - radius - 18);
+    const nextX = Math.max(-maxX, Math.min(maxX, drag.originX + event.clientX - drag.pointerX));
+    const nextY = Math.max(-maxY, Math.min(maxY, drag.originY + event.clientY - drag.pointerY));
+    draggablePortrait.style.setProperty("--portrait-x", `${nextX}px`);
+    draggablePortrait.style.setProperty("--portrait-y", `${nextY}px`);
+    draggablePortrait.dataset.x = String(nextX);
+    draggablePortrait.dataset.y = String(nextY);
+  };
+
+  draggablePortrait.addEventListener("pointerdown", (event) => {
+    if (!desktopPortrait.matches || reducedMotion.matches) return;
+    drag = {
+      pointerX: event.clientX,
+      pointerY: event.clientY,
+      originX: Number(draggablePortrait.dataset.x || 0),
+      originY: Number(draggablePortrait.dataset.y || 0)
+    };
+    draggablePortrait.classList.add("is-dragging");
+    draggablePortrait.setPointerCapture(event.pointerId);
+  });
+
+  draggablePortrait.addEventListener("pointermove", movePortrait);
+  draggablePortrait.addEventListener("pointerup", (event) => {
+    if (!drag) return;
+    drag = null;
+    draggablePortrait.classList.remove("is-dragging");
+    draggablePortrait.releasePointerCapture(event.pointerId);
+  });
+
+  draggablePortrait.addEventListener("pointercancel", () => {
+    drag = null;
+    draggablePortrait.classList.remove("is-dragging");
+  });
+}
+
+document.querySelectorAll("[data-current-year]").forEach((element) => {
+  element.textContent = new Date().getFullYear();
+});
+
+document.addEventListener("pointermove", (event) => {
+  document.documentElement.style.setProperty("--mouse-x", `${event.clientX}px`);
+  document.documentElement.style.setProperty("--mouse-y", `${event.clientY}px`);
+});
+
+const sections = [...document.querySelectorAll("main section[id]")];
+const navLinks = [...document.querySelectorAll(".section-nav a")];
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!visible) return;
+    navLinks.forEach((link) => {
+      link.classList.toggle("is-active", link.getAttribute("href") === `#${visible.target.id}`);
+    });
+  }, { rootMargin: "-30% 0px -55%", threshold: [0, 0.2, 0.5] });
+  sections.forEach((section) => observer.observe(section));
+}

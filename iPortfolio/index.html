@@ -1,936 +1,427 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Miguel Bravo — AI &amp; Data Engineer in Madrid.">
+    <meta name="theme-color" content="#101722">
+    <link rel="canonical" href="https://mabravo.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Miguel Bravo — AI &amp; Data Engineer">
+    <meta property="og:description" content="Applied AI, data engineering and process intelligence — selected work and project archive.">
+    <meta property="og:url" content="https://mabravo.com/">
+    <meta property="og:image" content="https://mabravo.com/v2/assets/img/miguel-golden-gate.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Miguel Bravo — AI &amp; Data Engineer</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101722'/%3E%3Cpath d='M15 43V20h6l11 14 11-14h6v23h-6V29L32 42 21 29v14z' fill='%2366d1c4'/%3E%3C/svg%3E">
+    <script>
+      document.documentElement.classList.add("js");
+      try {
+        const savedTheme = localStorage.getItem("mabravo-mockup-theme");
+        const savedLanguage = localStorage.getItem("mabravo-mockup-language");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const systemLanguage = (navigator.languages?.[0] || navigator.language || "en").toLowerCase();
+        document.documentElement.dataset.theme =
+          savedTheme === "dark" || savedTheme === "light" ? savedTheme : prefersDark ? "dark" : "light";
+        document.documentElement.lang =
+          savedLanguage === "es" || savedLanguage === "en"
+            ? savedLanguage
+            : systemLanguage.startsWith("es") ? "es" : "en";
+      } catch {
+        document.documentElement.dataset.theme = "dark";
+        document.documentElement.lang = "en";
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#content" data-i18n="skip">Skip to content</a>
+    <div class="ambient" aria-hidden="true"></div>
 
-<head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <div class="page-shell">
+      <header class="identity">
+        <div>
+          <a class="wordmark" href="#top" aria-label="Miguel Bravo, home">MB<span>.</span></a>
+          <p class="location" data-i18n="location">Madrid, Spain</p>
+          <h1>Miguel Bravo</h1>
+          <p class="role" data-i18n="role">AI &amp; Data Engineer</p>
+          <p class="intro" data-i18n="intro">
+            I build useful systems where data, machine learning and software meet.
+          </p>
+        </div>
 
-  <title>Miguel Bravo Webpage</title>
-  <meta content="" name="description" />
-  <meta content="" name="keywords" />
+        <nav class="section-nav" aria-label="Page sections">
+          <a href="#about"><span>01</span><i></i><b data-i18n="navAbout">About</b></a>
+          <a href="#experience"><span>02</span><i></i><b data-i18n="navExperience">Experience</b></a>
+          <a href="#work"><span>03</span><i></i><b data-i18n="navWork">Selected work</b></a>
+          <a href="#archive"><span>04</span><i></i><b data-i18n="navArchive">Archive</b></a>
+          <a href="#contact"><span>05</span><i></i><b data-i18n="navContact">Contact</b></a>
+        </nav>
 
+        <div class="identity-footer">
+          <div class="controls" aria-label="Display controls">
+            <button class="control" type="button" data-language-toggle aria-label="Cambiar idioma">
+              <span class="language-current">ES</span>
+            </button>
+            <button class="control theme-toggle" type="button" data-theme-toggle aria-label="Change colour theme">
+              <svg class="sun" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="3.5"></circle>
+                <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+              </svg>
+              <svg class="moon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 15.4A8 8 0 0 1 8.6 4a8 8 0 1 0 11.4 11.4Z"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/miguel-angel-bravo" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/miguebmv" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="../v2/assets/docs/miguel-bravo-resume.pdf" target="_blank" data-i18n="resume" data-resume-preview aria-haspopup="dialog">Résumé 2026 ↗</a>
+          </div>
+        </div>
+      </header>
 
-  <!--CSS para embed y otras cosas creadas por mi-->
-  <link href="assets/css/my_style.css" rel="stylesheet" />
+      <main id="content">
+        <section class="section section--opening" id="top">
+          <p class="opening-line" data-i18n="opening">
+            My work starts with messy real-world data and ends with something people can understand,
+            trust and use.
+          </p>
+          <div class="opening-note">
+            <span data-i18n="focusLabel">Current focus</span>
+            <p data-i18n="focus">
+              Process intelligence, applied AI and measurable enterprise value at Celonis.
+            </p>
+          </div>
+          <a class="down-link" href="#about"><span data-i18n="explore">Explore the work</span><b aria-hidden="true">↓</b></a>
+          <div class="data-field" data-field aria-hidden="true"></div>
+        </section>
 
-  <!-- añadimos nuestro archivo functions.js-->
-  <script src="functions.js"></script>
+        <section class="section prose-section" id="about" aria-labelledby="about-title">
+          <p class="section-label" id="about-title"><span>01</span><span data-i18n="aboutLabel">About</span></p>
+          <div class="prose">
+            <p data-i18n="aboutOne">
+              I’m an AI &amp; Data Engineer from Granada, now based in Madrid. I work across the full
+              path from raw data and modelling to APIs, interfaces and deployment.
+            </p>
+            <p data-i18n="aboutTwo">
+              My background in robotics taught me to think in systems. Research in climate
+              informatics taught me to make those systems rigorous. Consulting keeps the result
+              grounded in what people and organisations actually need.
+            </p>
+          </div>
+          <figure class="portrait">
+            <div class="portrait__stage" data-portrait-stage>
+              <div class="portrait__disc" data-draggable-portrait>
+                <img src="../v2/assets/img/miguel-golden-gate.jpg" alt="Miguel Bravo in San Francisco" width="1200" height="900">
+              </div>
+            </div>
+            <figcaption>
+              <span>Granada → Málaga → Ohio → San Diego → Madrid</span>
+              <span data-i18n="portraitCaption">Engineer, researcher, compulsive builder.</span>
+            </figcaption>
+          </figure>
+        </section>
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon2.png" rel="icon" />
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
-
-  <!-- Agrega los estilos y scripts de Bootstrap -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet" />
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet" />
-
-  <!-- =======================================================
-  * Template Name: iPortfolio
-  * Updated: Mar 13 2024 with Bootstrap v5.3.3
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R0XZEP706G"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-R0XZEP706G');
-  </script>
-
-</head>
-
-<body>
-  <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-
-  <!-- ======= Header ======= -->
-
-  <header id="header">
-    <div class="d-flex flex-column">
-      <div class="profile">
-        <img src="assets/img/profile-img.jpg" alt=""
-          style="border-radius: 150px; width: 150px; height: 150px; object-fit: cover; object-position: 80% 20%;">
-        <h1 class="text-light">
-          <a href="index.html">Miguel Angel Bravo</a>
-        </h1>
-        <div class="social-links mt-3 text-center">
-          <!-- he quitado la funtion de instagram, ya que no se si es muy profesional-->
-          <!--<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a> -->
-
-          <!--hasta aqui _________________________________________________________ -->
-          <a href="https://www.linkedin.com/in/miguel-angel-bravo" target="_blank" class="linkedin"><i
-              class="bx bxl-linkedin"></i></a>
-
-          <!-- funcion y todo para poder hacer al usuario que copie mi gmail -->
-          <a class="gmail" onclick="copyEmail()">
-            <i class="bx bxl-gmail"></i>
+        <section class="section" id="experience" aria-labelledby="experience-title">
+          <p class="section-label" id="experience-title"><span>02</span><span data-i18n="experienceLabel">Experience</span></p>
+          <div class="experience-list">
+            <article class="experience-item experience-item--current">
+              <p class="date" data-i18n="dateCelonis">Mar 2026 — Present</p>
+              <div>
+                <h2 data-i18n="celonisRole">Applied Value Engineer</h2>
+                <p class="company">Celonis</p>
+                <p data-i18n="celonisCopy">Analysing enterprise processes, quantifying operational value, and prototyping AI agents and automations on Celonis’ process intelligence platform.</p>
+                <ul class="stack" aria-label="Technologies">
+                  <li>Process Intelligence</li><li>AI Agents</li><li>Value Engineering</li>
+                </ul>
+              </div>
+            </article>
+            <article class="experience-item">
+              <p class="date" data-i18n="datePremier">May 2025 — Feb 2026</p>
+              <div>
+                <h2 data-i18n="premierRole">AI &amp; Data Science Consultant</h2>
+                <p class="company">Premier Analytics Consulting</p>
+                <p data-i18n="premierCopy">Building production data pipelines, FastAPI backends, containerised AI systems and multilingual assistants across cloud and on-premise environments.</p>
+                <ul class="stack" aria-label="Technologies">
+                  <li>Python</li><li>FastAPI</li><li>Docker</li><li>LLMs</li>
+                </ul>
+              </div>
+            </article>
+            <article class="experience-item">
+              <p class="date" data-i18n="dateIheat">Jun 2024 — Nov 2025</p>
+              <div>
+                <h2 data-i18n="iheatRole">Junior AI &amp; Data Scientist</h2>
+                <p class="company">iHeatApp · SDSU Climate Informatics Lab</p>
+                <p data-i18n="iheatCopy">Developed hourly heat-risk forecasts, geospatial pipelines and a bilingual AI-assisted product for communities in California’s Imperial Valley.</p>
+                <ul class="stack" aria-label="Technologies">
+                  <li>Python</li><li>xarray</li><li>Geospatial</li><li>AI</li>
+                </ul>
+              </div>
+            </article>
+            <article class="experience-item">
+              <p class="date" data-i18n="dateCics">Aug 2023 — May 2024</p>
+              <div>
+                <h2 data-i18n="cicsRole">Data Science Research Assistant</h2>
+                <p class="company">Center for Information Convergence and Strategy</p>
+                <p data-i18n="cicsCopy">Built reproducible R workflows for cleaning and analysing spatiotemporal nutrient data from Irish agricultural catchments.</p>
+                <ul class="stack" aria-label="Technologies">
+                  <li>R</li><li>Research</li><li>Spatiotemporal data</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <a class="resume-callout" href="../v2/assets/docs/miguel-bravo-resume.pdf" target="_blank" aria-label="View Miguel Bravo's full résumé PDF" data-resume-callout data-resume-preview aria-haspopup="dialog">
+            <span class="resume-callout__meta">
+              <span data-i18n="resumeDocument">Résumé</span>
+              <span data-i18n="resumeUpdated">Updated May 2026 · PDF · 1 page</span>
+            </span>
+            <strong data-i18n="fullResume">View the full résumé</strong>
+            <span class="resume-callout__arrow" aria-hidden="true">↗</span>
           </a>
-          <span id="copyMessage" style="display: none">Copied to Clipboard!</span>
-        </div>
-      </div>
+        </section>
 
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li>
-            <a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a>
-          </li>
-          <li>
-            <a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a>
-          </li>
-          <li>
-            <a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a>
-          </li>
-          <li>
-            <a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a>
-          </li>
-          <li>
-            <a href="#conferences" class="nav-link scrollto active"><i class="bx bx-book"></i>
-              <span>Conferences</span></a>
-          </li>
-          <!--<li>
-            <a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a>
-          </li>
-          <li>
-            <a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a>
-          </li>-->
-        </ul>
-      </nav>
-      <!-- .nav-menu -->
+        <section class="section" id="work" aria-labelledby="work-title">
+          <div class="section-heading-row">
+            <p class="section-label" id="work-title"><span>03</span><span data-i18n="workLabel">Selected work</span></p>
+            <p data-i18n="workNote">Four projects that best represent how I think and build.</p>
+          </div>
+
+          <div class="featured-work">
+            <a class="project" href="project.html?id=iheatapp">
+              <div class="project-image">
+                <img src="assets/project-iheatapp-v1.jpg" alt="Editorial heat-risk map of Imperial Valley" width="1200" height="800">
+              </div>
+              <div class="project-copy">
+                <div class="project-topline"><span>01</span><span>2024—25</span></div>
+                <h2>iHeatApp <span aria-hidden="true">↗</span></h2>
+                <p data-i18n="projectHeat">A bilingual platform that turns hourly weather forecasts into local heat-risk maps and contextual guidance.</p>
+                <ul class="stack"><li>Climate AI</li><li>Python</li><li>EN / ES</li></ul>
+              </div>
+            </a>
+
+            <a class="project" href="project.html?id=cloudya">
+              <div class="project-image">
+                <img src="assets/project-cloudya-v1.jpg" alt="Editorial illustration of weather data flowing into compact computing hardware" width="1200" height="800">
+              </div>
+              <div class="project-copy">
+                <div class="project-topline"><span>02</span><span>2025</span></div>
+                <h2>Weather with Cloudya <span aria-hidden="true">↗</span></h2>
+                <p data-i18n="projectCloudya">Real-time NOAA climate data, interactive maps and a vision assistant served from a Raspberry Pi.</p>
+                <ul class="stack"><li>FastAPI</li><li>React</li><li>Docker</li></ul>
+              </div>
+            </a>
+
+            <a class="project" href="project.html?id=flight-delay">
+              <div class="project-image">
+                <img src="assets/project-flight-delay-v1.jpg" alt="Editorial illustration of flight paths and a diverging delay signal" width="1200" height="800">
+              </div>
+              <div class="project-copy">
+                <div class="project-topline"><span>03</span><span>2024</span></div>
+                <h2 data-i18n="flightTitle">Flight Delay Prediction <span aria-hidden="true">↗</span></h2>
+                <p data-i18n="projectFlight">Three million flight records, weather context and an honest comparison of seven model families.</p>
+                <ul class="stack"><li>XGBoost</li><li>Streamlit</li><li>WUSS</li></ul>
+              </div>
+            </a>
+
+            <a class="project" href="project.html?id=california-traffic">
+              <div class="project-image">
+                <img src="assets/project-california-traffic-v1.jpg" alt="Editorial map of California traffic and demographic patterns" width="1200" height="800">
+              </div>
+              <div class="project-copy">
+                <div class="project-topline"><span>04</span><span>2023</span></div>
+                <h2 data-i18n="trafficTitle">California Traffic Trends <span aria-hidden="true">↗</span></h2>
+                <p data-i18n="projectTraffic">Ten years of traffic, population and income combined in one geospatial analytical story.</p>
+                <ul class="stack"><li>Tableau</li><li>R</li><li>ArcGIS</li></ul>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section class="section" id="archive" aria-labelledby="archive-title">
+          <div class="section-heading-row">
+            <p class="section-label" id="archive-title"><span>04</span><span data-i18n="archiveLabel">Project archive</span></p>
+            <p data-i18n="archiveNote">Eight more projects complete the record, from applied modelling to early interactive experiments.</p>
+          </div>
+          <div class="more-work-grid">
+            <a class="archive-card" href="project.html?id=diamond">
+              <div class="archive-card__image">
+                <img src="assets/project-diamond-v1.jpg" alt="Editorial illustration of diamond facets and regression surfaces" width="1200" height="800">
+              </div>
+              <div class="archive-card__top"><span>2024</span><span aria-hidden="true">↗</span></div>
+              <h2 data-i18n="diamond">Diamond Price Modeling</h2>
+              <p data-i18n="diamondCopy">Six regression approaches compared across 53,940 diamonds and transformed targets.</p>
+              <ul class="stack"><li>Regression</li><li>Random Forest</li><li>EDA</li></ul>
+            </a>
+
+            <a class="archive-card" href="project.html?id=pharmasys">
+              <div class="archive-card__image">
+                <img src="assets/project-pharmasys-v1.jpg" alt="Editorial illustration of a relational pharmacy database" width="1200" height="800">
+              </div>
+              <div class="archive-card__top"><span>2024</span><span aria-hidden="true">↗</span></div>
+              <h2>PharmaSys</h2>
+              <p data-i18n="pharmaCopy">Relational database design, AWS deployment and analytical views for pharmacy operations.</p>
+              <ul class="stack"><li>MySQL</li><li>AWS RDS</li><li>Plotly</li></ul>
+            </a>
+
+            <a class="archive-card" href="project.html?id=walmart">
+              <div class="archive-card__image">
+                <img src="assets/project-walmart-v1.jpg" alt="Editorial illustration of seasonal retail sales forecasting" width="1200" height="800">
+              </div>
+              <div class="archive-card__top"><span>2024</span><span aria-hidden="true">↗</span></div>
+              <h2 data-i18n="walmart">Walmart Sales Forecasting</h2>
+              <p data-i18n="walmartCopy">Seasonal weekly sales forecasting for one store through a focused SARIMA comparison.</p>
+              <ul class="stack"><li>SARIMA</li><li>Time series</li><li>R</li></ul>
+            </a>
+
+            <a class="archive-card" href="project.html?id=mental-health">
+              <div class="archive-card__image">
+                <img src="assets/project-mental-health-v1.jpg" alt="Editorial illustration of overlapping multivariate observations" width="1200" height="800">
+              </div>
+              <div class="archive-card__top"><span>2024</span><span aria-hidden="true">↗</span></div>
+              <h2 data-i18n="mental">Mental Health &amp; Technology</h2>
+              <p data-i18n="mentalCopy">A multivariate study where weak predictive signal became the important methodological result.</p>
+              <ul class="stack"><li>PCA</li><li>ANOVA</li><li>Clustering</li></ul>
+            </a>
+
+            <a class="archive-card" href="project.html?id=p5-game">
+              <div class="archive-card__image">
+                <img src="assets/project-p5-game-v1.jpg" alt="Editorial illustration of motion and collision in an interactive game" width="1200" height="800">
+              </div>
+              <div class="archive-card__top"><span>2023</span><span aria-hidden="true">↗</span></div>
+              <h2 data-i18n="p5one">Getting Started with p5.js</h2>
+              <p data-i18n="p5oneCopy">A small interactive game for learning the drawing loop, events and collision logic.</p>
+              <ul class="stack"><li>p5.js</li><li>Interaction</li></ul>
+            </a>
+
+            <a class="archive-card" href="project.html?id=campus-map">
+              <div class="archive-card__image">
+                <img src="assets/project-campus-map-v1.jpg" alt="Editorial illustration of a searchable university campus map" width="1200" height="800">
+              </div>
+              <div class="archive-card__top"><span>2023</span><span aria-hidden="true">↗</span></div>
+              <h2 data-i18n="p5two">Interactive Campus Map</h2>
+              <p data-i18n="p5twoCopy">A zoomable and searchable campus map with building-level information and imagery.</p>
+              <ul class="stack"><li>p5.js</li><li>Maps</li><li>Search</li></ul>
+            </a>
+
+            <a class="archive-card" href="project.html?id=news-geo">
+              <div class="archive-card__image">
+                <img src="assets/project-news-geo-v1.jpg" alt="Editorial world map connecting news stories to locations" width="1200" height="800">
+              </div>
+              <div class="archive-card__top"><span>2023</span><span aria-hidden="true">↗</span></div>
+              <h2 data-i18n="p5three">News Geovisualization</h2>
+              <p data-i18n="p5threeCopy">Recent news search, geocoded results and the geographic context behind each story.</p>
+              <ul class="stack"><li>p5.js</li><li>API</li><li>Geocoding</li></ul>
+            </a>
+
+            <a class="archive-card" href="project.html?id=us-crime">
+              <div class="archive-card__image">
+                <img src="assets/project-us-crime-v1.jpg" alt="Editorial map of changing US crime-rate centroids" width="1200" height="800">
+              </div>
+              <div class="archive-card__top"><span>2023</span><span aria-hidden="true">↗</span></div>
+              <h2 data-i18n="p5four">US Crime Trend Explorer</h2>
+              <p data-i18n="p5fourCopy">Multivariate and multitemporal views of state crime rates and moving geographic centroids.</p>
+              <ul class="stack"><li>p5.js</li><li>Time</li><li>Choropleth</li></ul>
+            </a>
+          </div>
+        </section>
+
+        <section class="section notes-section" aria-labelledby="notes-title">
+          <p class="section-label" id="notes-title"><span>+</span><span data-i18n="beyondCode">Beyond the code</span></p>
+          <div class="note-grid">
+            <a href="../v2/speaking.html">
+              <span data-i18n="speakingEyebrow">Speaking &amp; writing</span>
+              <strong data-i18n="speakingTitle">Explaining models, open source and better data workflows.</strong>
+              <b aria-hidden="true">↗</b>
+            </a>
+            <div class="note-image">
+              <img src="../v2/assets/img/data-ai-summit.jpg" alt="Miguel Bravo at a data and AI conference" width="1200" height="900">
+            </div>
+          </div>
+        </section>
+
+        <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+          <div class="contact-heading">
+            <div>
+              <p class="section-label" id="contact-title"><span>05</span><span data-i18n="contactLabel">Contact</span></p>
+              <h2 data-i18n="contactTitle">Contact &amp; profiles</h2>
+            </div>
+            <p class="contact-location">
+              <span data-i18n="contactBased">Based in</span>
+              <strong data-i18n="contactCity">Madrid, Spain</strong>
+            </p>
+          </div>
+          <div class="contact-directory">
+            <a class="contact-row" href="mailto:miguelangelbravo2000@gmail.com">
+              <span data-i18n="contactEmail">Email</span>
+              <strong>miguelangelbravo2000@gmail.com</strong>
+              <b aria-hidden="true">↗</b>
+            </a>
+            <a class="contact-row" href="https://www.linkedin.com/in/miguel-angel-bravo" target="_blank" rel="noreferrer">
+              <span>LinkedIn</span>
+              <strong>miguel-angel-bravo</strong>
+              <b aria-hidden="true">↗</b>
+            </a>
+            <a class="contact-row" href="https://github.com/miguebmv" target="_blank" rel="noreferrer">
+              <span>GitHub</span>
+              <strong>@miguebmv</strong>
+              <b aria-hidden="true">↗</b>
+            </a>
+            <a class="contact-row" href="../v2/assets/docs/miguel-bravo-resume.pdf" target="_blank" data-resume-preview aria-haspopup="dialog">
+              <span data-i18n="contactResume">Résumé</span>
+              <strong data-i18n="contactResumeValue">Updated May 2026 · PDF</strong>
+              <b aria-hidden="true">↗</b>
+            </a>
+          </div>
+          <footer>
+            <span>© <span data-current-year>2026</span> Miguel Bravo</span>
+            <a href="#top"><span data-i18n="backTop">Back to top</span> ↑</a>
+          </footer>
+        </section>
+      </main>
     </div>
-  </header>
 
-  <!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Miguel Bravo</h1>
-      <p>
-        Thanks for visiting!<br>
-        <span class="typed" data-typed-items="Join me as I open up about my personal and professional story."></span>
-      </p>
-    </div>
-  </section>
-  <!-- End Hero -->
-
-  <main id="main">
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-        <div class="section-title">
-          <h2>About</h2>
-          <p>
-            <strong>Learn a little more about me, about my academic and professional career!</strong>
-          </p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/hero-bg.jpg" class="img-fluid" alt="" width="350" />
+    <dialog class="resume-viewer" data-resume-dialog aria-labelledby="resume-dialog-title">
+      <div class="resume-viewer__shell">
+        <aside class="resume-viewer__info">
+          <button class="resume-viewer__close" type="button" data-resume-close aria-label="Close résumé preview">
+            <span aria-hidden="true">×</span>
+          </button>
+          <div class="resume-viewer__copy">
+            <p class="resume-viewer__eyebrow" data-i18n="resumePreviewEyebrow">Résumé · PDF</p>
+            <h2 id="resume-dialog-title">Miguel Bravo</h2>
+            <p class="resume-viewer__note" data-i18n="resumePreviewNote">One page · Updated May 2026</p>
           </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Robotics Engineer &amp; Big Data Scientist</h3>
-            <p class="fst-italic">
-              I was born in Granada, Spain, in 2000, and spent my childhood there, attending school in my hometown.
-              Later, I pursued
-              my studies in Malaga, specializing in Robotics Engineering. After a year of exchange at Miami University
-              in Oxford,
-              Ohio, I decided to pursue my passion for data by completing my master's in Big Data Analytics in San
-              Diego, California.
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li>
-                    <span class="la--birthday-cake"></span>
-                    <strong> &nbsp;Birthday:</strong> <span>29 Dec 2000</span>
-                  </li>
-
-                  <li>
-                    <i class="bx bxl-gmail"></i>
-                    <strong>eMail:</strong> <span>miguelangelbravo2000@gmail.com</span>
-                  </li>
-                  <li>
-                    <span class="la--flag-usa"></span>
-                    <strong>&nbsp;Current City:</strong> <span>San Diego, California, USA</span>
-                  </li>
-                  <li>
-                    <span class="mdi--university"></span>
-                    <strong>&nbsp;Studies:</strong> <span>Bachelor's, Master's</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li>
-                    <span class="el--person"></span>
-                    <strong>Age:</strong>
-                    <span id="age"></span>
-                  </li>
-                  <li><br></li>
-
-                  <li>
-                    <span class="game-icons--spain"></span>
-                    <strong>&nbsp;Born City:</strong> <span>Granada, Spain</span>
-                  </li>
-                  <!--<li>
-                    <i class="bi bi-chevron-right"></i>
-                    <strong>PhEmailone:</strong>
-                    <span>email@example.com</span>
-                  </li>-->
-                  <!--<li>
-                    <i class="bi bi-chevron-right"></i>
-                    <strong>Freelance:</strong> <span>Available</span>
-                  </li>-->
-                </ul>
-              </div>
-              <div class="col-lg-12">
-                <ul>
-                  <li>
-                    <i class="bx bxl-linkedin"></i>
-                    <strong>LinkedIn:</strong><a href="https://www.linkedin.com/in/miguel-angel-bravo"
-                      target="_blank">www.linkedin.com/in/miguel-angel-bravo</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <p>
-              Since a young age, I've been passionate about engineering, computing, and coding. I've always been
-              fascinated by how
-              machines can solve problems and simplify complex tasks. My interest in programming and software
-              development naturally
-              stemmed from this curiosity. Additionally, I discovered my fascination with the power of data to reveal
-              insights and
-              make informed decisions. This passion led me to focus my career on data analysis and artificial
-              intelligence, seeking to
-              understand and harness the full potential that data offers in solving real-world problems.
-            </p>
+          <div class="resume-viewer__actions">
+            <a href="../v2/assets/docs/miguel-bravo-resume.pdf" target="_blank">
+              <span data-i18n="resumeOpen">Open PDF</span><b aria-hidden="true">↗</b>
+            </a>
+            <a href="../v2/assets/docs/miguel-bravo-resume.pdf" download>
+              <span data-i18n="resumeDownload">Download</span><b aria-hidden="true">↓</b>
+            </a>
           </div>
+        </aside>
+        <div class="resume-viewer__document">
+          <a href="../v2/assets/docs/miguel-bravo-resume.pdf" target="_blank" aria-label="Open Miguel Bravo's résumé PDF">
+            <img
+              src="../v2/assets/docs/miguel-bravo-resume-preview.png"
+              alt="Preview of Miguel Bravo's one-page résumé"
+              width="1489"
+              height="2106"
+            >
+          </a>
         </div>
       </div>
-    </section>
-    <!-- End About Section -->
+    </dialog>
 
-    <!-- ======= Facts Section ======= -->
-    <!--<section id="facts" class="facts">
-      <div class="container">
-        <div class="section-title">
-          <h2>Facts</h2>
-          <p>
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur
-            ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam
-            quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
-            Quia fugiat sit in iste officiis commodi quidem hic quas.
-          </p>
-        </div>
-
-        <div class="row no-gutters">
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p><strong>Happy Clients</strong> consequuntur quae</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p><strong>Projects</strong> adipisci atque cum quia aut</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="count-box">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="count-box">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p><strong>Hard Workers</strong> rerum asperiores dolor</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>-->
-    <!-- End Facts Section -->
-
-    <!-- ======= Skills Section ======= -->
-    <!--<section id="skills" class="skills section-bg">
-      <div class="container">
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p>
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur
-            ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam
-            quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
-            Quia fugiat sit in iste officiis commodi quidem hic quas.
-          </p>
-        </div>
-
-        <div class="row skills-content">
-          <div class="col-lg-6" data-aos="fade-up">
-            <div class="progress">
-              <span class="skill">HTML <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">CSS <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="progress">
-              <span class="skill">PHP <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">WordPress/CMS <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Photoshop <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>-->
-    <!-- End Skills Section -->
-
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container">
-        <div class="section-title">
-          <h2>Resume</h2>
-          <p>
-            <strong>Before</strong> delving into the details of my resume, allow me to offer a brief overview of my
-            professional journey.
-            This
-            document encapsulates my experience, skills, and noteworthy achievements, providing a comprehensive insight
-            into my
-            professional profile. I encourage you to explore it to gain a comprehensive understanding of my capabilities
-            and
-            potential contributions.
-          </p>
-        </div>
-        <div style="text-align: center; margin-bottom: 10px;">
-          <a href="Resumes/Resume_by_novemeber_3.pdf" download>Download Resume</a>
-        </div>
-
-
-        <div class="embed"><embed src="Resumes/Resume_by_novemeber_3.pdf" width="100%" height="1200px" /></div>
-        <hr>
-    </section>
-    <!-- End Resume Section -->
-
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container">
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>
-            <strong>Welcome</strong> to my portfolio! Here, you'll discover a collection of projects spanning data
-            visualization, machine
-            learning,
-            big data, and SQL projects. Each project is crafted to provide an interactive and insightful experience.
-            Click on each
-            one to delve deeper, explore further, and even run the applications created. Moreover, for ease of
-            exploration, you can
-            filter projects by specific topics. Enjoy exploring and uncovering the stories behind my projects!
-          </p>
-        </div>
-
-        <div class="row" data-aos="fade-up">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-capstone">Capstone Project</li>
-              <li data-filter=".filter-datavisualization">
-                Data Visualization
-              </li>
-              <li data-filter=".filter-bigdata">Big Data Project</li>
-              <li data-filter=".filter-sql">SQL-Project</li>
-              <li data-filter=".filter-machinelearning">Machine Learning</li>
-              <li data-filter=".filter-timeseries">Timeseries</li>
-
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-          <!--Trabajo Fin De Master-->
-          <div class="col-lg-4 col-md-6 portfolio-item filter-capstone">
-            <div class="portfolio-wrap">
-              <img src="assets\img\portfolio\capstone_project.png" class="img-fluid" alt="" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="capstone_project.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More information</a>
-              </div>
-            </div>
-          </div>
-          <!--Hasta aqui________________________________________ -->
-          <!--Primer proyecto Lab 1 de Data Visualization -->
-          <div class="col-lg-4 col-md-6 portfolio-item filter-datavisualization">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/lab1.png" class="img-fluid" alt="" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="lab1-datavis.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More Information</a>
-              </div>
-            </div>
-          </div>
-
-          <!--Hasta aqui________________________________________ -->
-          <!--Segundo proyecto Lab 2 de Data Visualization -->
-          <div class="col-lg-4 col-md-6 portfolio-item filter-datavisualization">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/lab2.png" class="img-fluid" alt="" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="lab2-datavis.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More Information</a>
-              </div>
-            </div>
-          </div>
-
-          <!--Hasta aqui________________________________________ -->
-          <!--Tercer proyecto Lab 3 de Data Visualization -->
-          <div class="col-lg-4 col-md-6 portfolio-item filter-datavisualization">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/lab3.png" class="img-fluid" alt="" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="lab3-datavis.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More information</a>
-              </div>
-            </div>
-          </div>
-          <!--Hasta aqui________________________________________ -->
-          <!--Cuarto proyecto Lab 4 de Data Visualization -->
-          <div class="col-lg-4 col-md-6 portfolio-item filter-datavisualization">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/final_project.png" class="img-fluid" alt="" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="lab4-datavis.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More information</a>
-              </div>
-            </div>
-          </div>
-          <!--Hasta aqui________________________________________ -->
-
-          <!-- Modal -->
-          <div class="modal fade" id="myModal">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <!-- Carga el contenido del iframe dentro del modal -->
-                <iframe src="" id="modalFrame" class="modal-body" style="width: 100%; height: 550px"></iframe>
-              </div>
-            </div>
-          </div>
-
-          <!--Primer proyecto  Big Data Analytics-->
-          <div class="col-lg-4 col-md-6 portfolio-item filter-bigdata">
-            <div class="portfolio-wrap">
-              <img src="assets\img\portfolio\BDA Project.png" class="img-fluid" alt="" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="bda_project.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More information</a>
-              </div>
-            </div>
-          </div>
-          <!--Hasta aqui________________________________________ -->
-          <!--Primer proyecto  SQL-->
-          <div class="col-lg-4 col-md-6 portfolio-item filter-sql">
-            <div class="portfolio-wrap">
-              <img src="assets\img\portfolio\MIS project.png" class="img-fluid" alt="" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="mis_project.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More information</a>
-              </div>
-            </div>
-          </div>
-          <!--Hasta aqui________________________________________ -->
-          <!--Primer proyecto  Machine Learning-->
-          <div class="col-lg-4 col-md-6 portfolio-item filter-machinelearning">
-            <div class="portfolio-wrap">
-              <img src="assets\img\portfolio\Machine Learning.png" class="img-fluid" alt="" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="machine_learning.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More information</a>
-              </div>
-            </div>
-          </div>
-          <!--Hasta aqui________________________________________ -->
-
-          <!-- ________________________ -->
-          <!--Primer proyecto  stat520, applied multivariate analysis-->
-          <div class="col-lg-4 col-md-6 portfolio-item filter-machinelearning">
-            <div class="portfolio-wrap">
-              <img src="assets\img\portfolio\stat520.png" class="img-fluid" alt="" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="stat520.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More information</a>
-              </div>
-            </div>
-          </div>
-          <!--Hasta aqui________________________________________ -->
-
-          <!--Primer proyecto AI, course called MIS720-->
-          <div class="col-lg-4 col-md-6 portfolio-item filter-machinelearning">
-            <div class="portfolio-wrap">
-              <img src="assets\img\portfolio\mis720.png" class="img-fluid" alt="" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="mis720.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More information</a>
-              </div>
-            </div>
-          </div>
-          <!--Hasta aqui________________________________________ -->
-
-          <!--Primer proyecto Time series forecasting, course called MIS748-->
-          <div class="col-lg-4 col-md-6 portfolio-item filter-timeseries">
-            <div class="portfolio-wrap">
-              <img src="assets\img\portfolio\time-series.png" class="img-fluid" alt="" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="time-series-project.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More information</a>
-              </div>
-            </div>
-          </div>
-          <!--Hasta aqui________________________________________ -->
-
-
-          <!-- ________________________ -->
-
-        </div>
-      </div>
-    </section>
-    <!-- End Portfolio Section -->
-
-
-
-    <section id="conferences" class="portfolio section-bg">
-      <div class="container">
-        <div class="section-title">
-          <h2>Conferences</h2>
-          <p>This section highlights the conferences I have participated in, where I have shared knowledge and
-            experiences in the
-            field of data analysis and related technologies. These opportunities have allowed me to learn from experts
-            and
-            collaborate with other professionals in the industry.</p>
-
-        </div>
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-          <!-- WUSS 2024 -->
-          <div class="col-lg-3 col-md-5 portfolio-item">
-            <div class="portfolio-wrap">
-              <img src="assets\img\conferences\wuss2024.png" class="img-fluid" alt="Wuss Conference"
-                style="width: 100%; height: auto;" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="wuss_conference2024.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More information</a>
-              </div>
-            </div>
-          </div>
-          <!--______________________________________ -->
-          <!-- MidWest 2024 -->
-          <div class="col-lg-3 col-md-5 portfolio-item">
-            <div class="portfolio-wrap">
-              <img src="assets\img\conferences\midwest2024.png" class="img-fluid" alt="MWSUG 2024 Conference"
-                style="width: 100%; height: auto;" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="mwsug2024.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More information</a>
-              </div>
-            </div>
-          </div>
-          <!--______________________________________ -->
-          <!-- Richmond Virginia Technology (RVATech) Data + AI Summit 2025 -->
-          <div class="col-lg-3 col-md-5 portfolio-item">
-            <div class="portfolio-wrap">
-              <img src="assets\img\conferences\aisummit2025.png" class="img-fluid" alt="RVATech Data + AI Summit"
-                style="width: 100%; height: auto;" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="aisummit2025.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More information</a>
-              </div>
-            </div>
-          </div>
-          <!--______________________________________ -->
-          <!-- WUSS 2025 -->
-          <div class="col-lg-3 col-md-5 portfolio-item">
-            <div class="portfolio-wrap">
-              <img src="assets\img\conferences\wuss2025.png" class="img-fluid" alt="Wuss 2025 Conference"
-                style="width: 100%; height: auto;" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="wuss_conference2025_comingsoon.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More information</a>
-              </div>
-            </div>
-          </div>
-          <!--______________________________________ -->
-          <!-- MidWest 2025 -->
-          <div class="col-lg-3 col-md-5 portfolio-item">
-            <div class="portfolio-wrap">
-              <img src="assets\img\conferences\midwest2025.png" class="img-fluid" alt="MWSUG 2025 Conference"
-                style="width: 100%; height: auto;" />
-              <div class="portfolio-links" style="height: 100%;">
-                <a href="mwsug2025_comingsoon.html" title="More Details"
-                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-                  More information</a>
-              </div>
-            </div>
-          </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-    <!-- ======= Services Section ======= -->
-    <!--<section id="services" class="services">
-      <div class="container">
-        <div class="section-title">
-          <h2>Services</h2>
-          <p>
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur
-            ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam
-            quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
-            Quia fugiat sit in iste officiis commodi quidem hic quas.
-          </p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bi bi-briefcase"></i></div>
-            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-            <p class="description">
-              Voluptatum deleniti atque corrupti quos dolores et quas
-              molestias excepturi sint occaecati cupiditate non provident
-            </p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="">Dolor Sitema</a></h4>
-            <p class="description">
-              Minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat tarad limino ata
-            </p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bi bi-bar-chart"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur
-            </p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="bi bi-binoculars"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa
-              qui officia deserunt mollit anim id est laborum
-            </p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon"><i class="bi bi-brightness-high"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui
-              blanditiis praesentium voluptatum deleniti atque
-            </p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-            <p class="description">
-              Et harum quidem rerum facilis est et expedita distinctio. Nam
-              libero tempore, cum soluta nobis est eligendi
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>-->
-    <!-- End Services Section -->
-
-    <!-- ======= Testimonials Section ======= -->
-    <!--<section id="testimonials" class="testimonials section-bg">
-      <div class="container">
-        <div class="section-title">
-          <h2>Testimonials</h2>
-          <p>
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur
-            ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam
-            quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
-            Quia fugiat sit in iste officiis commodi quidem hic quas.
-          </p>
-        </div>
-
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec
-                  porttitora entum suscipit rhoncus. Accusantium quam,
-                  ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                  risus at semper.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="" />
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-              </div>
-            </div> -->
-    <!-- End testimonial item -->
-
-    <!--<div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse
-                  labore quem cillum quid cillum eram malis quorum velit fore
-                  eram velit sunt aliqua noster fugiat irure amet legam anim
-                  culpa.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="" />
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-              </div>
-            </div>-->
-    <!-- End testimonial item -->
-
-    <!--<div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim
-                  sint quorum nulla quem veniam duis minim tempor labore quem
-                  eram duis noster aute amet eram fore quis sint minim.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="" />
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-              </div>
-            </div> -->
-    <!-- End testimonial item -->
-
-    <!--<div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa
-                  multos export minim fugiat minim velit minim dolor enim duis
-                  veniam ipsum anim magna sunt elit fore quem dolore labore
-                  illum veniam.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="" />
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-              </div>
-            </div>-->
-    <!-- End testimonial item -->
-
-    <!--<div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure
-                  aliqua veniam tempor noster veniam enim culpa labore duis
-                  sunt culpa nulla illum cillum fugiat legam esse veniam culpa
-                  fore nisi cillum quid.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="" />
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
-            </div>-->
-    <!-- End testimonial item -->
-    <!--</div>
-          <div class="swiper-pagination"></div>
-        </div>
-      </div> 
-    </section>-->
-    <!-- End Testimonials Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <!--<section id="contact" class="contact">
-      <div class="container">
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur
-            ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam
-            quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
-            Quia fugiat sit in iste officiis commodi quidem hic quas.
-          </p>
-        </div>
-
-        <div class="row" data-aos="fade-in">
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>info@example.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
-              </div>
-
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
-                frameborder="0" style="border: 0; width: 100%; height: 290px" allowfullscreen></iframe>
-            </div>
-          </div>
-
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required />
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" required />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required />
-              </div>
-              <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">
-                  Your message has been sent. Thank you!
-                </div>
-              </div>
-              <div class="text-center">
-                <button type="submit">Send Message</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>-->
-    <!-- End Contact Section -->
-  </main>
-  <!-- End #main -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-</body>
-
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js" defer></script>
+    <script src="data-field.js" defer></script>
+    <script src="site.js" defer></script>
+  </body>
 </html>
