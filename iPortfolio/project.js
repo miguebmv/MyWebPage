@@ -62,8 +62,19 @@ const PROJECTS = {
       }
     ],
     actions: [
+      { label: { en: "Open iHeatApp", es: "Abrir iHeatApp" }, href: "https://rhialarm.sdsu.edu/" },
       { label: { en: "Official project", es: "Proyecto oficial" }, href: "https://ruralheatislands.sdsu.edu/products.html" }
-    ]
+    ],
+    mediaTitle: { en: "Explore iHeatApp live.", es: "Explora iHeatApp en directo." },
+    mediaNote: {
+      en: "The deployed application is embedded below. You can explore the map here or open the full experience in a new tab.",
+      es: "La aplicación desplegada está embebida abajo. Puedes explorar el mapa aquí o abrir la experiencia completa en otra pestaña."
+    },
+    media: {
+      type: "website",
+      src: "https://rhialarm.sdsu.edu/",
+      height: 720
+    }
   },
 
   cloudya: {
@@ -116,11 +127,23 @@ const PROJECTS = {
     actions: [
       { label: { en: "Live application", es: "Aplicación" }, href: "https://datamigos.win/" }
     ],
-    media: {
-      type: "video",
-      src: "../v2/assets/img/cloudya-demo.mp4",
-      poster: "../v2/assets/img/cloudya-interface.jpg"
+    mediaTitle: { en: "Explore the live system.", es: "Explora el sistema en directo." },
+    mediaNote: {
+      en: "The public application and the original recorded walkthrough are both preserved below.",
+      es: "La aplicación pública y el recorrido original en vídeo se conservan a continuación."
     },
+    media: [
+      {
+        type: "website",
+        src: "https://datamigos.win/",
+        height: 720
+      },
+      {
+        type: "video",
+        src: "../v2/assets/img/cloudya-demo.mp4",
+        poster: "../v2/assets/img/cloudya-interface.jpg"
+      }
+    ],
     pdf: { src: "../v2/assets/docs/weather-with-cloudya.pdf", pages: 33 }
   },
 
@@ -172,7 +195,8 @@ const PROJECTS = {
       }
     ],
     actions: [
-      { label: { en: "View code", es: "Ver código" }, href: "https://github.com/miguebmv/BDA602_MachineLearning" }
+      { label: { en: "View code", es: "Ver código" }, href: "https://github.com/miguebmv/BDA602_MachineLearning" },
+      { label: { en: "Course report", es: "Informe académico" }, href: "v2/assets/docs/flight-delay-course-report.pdf" }
     ],
     pdf: { src: "../v2/assets/docs/flight-delay-wuss-paper.pdf", pages: 19 }
   },
@@ -223,6 +247,16 @@ const PROJECTS = {
     actions: [
       { label: { en: "Project website", es: "Web del proyecto" }, href: "https://sites.google.com/sdsu.edu/miguelsamigos" }
     ],
+    mediaTitle: { en: "Visit the original project website.", es: "Visita la web original del proyecto." },
+    mediaNote: {
+      en: "Google Sites prevents external embedding, so this visual preview opens the complete website in a new tab.",
+      es: "Google Sites impide el embedding externo; esta vista previa visual abre la web completa en otra pestaña."
+    },
+    media: {
+      type: "external",
+      src: "https://sites.google.com/sdsu.edu/miguelsamigos",
+      poster: "assets/project-california-traffic-v1.jpg"
+    },
     pdf: { src: "../v2/assets/docs/california-traffic.pdf", pages: 13 }
   },
 
@@ -618,6 +652,11 @@ const UI = {
     mediaNote: "A closer look at the interface and how the project behaves.",
     tryIt: "Try the project.",
     interactiveNote: "The original p5.js sketch is live below. Interact with it here or open it in a separate tab.",
+    livePreview: "Live preview",
+    recordedDemo: "Recorded walkthrough",
+    openNewTab: "Open in new tab",
+    externalPreview: "Website preview",
+    openWebsite: "Open complete website",
     fullReport: "Full report",
     readResearch: "Read the research",
     reportNote: "The complete document is embedded below. You can also open or download the original PDF.",
@@ -637,6 +676,11 @@ const UI = {
     mediaNote: "Una mirada más cercana a la interfaz y al funcionamiento del proyecto.",
     tryIt: "Prueba el proyecto.",
     interactiveNote: "El sketch original de p5.js está activo abajo. Interactúa aquí o ábrelo en otra pestaña.",
+    livePreview: "Vista previa en directo",
+    recordedDemo: "Recorrido en vídeo",
+    openNewTab: "Abrir en otra pestaña",
+    externalPreview: "Vista previa de la web",
+    openWebsite: "Abrir la web completa",
     fullReport: "Informe completo",
     readResearch: "Leer la investigación",
     reportNote: "El documento completo está embebido abajo. También puedes abrir o descargar el PDF original.",
@@ -657,7 +701,7 @@ const languageButton = document.querySelector("[data-language-toggle]");
 const languageCurrent = document.querySelector(".language-current");
 const themeButton = document.querySelector("[data-theme-toggle]");
 const metaTheme = document.querySelector('meta[name="theme-color"]');
-let interactiveObserver;
+let interactiveObservers = [];
 
 function localized(value, language) {
   if (value == null || typeof value === "string") return value || "";
@@ -764,58 +808,126 @@ function renderMedia(language) {
   const container = document.querySelector("[data-media-container]");
   const title = section.querySelector("[data-ui='seeIt']");
   const note = section.querySelector("[data-ui='mediaNote']");
-  interactiveObserver?.disconnect();
+  interactiveObservers.forEach((observer) => observer.disconnect());
+  interactiveObservers = [];
   container.innerHTML = "";
   section.hidden = !currentProject.media;
   if (!currentProject.media) return;
 
-  if (currentProject.media.type === "video") {
-    title.textContent = UI[language].seeIt;
-    note.textContent = UI[language].mediaNote;
-    const video = document.createElement("video");
-    video.className = "project-video";
-    video.controls = true;
-    video.preload = "metadata";
-    video.poster = currentProject.media.poster;
-    video.setAttribute("playsinline", "");
-    video.setAttribute("aria-label", language === "es" ? "Demostración del proyecto" : "Project demonstration");
-    const source = document.createElement("source");
-    source.src = currentProject.media.src;
-    source.type = "video/mp4";
-    video.append(source);
-    container.append(video);
-  }
+  const mediaItems = Array.isArray(currentProject.media)
+    ? currentProject.media
+    : [currentProject.media];
+  const hasInteractiveSketch = mediaItems.some((item) => item.type === "iframe");
+  title.textContent = currentProject.mediaTitle
+    ? localized(currentProject.mediaTitle, language)
+    : hasInteractiveSketch ? UI[language].tryIt : UI[language].seeIt;
+  note.textContent = currentProject.mediaNote
+    ? localized(currentProject.mediaNote, language)
+    : hasInteractiveSketch ? UI[language].interactiveNote : UI[language].mediaNote;
 
-  if (currentProject.media.type === "iframe") {
-    title.textContent = UI[language].tryIt;
-    note.textContent = UI[language].interactiveNote;
-    const viewport = document.createElement("div");
-    viewport.className = "interactive-viewport";
-    const frame = document.createElement("iframe");
-    frame.className = "interactive-frame";
-    frame.src = currentProject.media.src;
-    frame.title =
-      language === "es"
-        ? `Demo interactiva de ${localized(currentProject.title, language)}`
-        : `Interactive demo of ${localized(currentProject.title, language)}`;
-    frame.loading = "lazy";
-    frame.allowFullscreen = true;
-    const naturalWidth = 900;
-    const naturalHeight = currentProject.media.height;
-    frame.style.width = `${naturalWidth}px`;
-    frame.style.height = `${naturalHeight}px`;
-    viewport.append(frame);
-    container.append(viewport);
+  mediaItems.forEach((media) => {
+    if (media.type === "video") {
+      const block = document.createElement("div");
+      block.className = "media-item";
+      if (mediaItems.length > 1) {
+        const label = document.createElement("p");
+        label.className = "media-item__label";
+        label.textContent = UI[language].recordedDemo;
+        block.append(label);
+      }
+      const video = document.createElement("video");
+      video.className = "project-video";
+      video.controls = true;
+      video.preload = "metadata";
+      video.poster = media.poster;
+      video.setAttribute("playsinline", "");
+      video.setAttribute("aria-label", language === "es" ? "Demostración del proyecto" : "Project demonstration");
+      const source = document.createElement("source");
+      source.src = media.src;
+      source.type = "video/mp4";
+      video.append(source);
+      block.append(video);
+      container.append(block);
+    }
 
-    const fitFrame = () => {
-      const scale = Math.min(1, viewport.clientWidth / naturalWidth);
-      frame.style.transform = `scale(${scale})`;
-      viewport.style.height = `${naturalHeight * scale}px`;
-    };
-    fitFrame();
-    interactiveObserver = new ResizeObserver(fitFrame);
-    interactiveObserver.observe(viewport);
-  }
+    if (media.type === "iframe") {
+      const viewport = document.createElement("div");
+      viewport.className = "interactive-viewport";
+      const frame = document.createElement("iframe");
+      frame.className = "interactive-frame";
+      frame.src = media.src;
+      frame.title =
+        language === "es"
+          ? `Demo interactiva de ${localized(currentProject.title, language)}`
+          : `Interactive demo of ${localized(currentProject.title, language)}`;
+      frame.loading = "lazy";
+      frame.allowFullscreen = true;
+      const naturalWidth = 900;
+      const naturalHeight = media.height;
+      frame.style.width = `${naturalWidth}px`;
+      frame.style.height = `${naturalHeight}px`;
+      viewport.append(frame);
+      container.append(viewport);
+
+      const fitFrame = () => {
+        const scale = Math.min(1, viewport.clientWidth / naturalWidth);
+        frame.style.transform = `scale(${scale})`;
+        viewport.style.height = `${naturalHeight * scale}px`;
+      };
+      fitFrame();
+      const observer = new ResizeObserver(fitFrame);
+      observer.observe(viewport);
+      interactiveObservers.push(observer);
+    }
+
+    if (media.type === "website") {
+      const preview = document.createElement("div");
+      preview.className = "website-preview";
+      const toolbar = document.createElement("div");
+      toolbar.className = "website-preview__toolbar";
+      const status = document.createElement("span");
+      status.textContent = `${UI[language].livePreview} · ${new URL(media.src).hostname}`;
+      const external = document.createElement("a");
+      external.href = media.src;
+      external.target = "_blank";
+      external.rel = "noreferrer";
+      external.textContent = `${UI[language].openNewTab} ↗`;
+      toolbar.append(status, external);
+
+      const frame = document.createElement("iframe");
+      frame.className = "website-frame";
+      frame.src = media.src;
+      frame.title =
+        language === "es"
+          ? `Aplicación web de ${localized(currentProject.title, language)}`
+          : `${localized(currentProject.title, language)} web application`;
+      frame.loading = "lazy";
+      frame.referrerPolicy = "strict-origin-when-cross-origin";
+      frame.style.setProperty("--website-height", `${media.height || 700}px`);
+      preview.append(toolbar, frame);
+      container.append(preview);
+    }
+
+    if (media.type === "external") {
+      const preview = document.createElement("a");
+      preview.className = "external-preview";
+      preview.href = media.src;
+      preview.target = "_blank";
+      preview.rel = "noreferrer";
+      const image = document.createElement("img");
+      image.src = media.poster;
+      image.alt = localized(currentProject.alt, language);
+      const copy = document.createElement("span");
+      copy.className = "external-preview__copy";
+      const label = document.createElement("span");
+      label.textContent = `${UI[language].externalPreview} · ${new URL(media.src).hostname}`;
+      const action = document.createElement("strong");
+      action.textContent = `${UI[language].openWebsite} ↗`;
+      copy.append(label, action);
+      preview.append(image, copy);
+      container.append(preview);
+    }
+  });
 }
 
 function renderReport(language) {

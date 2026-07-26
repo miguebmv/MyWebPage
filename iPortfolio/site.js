@@ -6,8 +6,8 @@ const translations = {
     intro: "Construyo sistemas útiles donde se encuentran los datos, el machine learning y el software.",
     navAbout: "Sobre mí",
     navExperience: "Experiencia",
-    navWork: "Trabajo",
-    navArchive: "Archivo",
+    navWork: "Trabajo destacado",
+    navArchive: "Más proyectos",
     navContact: "Contacto",
     resume: "CV 2026 ↗",
     opening: "Mi trabajo empieza con datos reales y desordenados y termina en algo que las personas pueden entender, utilizar y en lo que pueden confiar.",
@@ -34,7 +34,8 @@ const translations = {
     resumeDocument: "Currículum",
     resumeUpdated: "Actualizado en mayo de 2026 · PDF · 1 página",
     fullResume: "Ver el CV completo",
-    workLabel: "Trabajo destacado",
+    workLabel: "Proyectos",
+    workTitle: "Trabajo destacado",
     workNote: "Cuatro proyectos que representan especialmente bien cómo pienso y construyo.",
     projectHeat: "Una plataforma bilingüe que convierte predicciones horarias en mapas locales de riesgo térmico y orientación contextual.",
     projectCloudya: "Datos climáticos de NOAA en tiempo real, mapas interactivos y un asistente visual servidos desde una Raspberry Pi.",
@@ -42,7 +43,8 @@ const translations = {
     projectFlight: "Tres millones de vuelos, contexto meteorológico y una comparación honesta de siete familias de modelos.",
     trafficTitle: "Tendencias de tráfico de California",
     projectTraffic: "Diez años de tráfico, población e ingresos combinados en una única historia analítica geoespacial.",
-    archiveLabel: "Archivo de proyectos",
+    archiveLabel: "Proyectos",
+    archiveTitle: "Más proyectos",
     archiveNote: "Ocho proyectos más completan el recorrido, desde modelado aplicado hasta los primeros experimentos interactivos.",
     year: "Año",
     project: "Proyecto",
@@ -278,7 +280,7 @@ if (portraitStage && draggablePortrait) {
   };
 
   const movePortrait = (event) => {
-    if (!drag) return;
+    if (!drag || event.pointerId !== drag.pointerId) return;
     const elapsed = event.timeStamp - drag.lastPointerTime;
     if (elapsed > 0 && elapsed < 120) {
       const instantVelocityX = ((event.clientX - drag.lastPointerX) / elapsed) * 1000;
@@ -305,9 +307,16 @@ if (portraitStage && draggablePortrait) {
   };
 
   draggablePortrait.addEventListener("pointerdown", (event) => {
-    if (!desktopPortrait.matches || reducedMotion.matches) return;
+    if (
+      drag ||
+      !desktopPortrait.matches ||
+      reducedMotion.matches ||
+      (event.pointerType === "mouse" && event.button !== 0)
+    ) return;
+    event.preventDefault();
     updateBounds();
     drag = {
+      pointerId: event.pointerId,
       pointerX: event.clientX,
       pointerY: event.clientY,
       startedAt: event.timeStamp,
@@ -327,11 +336,17 @@ if (portraitStage && draggablePortrait) {
     requestPortraitFrame();
   });
 
-  draggablePortrait.addEventListener("pointermove", movePortrait);
-  draggablePortrait.addEventListener("pointerup", (event) => {
+  const finishPortraitDrag = (event) => {
     if (!drag) return;
     const releasedDrag = drag;
-    const releaseAge = Math.max(0, event.timeStamp - releasedDrag.lastPointerTime);
+    if (
+      typeof event?.pointerId === "number" &&
+      event.pointerId !== releasedDrag.pointerId
+    ) return;
+    const releaseTime = Number.isFinite(event?.timeStamp)
+      ? event.timeStamp
+      : performance.now();
+    const releaseAge = Math.max(0, releaseTime - releasedDrag.lastPointerTime);
     const retainedPointerVelocity = Math.exp(-releaseAge / 180);
     const clampVelocity = (velocity) => Math.max(-950, Math.min(950, velocity));
     const dragDistanceX = releasedDrag.lastPointerX - releasedDrag.pointerX;
@@ -339,7 +354,7 @@ if (portraitStage && draggablePortrait) {
     const dragDistance = Math.hypot(dragDistanceX, dragDistanceY);
     const gestureDuration = Math.max(
       80,
-      Math.min(450, event.timeStamp - releasedDrag.startedAt)
+      Math.min(450, releaseTime - releasedDrag.startedAt)
     );
     const averageVelocityX = (dragDistanceX / gestureDuration) * 1000;
     const averageVelocityY = (dragDistanceY / gestureDuration) * 1000;
@@ -363,19 +378,19 @@ if (portraitStage && draggablePortrait) {
       state.velocityY = (dragDistanceY / dragDistance) * 360;
     }
     draggablePortrait.classList.remove("is-dragging");
-    if (draggablePortrait.hasPointerCapture(event.pointerId)) {
-      draggablePortrait.releasePointerCapture(event.pointerId);
+    if (draggablePortrait.hasPointerCapture(releasedDrag.pointerId)) {
+      draggablePortrait.releasePointerCapture(releasedDrag.pointerId);
     }
     requestPortraitFrame();
-  });
+  };
 
-  draggablePortrait.addEventListener("pointercancel", () => {
-    drag = null;
-    state.dragging = false;
-    state.targetX = state.x;
-    state.targetY = state.y;
-    draggablePortrait.classList.remove("is-dragging");
-    requestPortraitFrame();
+  draggablePortrait.addEventListener("pointermove", movePortrait);
+  document.addEventListener("pointerup", finishPortraitDrag);
+  document.addEventListener("pointercancel", finishPortraitDrag);
+  draggablePortrait.addEventListener("lostpointercapture", finishPortraitDrag);
+  window.addEventListener("blur", finishPortraitDrag);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) finishPortraitDrag();
   });
 
   window.addEventListener("resize", () => {

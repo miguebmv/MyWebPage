@@ -417,6 +417,7 @@ const spanishTranslations = {
   "Building Better Data Science Workflows": "Mejores flujos de trabajo para ciencia de datos",
   "A practical session on Git, GitHub and Data Version Control for reproducible, collaborative development, co-presented with Ryan Paul Lafler.":
     "Una sesión práctica sobre Git, GitHub y Data Version Control para un desarrollo reproducible y colaborativo, copresentada con Ryan Paul Lafler.",
+  "View slides ↗": "Ver presentación ↗",
   "Event page ↗": "Página del evento ↗",
   "Cover graphic for the PROC PYTHON and SAS Viya conference paper":
     "Portada de la publicación sobre PROC PYTHON y SAS Viya",
