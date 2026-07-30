@@ -1,2 +1,32 @@
 /projects  /projects.html  200
 /speaking  /speaking.html  200
+
+# The previous preview exposed V2 under /v2. Keep shared links working.
+/v2     /  301!
+/v2/*   /:splat  301!
+
+# Intermediate portfolio project links.
+/project       id=:id  /projects#:id  301
+/project.html  id=:id  /projects#:id  301
+/project       /projects  301
+/project.html  /projects  301
+
+# Original V1 project and conference URLs.
+/bda_project.html             /projects#cloudya  301
+/capstone_project.html        /projects#iheatapp  301
+/machine_learning.html        /projects#flight-delay  301
+/mis720.html                  /projects#diamond  301
+/mis_project.html             /projects#pharmasys  301
+/time-series-project.html     /projects#walmart  301
+/stat520.html                 /projects#mental-health  301
+/lab1-datavis.html            /projects#p5-game  301
+/lab2-datavis.html            /projects#campus-map  301
+/lab3-datavis.html            /projects#news-geo  301
+/lab4-datavis.html            /projects#us-crime  301
+/aisummit2025.html            /speaking  301
+/mwsug2024.html               /speaking  301
+/mwsug2025.html               /speaking  301
+/mwsug2025_comingsoon.html    /speaking  301
+/wuss_conference2024.html     /speaking  301
+/wuss_conference2025.html     /speaking  301
+/wuss_conference2025_comingsoon.html  /speaking  301

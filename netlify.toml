@@ -1,0 +1,11 @@
+[build]
+  command = "python3 scripts/validate_site.py"
+  publish = "iPortfolio/v2"
+
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
+

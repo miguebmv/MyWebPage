@@ -1,0 +1,8 @@
+.DS_Store
+.netlify/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+test-results/
+playwright-report/
+
