@@ -4,14 +4,14 @@ Source repository for [mabravo.com](https://mabravo.com).
 
 ## Production site
 
-The current portfolio lives in [`iPortfolio/v2`](iPortfolio/v2). Netlify publishes that directory
+The current portfolio lives in [`iPortfolio`](iPortfolio). Netlify publishes that directory
 directly from the `main` branch. The site is static and does not require a framework, package
 installation, runtime service, or environment variables.
 
 Run it locally:
 
 ```sh
-python3 -m http.server 8765 --directory iPortfolio/v2
+python3 -m http.server 8765 --directory iPortfolio
 ```
 
 Then open <http://127.0.0.1:8765>.
@@ -27,7 +27,7 @@ Browser smoke tests:
 ```sh
 python3 -m pip install -r requirements-dev.txt
 python3 -m playwright install chromium
-python3 -m http.server 8765 --directory iPortfolio/v2
+python3 -m http.server 8765 --directory iPortfolio
 # In another terminal:
 python3 tests/smoke.py
 ```
@@ -42,6 +42,5 @@ python3 tests/smoke.py
 ## Deployment
 
 [`netlify.toml`](netlify.toml) is the source of truth for the Netlify build. A successful push to
-`main` validates the static site and publishes `iPortfolio/v2`. Netlify retains earlier deploys for
+`main` validates the static site and publishes `iPortfolio`. Netlify retains earlier deploys for
 rollback.
-

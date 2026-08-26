@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Browser-level checks for the production V2 portfolio."""
+"""Browser-level checks for the production portfolio."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ BASE_URL = os.environ.get("SITE_BASE_URL", "http://127.0.0.1:8765").rstrip("/")
 
 def assert_page_health(page: Page) -> None:
     page.wait_for_load_state("networkidle")
-    for image in page.locator("img").all():
+    for image in page.locator("img:visible").all():
         image.scroll_into_view_if_needed()
     page.wait_for_function(
         """() => [...document.images].every(image => image.complete)"""
@@ -53,26 +53,24 @@ def run() -> None:
         page.on("requestfailed", lambda request: failed_requests.append(request.url))
 
         page.goto(f"{BASE_URL}/?lang=en")
-        assert page.title() == "Miguel Bravo — Data Scientist & AI Engineer"
+        assert page.title() == "Miguel Bravo — AI & Data Engineer"
         assert page.locator("html").get_attribute("lang") == "en"
-        assert page.get_by_role("heading", level=1).inner_text().startswith("I build data systems")
-        assert page.get_by_role("link", name="Browse all 12 projects").is_visible()
+        assert page.get_by_role("heading", level=1).inner_text() == "Miguel Bravo"
+        assert page.locator(".project").count() == 4
+        assert page.locator(".archive-card").count() == 8
         assert_page_health(page)
 
-        page.locator('[data-language="es"]').click()
+        page.locator("[data-language-toggle]").click()
         assert page.locator("html").get_attribute("lang") == "es"
-        assert page.get_by_role("heading", level=1).inner_text().startswith("Construyo sistemas")
+        assert "Ingeniero de datos e IA" in page.locator(".role").inner_text()
 
-        page.goto(f"{BASE_URL}/projects.html?lang=en")
-        assert page.locator(".project-card").count() == 12
-        assert page.locator(".case-study").count() == 4
-        page.get_by_role("button", name="AI / ML").click()
-        assert page.locator(".project-card:visible").count() == 7
-        page.get_by_role("button", name="All · 12").click()
-        assert page.locator(".project-card:visible").count() == 12
+        page.goto(f"{BASE_URL}/project.html?id=diamond")
+        page.locator("[data-project-title]").wait_for()
+        assert page.locator("[data-project-title]").inner_text() == "Modelado de precios de diamantes"
+        assert page.locator("[data-project-index] a").count() == 12
         assert_page_health(page)
 
-        page.goto(f"{BASE_URL}/speaking.html?lang=en")
+        page.goto(f"{BASE_URL}/v2/speaking.html?lang=en")
         assert page.locator(".speaker-card").count() == 4
         assert page.locator(".publication").count() == 4
         assert_page_health(page)
@@ -84,10 +82,8 @@ def run() -> None:
         )
         mobile_page = mobile.new_page()
         mobile_page.goto(f"{BASE_URL}/")
-        menu = mobile_page.locator(".menu-button")
-        assert menu.is_visible()
-        menu.click()
-        assert mobile_page.locator("#primary-menu").is_visible()
+        assert mobile_page.get_by_role("heading", level=1).inner_text() == "Miguel Bravo"
+        assert mobile_page.locator("html").get_attribute("lang") == "es"
         assert_page_health(mobile_page)
 
         assert not console_errors, f"Console errors: {console_errors}"
@@ -97,7 +93,7 @@ def run() -> None:
         desktop.close()
         browser.close()
 
-    print("Browser smoke tests passed: desktop, mobile, language, filters, images and console.")
+    print("Browser smoke tests passed: desktop, mobile, language, projects, images and console.")
 
 
 if __name__ == "__main__":

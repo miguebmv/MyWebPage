@@ -10,18 +10,18 @@ from urllib.parse import unquote, urlparse
 
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
-SITE_ROOT = REPOSITORY_ROOT / "iPortfolio" / "v2"
+SITE_ROOT = REPOSITORY_ROOT / "iPortfolio"
 REQUIRED_FILES = {
     "index.html",
-    "projects.html",
-    "speaking.html",
+    "project.html",
     "404.html",
     "_redirects",
     "robots.txt",
     "sitemap.xml",
-    "assets/css/site.css",
-    "assets/js/i18n.js",
-    "assets/js/site.js",
+    "styles.css",
+    "data-field.js",
+    "project.js",
+    "site.js",
 }
 URL_ATTRIBUTES = {"href", "src", "data", "poster"}
 
@@ -94,7 +94,7 @@ def validate() -> list[str]:
                 )
 
     redirect_rules = (SITE_ROOT / "_redirects").read_text(encoding="utf-8")
-    for required_route in ("/projects", "/speaking", "/v2/*"):
+    for required_route in ("/speaking",):
         if required_route not in redirect_rules:
             errors.append(f"Missing redirect compatibility rule: {required_route}")
 
@@ -117,4 +117,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
