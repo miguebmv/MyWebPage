@@ -34,7 +34,9 @@ python3 tests/smoke.py
 
 ## Version history
 
-- `main` contains the production V2 and its deployment configuration.
+- `main` contains the production design and its deployment configuration. The intermediate V2
+  design (formerly under `iPortfolio/v2`) was retired in October 2026; `/v2/*` URLs redirect to the
+  current pages and its source remains in git history.
 - The original V1 is preserved in the remote branch
   `archive/legacy-portfolio-2026-07-26` and the immutable tag `v1-final`.
 - V1 is intentionally not published as a legacy website.

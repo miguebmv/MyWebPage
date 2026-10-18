@@ -1698,6 +1698,38 @@ footer a:hover {
   margin-top: 38px;
 }
 
+.card-links a {
+  color: var(--ink-strong);
+  transition: color 180ms ease;
+}
+
+.card-links a:hover {
+  color: var(--accent);
+}
+
+.speaking-note {
+  max-width: 680px;
+  margin: 52px 0 0;
+  color: var(--faint);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.speaking-section .contact-row {
+  grid-template-columns: 190px minmax(0, 1fr) auto;
+}
+
+@media (max-width: 600px) {
+  .speaking-section .contact-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px 18px;
+  }
+
+  .speaking-section .contact-row > span {
+    grid-column: 1 / -1;
+  }
+}
+
 @media (max-width: 900px) {
   .ambient {
     background: radial-gradient(500px circle at 10% 0%, var(--cursor-glow-mobile), transparent 60%);

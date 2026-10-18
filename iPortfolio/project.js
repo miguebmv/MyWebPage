@@ -140,11 +140,11 @@ const PROJECTS = {
       },
       {
         type: "video",
-        src: "v2/assets/img/cloudya-demo.mp4",
-        poster: "v2/assets/img/cloudya-interface.jpg"
+        src: "assets/img/cloudya-demo.mp4",
+        poster: "assets/img/cloudya-interface.jpg"
       }
     ],
-    pdf: { src: "v2/assets/docs/weather-with-cloudya.pdf", pages: 33 }
+    pdf: { src: "assets/docs/weather-with-cloudya.pdf", pages: 33 }
   },
 
   "flight-delay": {
@@ -196,9 +196,9 @@ const PROJECTS = {
     ],
     actions: [
       { label: { en: "View code", es: "Ver código" }, href: "https://github.com/miguebmv/BDA602_MachineLearning" },
-      { label: { en: "Course report", es: "Informe académico" }, href: "v2/assets/docs/flight-delay-course-report.pdf" }
+      { label: { en: "Course report", es: "Informe académico" }, href: "assets/docs/flight-delay-course-report.pdf" }
     ],
-    pdf: { src: "v2/assets/docs/flight-delay-wuss-paper.pdf", pages: 19 }
+    pdf: { src: "assets/docs/flight-delay-wuss-paper.pdf", pages: 19 }
   },
 
   "california-traffic": {
@@ -257,7 +257,7 @@ const PROJECTS = {
       src: "https://sites.google.com/sdsu.edu/miguelsamigos",
       poster: "assets/project-california-traffic-v1.jpg"
     },
-    pdf: { src: "v2/assets/docs/california-traffic.pdf", pages: 13 }
+    pdf: { src: "assets/docs/california-traffic.pdf", pages: 13 }
   },
 
   diamond: {
@@ -303,7 +303,7 @@ const PROJECTS = {
         }
       }
     ],
-    pdf: { src: "v2/assets/docs/diamond-prices.pdf", pages: 20 }
+    pdf: { src: "assets/docs/diamond-prices.pdf", pages: 20 }
   },
 
   pharmasys: {
@@ -352,7 +352,7 @@ const PROJECTS = {
     actions: [
       { label: { en: "Open notebook", es: "Abrir notebook" }, href: "https://colab.research.google.com/drive/1uCPlmbss821ahzybFM6u0MFWT-WA0nnj?usp=sharing" }
     ],
-    pdf: { src: "v2/assets/docs/pharmasys.pdf", pages: 20 }
+    pdf: { src: "assets/docs/pharmasys.pdf", pages: 20 }
   },
 
   walmart: {
@@ -398,7 +398,7 @@ const PROJECTS = {
         }
       }
     ],
-    pdf: { src: "v2/assets/docs/walmart-sales.pdf", pages: 16 }
+    pdf: { src: "assets/docs/walmart-sales.pdf", pages: 16 }
   },
 
   "mental-health": {
@@ -444,7 +444,7 @@ const PROJECTS = {
         }
       }
     ],
-    pdf: { src: "v2/assets/docs/mental-health-tech.pdf", pages: 29 }
+    pdf: { src: "assets/docs/mental-health-tech.pdf", pages: 29 }
   },
 
   "p5-game": {

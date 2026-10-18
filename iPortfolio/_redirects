@@ -1,1 +1,35 @@
-/speaking  /v2/speaking.html  200
+# Speaking page (new design).
+/speaking  /speaking.html  200
+
+# The previous V2 design lived under /v2 and has been retired.
+/v2/speaking       /speaking  301!
+/v2/speaking.html  /speaking  301!
+/v2/projects       /#work     301!
+/v2/projects.html  /#work     301!
+/v2/assets/*       /assets/:splat  301!
+/v2                /          301!
+/v2/*              /          301!
+
+# V2 project pages.
+/projects       /#work  301
+/projects.html  /#work  301
+
+# Original V1 project and conference URLs.
+/bda_project.html             /project.html?id=cloudya  301
+/capstone_project.html        /project.html?id=iheatapp  301
+/machine_learning.html        /project.html?id=flight-delay  301
+/mis720.html                  /project.html?id=diamond  301
+/mis_project.html             /project.html?id=pharmasys  301
+/time-series-project.html     /project.html?id=walmart  301
+/stat520.html                 /project.html?id=mental-health  301
+/lab1-datavis.html            /project.html?id=p5-game  301
+/lab2-datavis.html            /project.html?id=campus-map  301
+/lab3-datavis.html            /project.html?id=news-geo  301
+/lab4-datavis.html            /project.html?id=us-crime  301
+/aisummit2025.html            /speaking  301
+/mwsug2024.html               /speaking  301
+/mwsug2025.html               /speaking  301
+/mwsug2025_comingsoon.html    /speaking  301
+/wuss_conference2024.html     /speaking  301
+/wuss_conference2025.html     /speaking  301
+/wuss_conference2025_comingsoon.html  /speaking  301

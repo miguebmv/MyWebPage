@@ -70,9 +70,9 @@ def run() -> None:
         assert page.locator("[data-project-index] a").count() == 12
         assert_page_health(page)
 
-        page.goto(f"{BASE_URL}/v2/speaking.html?lang=en")
-        assert page.locator(".speaker-card").count() == 4
-        assert page.locator(".publication").count() == 4
+        page.goto(f"{BASE_URL}/speaking.html?lang=en")
+        assert page.locator(".archive-card").count() == 4
+        assert page.locator(".contact-row").count() == 4
         assert_page_health(page)
 
         mobile = browser.new_context(

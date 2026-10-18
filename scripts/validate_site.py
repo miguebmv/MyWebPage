@@ -21,6 +21,8 @@ REQUIRED_FILES = {
     "styles.css",
     "data-field.js",
     "project.js",
+    "speaking.html",
+    "speaking.js",
     "site.js",
 }
 URL_ATTRIBUTES = {"href", "src", "data", "poster"}
