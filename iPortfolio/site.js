@@ -25,7 +25,7 @@ const translations = {
     datePremier: "May 2025 — feb 2026",
     premierRole: "Consultor de IA y ciencia de datos",
     premierCopy: "Construyo pipelines de datos en producción, backends con FastAPI, sistemas de IA en contenedores y asistentes multilingües para entornos cloud y on-premise.",
-    dateIheat: "Jun 2024 — nov 2025",
+    dateIheat: "Jun 2024 — feb 2026",
     iheatRole: "Científico de datos e IA junior",
     iheatCopy: "Desarrollé predicciones horarias de riesgo térmico, pipelines geoespaciales y un producto bilingüe asistido por IA para comunidades de Imperial Valley, California.",
     dateCics: "Ago 2023 — may 2024",

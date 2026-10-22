@@ -17,7 +17,7 @@ const PROJECTS = {
   iheatapp: {
     title: { en: "iHeatApp", es: "iHeatApp" },
     context: { en: "Climate informatics · Professional research", es: "Informática climática · Investigación profesional" },
-    year: "2024—25",
+    year: "2024—26",
     cover: "assets/project-iheatapp-v1.jpg",
     alt: {
       en: "Editorial heat-risk map of Imperial Valley",
