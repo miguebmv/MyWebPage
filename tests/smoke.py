@@ -72,7 +72,7 @@ def run() -> None:
 
         page.goto(f"{BASE_URL}/speaking.html?lang=en")
         assert page.locator(".archive-card").count() == 4
-        assert page.locator(".contact-row").count() == 4
+        assert page.locator(".contact-row").count() == 5
         assert_page_health(page)
 
         mobile = browser.new_context(
