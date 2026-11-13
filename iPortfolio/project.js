@@ -712,7 +712,7 @@ function createAction(action, language, className = "detail-button") {
   const anchor = document.createElement("a");
   anchor.className = className;
   anchor.href = action.href;
-  anchor.textContent = `${localized(action.label, language)} ↗`;
+  anchor.textContent = `${localized(action.label, language)} ↗︎`;
   if (/^https?:/.test(action.href)) {
     anchor.target = "_blank";
     anchor.rel = "noreferrer";
@@ -891,7 +891,7 @@ function renderMedia(language) {
       external.href = media.src;
       external.target = "_blank";
       external.rel = "noreferrer";
-      external.textContent = `${UI[language].openNewTab} ↗`;
+      external.textContent = `${UI[language].openNewTab} ↗︎`;
       toolbar.append(status, external);
 
       const frame = document.createElement("iframe");
@@ -922,7 +922,7 @@ function renderMedia(language) {
       const label = document.createElement("span");
       label.textContent = `${UI[language].externalPreview} · ${new URL(media.src).hostname}`;
       const action = document.createElement("strong");
-      action.textContent = `${UI[language].openWebsite} ↗`;
+      action.textContent = `${UI[language].openWebsite} ↗︎`;
       copy.append(label, action);
       preview.append(image, copy);
       container.append(preview);
