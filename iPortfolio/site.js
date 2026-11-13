@@ -43,7 +43,7 @@ const translations = {
     fullResume: "Ver el CV completo",
     workLabel: "Proyectos",
     workTitle: "Trabajo destacado",
-    workNote: "Cuatro proyectos que representan especialmente bien cómo pienso y construyo.",
+    workNote: "Primero tres proyectos principales y después nueve más, ordenados aproximadamente por lo bien que reflejan cómo pienso y construyo.",
     projectHeat: "Una plataforma bilingüe que convierte predicciones horarias en mapas locales de riesgo térmico y orientación contextual.",
     projectCloudya: "Datos climáticos de NOAA en tiempo real, mapas interactivos y un asistente visual servidos desde una Raspberry Pi.",
     flightTitle: "Predicción de retrasos de vuelos",

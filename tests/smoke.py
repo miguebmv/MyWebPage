@@ -56,8 +56,8 @@ def run() -> None:
         assert page.title() == "Miguel Bravo — AI & Data Engineer"
         assert page.locator("html").get_attribute("lang") == "en"
         assert page.get_by_role("heading", level=1).inner_text() == "Miguel Bravo"
-        assert page.locator(".project").count() == 4
-        assert page.locator(".archive-card").count() == 8
+        assert page.locator(".project").count() == 3
+        assert page.locator(".archive-card").count() == 9
         assert_page_health(page)
 
         page.locator("[data-language-toggle]").click()

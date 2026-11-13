@@ -84,10 +84,14 @@ img {
   padding: 10px 14px;
   background: var(--ink-strong);
   color: var(--bg);
-  transform: translateY(-150%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(calc(-100% - 40px));
 }
 
 .skip-link:focus {
+  opacity: 1;
+  pointer-events: auto;
   transform: translateY(0);
 }
 
@@ -2281,4 +2285,8 @@ footer a:hover {
 
 .publication-link:hover b {
   transform: translate(3px, -3px);
+}
+
+.more-label {
+  margin: 96px 0 40px;
 }
