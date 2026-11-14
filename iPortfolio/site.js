@@ -48,7 +48,7 @@ const translations = {
     focus: "En Celonis, ayudo a las empresas a conseguir valor medible de sus procesos con IA.",
     explore: "Ver mi trabajo",
     aboutLabel: "Sobre mí",
-    aboutOne: "Soy de Granada, vivo en Madrid y me dedico a los datos y a la IA, pero también a traducirlos en algo que la dirección entienda y pueda usar para decidir. Me muevo por todo el recorrido: de los datos en bruto y los modelos a las APIs, las interfaces y el despliegue.",
+    aboutOne: "Soy de Granada, vivo en Madrid y me dedico a los datos y a la IA. Me muevo por todo el recorrido: desde los modelos, las APIs, el diseño y la puesta en marcha de agentes de IA y soluciones orquestadas hasta explicárselo a la dirección para que lo entienda y pueda decidir.",
     aboutTwo: "La robótica me enseñó a pensar en sistemas. La investigación en informática climática, a construirlos con rigor. Y la consultoría me mantiene con los pies en la tierra: lo que hago tiene que servirle de verdad a la gente y a las empresas.",
     portraitCaption: "Ingeniero, investigador y siempre con algo entre manos.",
     experienceLabel: "Experiencia",
