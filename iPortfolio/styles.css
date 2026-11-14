@@ -2819,8 +2819,8 @@ footer a:hover {
 
 .career-wheel {
   display: grid;
-  grid-template-columns: 260px minmax(0, 420px);
-  gap: 12px 44px;
+  grid-template-columns: 330px minmax(0, 420px);
+  gap: 12px 32px;
   align-items: center;
   justify-content: center;
   margin-top: 28px;
@@ -2967,4 +2967,8 @@ footer a:hover {
 .wheel-text--small {
   font-size: 12px;
   line-height: 1;
+}
+
+.career-wheel .logo-dark {
+  height: var(--logo-h-dark, var(--logo-h, 40px));
 }
