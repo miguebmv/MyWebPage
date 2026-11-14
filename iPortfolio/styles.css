@@ -2963,3 +2963,8 @@ footer a:hover {
     padding-top: 56px;
   }
 }
+
+.wheel-text--small {
+  font-size: 12px;
+  line-height: 1;
+}

@@ -46,7 +46,7 @@
       place: { en: "Ohio · Exchange at Miami University", es: "Ohio · Intercambio en Miami University" }
     },
     {
-      city: "San Diego", point: [177.8, 307.5], from: monthIndex(2023, 6), to: monthIndex(2026, 3), hold: 3.3,
+      city: "San Diego", point: [177.8, 307.5], from: monthIndex(2023, 6), to: monthIndex(2026, 3), hold: 5.8,
       place: { en: "San Diego · MSc at SDSU, iHeatApp and Premier", es: "San Diego · Máster en SDSU, iHeatApp y Premier" }
     },
     {
@@ -56,8 +56,8 @@
   ];
   // Which logos in the wheel belong to each stop, and when they step in (seconds into the stay).
   const STOP_SLOTS = [[0], [1], [2], [3, 4, 5], [6]];
-  const SLOT_STEPS = [[0], [0], [0], [0, 1.1, 2.2], [0]];
-  const WHEEL_TRANSITION = 0.7;
+  const SLOT_STEPS = [[0], [0], [0], [0, 1.9, 3.8], [0]];
+  const WHEEL_TRANSITION = 0.9;
   const SLOT_INFO = [
     { name: "Granada", role: { en: "Where it all started", es: "Donde empezó todo" } },
     { name: "Universidad de Málaga", role: { en: "BSc in Electronics, Robotics & Mechatronics Engineering", es: "Grado en Ingeniería Electrónica, Robótica y Mecatrónica" } },
@@ -134,7 +134,7 @@
       [pose.x, pose.y] = stop.point;
       pose.completed = segment.index;
       if (stop.from !== null) {
-        pose.date = formatMonth(mix(stop.from, stop.to, easeOut(Math.min(1, local / 0.85))));
+        pose.date = formatMonth(mix(stop.from, stop.to, Math.min(1, local / 0.92)));
       }
       pose.place = stop.place[language()];
     } else if (segment.kind === "travel") {
