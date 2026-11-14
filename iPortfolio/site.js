@@ -29,6 +29,10 @@ const translations = {
     cicsB1: "Apliqué estadística multivariante y series temporales para estudiar la dinámica de nutrientes y la eutrofización en cuencas agrícolas irlandesas.",
     cicsB2: "Desarrollé pipelines automáticos en R de limpieza, interpolación y marcado de calidad, mejorando la reproducibilidad.",
     cicsB3: "Apoyé el modelado predictivo de tendencias de nutrientes con regresión y clustering espaciotemporal.",
+    mImpact: "Factor de impacto",
+    mCited: "Citas",
+    mNew: "Nuevo",
+    pubNote: "Métricas de las revistas según ScienceDirect (noviembre de 2026). El número de citas se actualiza en directo desde OpenAlex.",
     navPublications: "Publicaciones",
     publicationsLabel: "Publicaciones",
     pubOneCopy: "Artículo como primer autor sobre la arquitectura y el marco de modelado de iHeatApp, la plataforma bilingüe de riesgo térmico para comunidades agrícolas.",
@@ -459,3 +463,40 @@ if ("IntersectionObserver" in window) {
   }, { rootMargin: "-30% 0px -55%", threshold: [0, 0.2, 0.5] });
   sections.forEach((section) => observer.observe(section));
 }
+
+const CITATION_TTL = 6 * 60 * 60 * 1000;
+
+async function fetchCitations(doi) {
+  const key = `mabravo-citations-${doi}`;
+  try {
+    const cached = JSON.parse(sessionStorage.getItem(key) || "null");
+    if (cached && Date.now() - cached.time < CITATION_TTL) return cached.count;
+  } catch {}
+
+  let count = null;
+  try {
+    const response = await fetch(`https://api.openalex.org/works/doi:${doi}?select=cited_by_count`);
+    if (response.ok) count = (await response.json()).cited_by_count;
+  } catch {}
+  if (typeof count !== "number") {
+    try {
+      const response = await fetch(`https://api.crossref.org/works/${doi}`);
+      if (response.ok) count = (await response.json()).message["is-referenced-by-count"];
+    } catch {}
+  }
+  if (typeof count === "number") {
+    try {
+      sessionStorage.setItem(key, JSON.stringify({ time: Date.now(), count }));
+    } catch {}
+  }
+  return count;
+}
+
+document.querySelectorAll("[data-citations]").forEach(async (element) => {
+  const count = await fetchCitations(element.dataset.citations);
+  if (typeof count !== "number" || count < 1) return;
+  const value = element.querySelector("[data-cit-count]");
+  value.textContent = count;
+  value.hidden = false;
+  element.querySelector("[data-cit-new]").hidden = true;
+});
