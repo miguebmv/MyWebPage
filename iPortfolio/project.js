@@ -16,48 +16,48 @@ const PROJECT_ORDER = [
 const PROJECTS = {
   iheatapp: {
     title: { en: "iHeatApp", es: "iHeatApp" },
-    context: { en: "Climate informatics · Professional research", es: "Informática climática · Investigación profesional" },
+    context: { en: "Climate informatics · Professional research", es: "Informática climática · Investigación" },
     year: "2024—26",
     cover: "assets/project-iheatapp-v1.jpg",
     alt: {
       en: "Editorial heat-risk map of Imperial Valley",
-      es: "Mapa editorial de riesgo térmico de Imperial Valley"
+      es: "Ilustración de un mapa de riesgo por calor de Imperial Valley"
     },
     lead: {
       en: "A bilingual platform that turns hourly forecasts into understandable heat-risk maps and contextual guidance for agricultural communities in California’s Imperial Valley.",
-      es: "Una plataforma bilingüe que transforma predicciones horarias en mapas comprensibles de riesgo térmico y orientación contextual para comunidades agrícolas de Imperial Valley, California."
+      es: "Una plataforma bilingüe que convierte previsiones horarias en mapas claros de riesgo por calor y recomendaciones para comunidades agrícolas de Imperial Valley, California."
     },
     stack: ["Python", "xarray", "Herbie", "Geospatial AI", "EN / ES"],
     facts: [
-      [{ en: "Role", es: "Función" }, { en: "Junior AI & Data Scientist", es: "Científico de datos e IA junior" }],
-      [{ en: "Data", es: "Datos" }, { en: "NOAA NBM · Hourly", es: "NOAA NBM · Horarios" }],
+      [{ en: "Role", es: "Puesto" }, { en: "AI & Data Scientist", es: "Científico de datos e IA" }],
+      [{ en: "Data", es: "Datos" }, { en: "NOAA NBM · Hourly", es: "NOAA NBM · Cada hora" }],
       [{ en: "Region", es: "Región" }, { en: "Imperial Valley, California", es: "Imperial Valley, California" }],
-      [{ en: "Output", es: "Resultado" }, { en: "Maps · Forecasts · AI assistant", es: "Mapas · Predicciones · Asistente IA" }]
+      [{ en: "Output", es: "Resultado" }, { en: "Maps · Forecasts · AI assistant", es: "Mapas · Previsiones · Asistente con IA" }]
     ],
     story: [
       {
         title: { en: "The problem", es: "El problema" },
         body: {
           en: ["Outdoor heat exposure is not represented by air temperature alone. Workers and supervisors need local Wet Bulb Globe Temperature information, but the underlying forecast data and technical definitions are difficult to access and interpret."],
-          es: ["La temperatura del aire no representa por sí sola toda la exposición al calor exterior. Trabajadores y supervisores necesitan información local del índice Wet Bulb Globe Temperature, pero los datos y las definiciones técnicas son difíciles de consultar e interpretar."]
+          es: ["La temperatura del aire no basta para medir la exposición al calor al aire libre. Trabajadores y supervisores necesitan datos locales del índice Wet Bulb Globe Temperature (WBGT), pero tanto los datos como las definiciones técnicas son difíciles de consultar e interpretar."]
         }
       },
       {
         title: { en: "My contribution", es: "Mi contribución" },
         body: {
           en: ["I developed and validated Python forecast pipelines using NOAA NBM data, integrated hourly WBGT outputs into the geospatial workflow, and contributed to the bilingual assistant and full-stack product."],
-          es: ["Desarrollé y validé pipelines de predicción en Python con datos NOAA NBM, integré resultados WBGT horarios en el flujo geoespacial y colaboré en el asistente bilingüe y el producto full-stack."]
+          es: ["Desarrollé y validé pipelines de previsión en Python con datos de NOAA NBM, integré los resultados horarios de WBGT en el flujo geoespacial y colaboré en el asistente bilingüe y en el producto full-stack."]
         },
         bullets: {
           en: ["Acquire and process structured forecasts with Herbie and xarray.", "Calculate geospatial heat-risk outputs for hourly updates.", "Explain risk indices and product usage in English and Spanish."],
-          es: ["Obtener y procesar predicciones estructuradas con Herbie y xarray.", "Calcular resultados geoespaciales de riesgo térmico para actualizaciones horarias.", "Explicar índices de riesgo y el uso del producto en inglés y español."]
+          es: ["Descargar y procesar previsiones estructuradas con Herbie y xarray.", "Calcular el riesgo por calor sobre el mapa con actualizaciones cada hora.", "Explicar los índices de riesgo y cómo usar el producto, en inglés y en español."]
         }
       },
       {
         title: { en: "What it produced", es: "Qué produjo" },
         body: {
-          en: ["The work became a publicly documented SDSU research product and supported peer-reviewed research on its architecture, modelling framework and user-centred evaluation."],
-          es: ["El trabajo se convirtió en un producto de investigación de SDSU documentado públicamente y respaldó investigación revisada por pares sobre su arquitectura, modelado y evaluación centrada en el usuario."]
+          en: ["The work became a publicly documented SDSU research product and led to two peer-reviewed papers in Elsevier journals: one on its architecture and modelling framework (IJDRR) and one on the AI chatbot (Climate Services)."],
+          es: ["El trabajo se convirtió en un producto de investigación de SDSU con documentación pública y dio lugar a dos artículos con revisión por pares en revistas de Elsevier: uno sobre su arquitectura y su modelo (IJDRR) y otro sobre el chatbot de IA (Climate Services)."]
         }
       }
     ],
@@ -68,7 +68,7 @@ const PROJECTS = {
     mediaTitle: { en: "Explore iHeatApp live.", es: "Explora iHeatApp en directo." },
     mediaNote: {
       en: "The deployed application is embedded below. You can explore the map here or open the full experience in a new tab.",
-      es: "La aplicación desplegada está embebida abajo. Puedes explorar el mapa aquí o abrir la experiencia completa en otra pestaña."
+      es: "La aplicación real está integrada aquí abajo. Puedes explorar el mapa desde aquí o abrirla completa en otra pestaña."
     },
     media: {
       type: "website",
@@ -84,16 +84,16 @@ const PROJECTS = {
     cover: "assets/project-cloudya-v1.jpg",
     alt: {
       en: "Editorial illustration of weather data flowing into compact computing hardware",
-      es: "Ilustración editorial de datos meteorológicos fluyendo hacia hardware compacto"
+      es: "Ilustración de datos meteorológicos llegando a un equipo pequeño"
     },
     lead: {
       en: "A self-hosted platform that makes hourly NOAA climate data explorable through a fast map interface and a vision assistant running from a Raspberry Pi.",
-      es: "Una plataforma autoalojada que permite explorar datos climáticos horarios de NOAA mediante un mapa rápido y un asistente visual ejecutado desde una Raspberry Pi."
+      es: "Una plataforma autoalojada para explorar los datos climáticos horarios de NOAA con un mapa rápido y un asistente con visión, todo corriendo en una Raspberry Pi."
     },
     stack: ["FastAPI", "React", "Deck.gl", "Docker", "Raspberry Pi"],
     facts: [
-      [{ en: "Role", es: "Función" }, { en: "Full-stack team contributor", es: "Contribución full-stack en equipo" }],
-      [{ en: "Source", es: "Fuente" }, { en: "NOAA RTMA · 2.5 km grid", es: "NOAA RTMA · Malla de 2,5 km" }],
+      [{ en: "Role", es: "Puesto" }, { en: "Full-stack team contributor", es: "Desarrollo full-stack en equipo" }],
+      [{ en: "Source", es: "Fuente" }, { en: "NOAA RTMA · 2.5 km grid", es: "NOAA RTMA · Rejilla de 2,5 km" }],
       [{ en: "System", es: "Sistema" }, { en: "5 layers · 80–100 day cache", es: "5 capas · Caché de 80–100 días" }],
       [{ en: "Host", es: "Servidor" }, { en: "Raspberry Pi 4 · External SSD", es: "Raspberry Pi 4 · SSD externo" }]
     ],
@@ -102,35 +102,35 @@ const PROJECTS = {
         title: { en: "The problem", es: "El problema" },
         body: {
           en: ["NOAA’s real-time mesoscale analysis is scientifically valuable, but its archive is enormous and its file formats are not designed for casual exploration in a browser."],
-          es: ["El análisis de mesoescala en tiempo real de NOAA tiene gran valor científico, pero su archivo es enorme y sus formatos no están diseñados para explorarse fácilmente desde un navegador."]
+          es: ["El análisis de mesoescala en tiempo real de NOAA es muy valioso a nivel científico, pero su archivo es enorme y sus formatos no están pensados para explorarlos cómodamente desde un navegador."]
         }
       },
       {
         title: { en: "The system", es: "El sistema" },
         body: {
           en: ["I contributed across environmental data processing, API design, geospatial conversion, React visualisation, Docker deployment and the physical edge-computing infrastructure."],
-          es: ["Contribuí en el procesamiento de datos ambientales, el diseño de APIs, la conversión geoespacial, la visualización con React, el despliegue con Docker y la infraestructura física de edge computing."]
+          es: ["Participé en el procesamiento de datos ambientales, el diseño de la API, la conversión geoespacial, la visualización con React, el despliegue con Docker y la infraestructura física de edge computing."]
         },
         bullets: {
           en: ["Process hourly RTMA files with xarray, rioxarray and SciPy.", "Serve compact payloads through FastAPI and ORJSON.", "Render interactive layers with React and Deck.gl.", "Connect a LLaMA 3.2 Vision assistant to screenshots and map context."],
-          es: ["Procesar archivos RTMA horarios con xarray, rioxarray y SciPy.", "Servir respuestas compactas mediante FastAPI y ORJSON.", "Representar capas interactivas con React y Deck.gl.", "Conectar un asistente LLaMA 3.2 Vision con capturas y contexto del mapa."]
+          es: ["Procesar archivos RTMA horarios con xarray, rioxarray y SciPy.", "Servir respuestas ligeras con FastAPI y ORJSON.", "Pintar capas interactivas con React y Deck.gl.", "Conectar un asistente LLaMA 3.2 Vision con capturas y con el contexto del mapa."]
         }
       },
       {
         title: { en: "What it proves", es: "Qué demuestra" },
         body: {
           en: ["Open environmental data, containerised services and modest hardware can form a useful end-to-end product when storage, payload size and deployment constraints are treated as design inputs."],
-          es: ["Los datos ambientales abiertos, los servicios en contenedores y un hardware modesto pueden formar un producto completo cuando el almacenamiento, el tamaño de las respuestas y el despliegue se tratan como decisiones de diseño."]
+          es: ["Con datos ambientales abiertos, servicios en contenedores y un hardware modesto se puede montar un producto completo si el almacenamiento, el tamaño de las respuestas y el despliegue se tratan como decisiones de diseño."]
         }
       }
     ],
     actions: [
-      { label: { en: "Live application", es: "Aplicación" }, href: "https://datamigos.win/" }
+      { label: { en: "Live application", es: "Ver la aplicación" }, href: "https://datamigos.win/" }
     ],
     mediaTitle: { en: "Explore the live system.", es: "Explora el sistema en directo." },
     mediaNote: {
       en: "The public application and the original recorded walkthrough are both preserved below.",
-      es: "La aplicación pública y el recorrido original en vídeo se conservan a continuación."
+      es: "Aquí abajo están la aplicación pública y el vídeo original del recorrido."
     },
     media: [
       {
@@ -149,16 +149,16 @@ const PROJECTS = {
 
   "flight-delay": {
     title: { en: "Flight Delay Prediction", es: "Predicción de retrasos de vuelos" },
-    context: { en: "Machine learning · Conference research", es: "Machine learning · Investigación presentada" },
+    context: { en: "Machine learning · Conference research", es: "Machine learning · Investigación presentada en congreso" },
     year: "2024",
     cover: "assets/project-flight-delay-v1.jpg",
     alt: {
       en: "Editorial illustration of flight paths and a diverging delay signal",
-      es: "Ilustración editorial de rutas aéreas y una señal divergente de retraso"
+      es: "Ilustración de rutas aéreas y de una señal de retraso que se desvía"
     },
     lead: {
       en: "A reproducible classification workflow joining aviation and weather data, comparing seven model families and presenting the results at WUSS 2024.",
-      es: "Un flujo de clasificación reproducible que combina aviación y meteorología, compara siete familias de modelos y presenta los resultados en WUSS 2024."
+      es: "Un flujo de clasificación reproducible que une datos de aviación y meteorología, compara siete familias de modelos y se presentó en WUSS 2024."
     },
     stack: ["Python", "XGBoost", "Pandas", "Streamlit", "SAS"],
     facts: [
@@ -172,31 +172,31 @@ const PROJECTS = {
         title: { en: "The question", es: "La pregunta" },
         body: {
           en: ["Can delay risk be estimated from historical flight operations and weather conditions without hiding the difficulty created by class imbalance and operational variability?"],
-          es: ["¿Puede estimarse el riesgo de retraso a partir del histórico de vuelos y del tiempo sin ocultar la dificultad causada por el desequilibrio de clases y la variabilidad operativa?"]
+          es: ["¿Se puede estimar el riesgo de retraso a partir del histórico de vuelos y de la meteorología sin esconder lo difícil que lo hacen el desequilibrio de clases y la variabilidad operativa?"]
         }
       },
       {
         title: { en: "The workflow", es: "El flujo de trabajo" },
         body: {
           en: ["I worked within the project team on data preparation, model comparison, analysis and the communication of results."],
-          es: ["Trabajé dentro del equipo en la preparación de datos, la comparación de modelos, el análisis y la comunicación de resultados."]
+          es: ["Trabajé en equipo en la preparación de los datos, la comparación de modelos, el análisis y la comunicación de los resultados."]
         },
         bullets: {
           en: ["Join flight and weather observations into a reproducible modelling table.", "Compare seven model families under the same evaluation framework.", "Expose the analysis through a Streamlit application and conference paper."],
-          es: ["Combinar observaciones de vuelos y meteorología en una tabla reproducible.", "Comparar siete familias de modelos con el mismo marco de evaluación.", "Presentar el análisis mediante una aplicación Streamlit y un paper."]
+          es: ["Unir vuelos y meteorología en una única tabla reproducible para modelar.", "Comparar siete familias de modelos con la misma evaluación.", "Presentar el análisis en una app de Streamlit y en un paper."]
         }
       },
       {
         title: { en: "The useful result", es: "El resultado útil" },
         body: {
           en: ["The project treats moderate performance honestly. The value lies in a transparent baseline, a reproducible comparison and a clear account of what the available features can and cannot explain."],
-          es: ["El proyecto trata un rendimiento moderado con honestidad. Su valor está en una referencia transparente, una comparación reproducible y una explicación clara de lo que las variables disponibles pueden y no pueden explicar."]
+          es: ["El proyecto es honesto con un rendimiento moderado. Su valor está en una base de comparación transparente, una comparación reproducible y una explicación clara de qué pueden y qué no pueden explicar las variables disponibles."]
         }
       }
     ],
     actions: [
       { label: { en: "View code", es: "Ver código" }, href: "https://github.com/miguebmv/BDA602_MachineLearning" },
-      { label: { en: "Course report", es: "Informe académico" }, href: "assets/docs/flight-delay-course-report.pdf" }
+      { label: { en: "Course report", es: "Informe de la asignatura" }, href: "assets/docs/flight-delay-course-report.pdf" }
     ],
     pdf: { src: "assets/docs/flight-delay-wuss-paper.pdf", pages: 19 }
   },
@@ -208,7 +208,7 @@ const PROJECTS = {
     cover: "assets/project-california-traffic-v1.jpg",
     alt: {
       en: "Editorial map of California traffic and demographic patterns",
-      es: "Mapa editorial de patrones de tráfico y demografía de California"
+      es: "Ilustración de un mapa con patrones de tráfico y demografía de California"
     },
     lead: {
       en: "An observational study combining traffic, population and income data to explore change across California between 2013 and 2022.",
@@ -226,21 +226,21 @@ const PROJECTS = {
         title: { en: "The question", es: "La pregunta" },
         body: {
           en: ["How do long-term traffic patterns vary alongside demographic and economic change, and where do those relationships become visible geographically?"],
-          es: ["¿Cómo varían los patrones de tráfico a largo plazo junto a los cambios demográficos y económicos, y dónde se hacen visibles geográficamente esas relaciones?"]
+          es: ["¿Cómo evolucionan los patrones de tráfico a largo plazo junto con los cambios demográficos y económicos, y en qué zonas se ve esa relación sobre el mapa?"]
         }
       },
       {
         title: { en: "My contribution", es: "Mi contribución" },
         body: {
           en: ["I supported data preparation and analysis, built visualisations, and helped design and write the public-facing project site and report."],
-          es: ["Colaboré en la preparación y el análisis de datos, construí visualizaciones y ayudé a diseñar y redactar la web pública y el informe."]
+          es: ["Colaboré en la preparación y el análisis de los datos, hice las visualizaciones y ayudé a diseñar y escribir la web pública y el informe."]
         }
       },
       {
         title: { en: "How to read it", es: "Cómo interpretarlo" },
         body: {
           en: ["The study is observational. It surfaces spatial and temporal relationships without presenting correlation as causation—a distinction preserved in the report and visual narrative."],
-          es: ["El estudio es observacional. Muestra relaciones espaciales y temporales sin presentar la correlación como causalidad, una distinción que se mantiene en el informe y la narrativa visual."]
+          es: ["El estudio es observacional. Muestra relaciones espaciales y temporales sin presentar correlación como causalidad, algo que se mantiene en el informe y en la narrativa visual."]
         }
       }
     ],
@@ -250,7 +250,7 @@ const PROJECTS = {
     mediaTitle: { en: "Visit the original project website.", es: "Visita la web original del proyecto." },
     mediaNote: {
       en: "Google Sites prevents external embedding, so this visual preview opens the complete website in a new tab.",
-      es: "Google Sites impide el embedding externo; esta vista previa visual abre la web completa en otra pestaña."
+      es: "Google Sites no permite incrustar la web en otras páginas, así que esta vista previa abre la web completa en otra pestaña."
     },
     media: {
       type: "external",
@@ -261,45 +261,45 @@ const PROJECTS = {
   },
 
   diamond: {
-    title: { en: "Diamond Price Modeling", es: "Modelado de precios de diamantes" },
+    title: { en: "Diamond Price Modelling", es: "Modelado de precios de diamantes" },
     context: { en: "Regression · Academic study", es: "Regresión · Estudio académico" },
     year: "2024",
     cover: "assets/project-diamond-v1.jpg",
     alt: {
       en: "Editorial illustration of diamond facets and regression surfaces",
-      es: "Ilustración editorial de facetas de diamante y superficies de regresión"
+      es: "Ilustración de facetas de diamante y superficies de regresión"
     },
     lead: {
       en: "A controlled comparison of six regression approaches on 53,940 diamonds, including transformed targets and non-linear models.",
-      es: "Una comparación controlada de seis enfoques de regresión sobre 53.940 diamantes, incluyendo objetivos transformados y modelos no lineales."
+      es: "Una comparación controlada de seis enfoques de regresión sobre 53.940 diamantes, con variable objetivo transformada y modelos no lineales."
     },
     stack: ["Regression", "Random Forest", "Neural networks", "EDA"],
     facts: [
       [{ en: "Rows", es: "Registros" }, { en: "53,940 diamonds", es: "53.940 diamantes" }],
       [{ en: "Approaches", es: "Enfoques" }, { en: "6 regression families", es: "6 familias de regresión" }],
-      [{ en: "Focus", es: "Enfoque" }, { en: "Price prediction", es: "Predicción de precio" }],
-      [{ en: "Evidence", es: "Evidencia" }, { en: "20-page report", es: "Informe de 20 páginas" }]
+      [{ en: "Target", es: "Objetivo" }, { en: "Price prediction", es: "Predicción del precio" }],
+      [{ en: "Report", es: "Informe" }, { en: "20 pages", es: "20 páginas" }]
     ],
     story: [
       {
         title: { en: "The modelling task", es: "La tarea de modelado" },
         body: {
           en: ["Diamond price combines physical measurements, categorical quality grades and strong non-linear relationships. The project asks how much each model family benefits from transformations and flexibility."],
-          es: ["El precio de un diamante combina medidas físicas, categorías de calidad y relaciones fuertemente no lineales. El proyecto estudia cuánto se beneficia cada familia de modelos de las transformaciones y la flexibilidad."]
+          es: ["El precio de un diamante mezcla medidas físicas, categorías de calidad y relaciones muy poco lineales. El proyecto estudia cuánto gana cada familia de modelos con las transformaciones y con más flexibilidad."]
         }
       },
       {
         title: { en: "The comparison", es: "La comparación" },
         body: {
           en: ["Six approaches are evaluated through a common train/test workflow, supported by exploratory analysis, residual diagnostics and comparison of predictive error."],
-          es: ["Se evalúan seis enfoques mediante un flujo común de entrenamiento y prueba, apoyado por análisis exploratorio, diagnóstico de residuos y comparación del error predictivo."]
+          es: ["Los seis enfoques se evalúan con el mismo flujo de entrenamiento y test, apoyado en análisis exploratorio, diagnóstico de residuos y comparación del error de predicción."]
         }
       },
       {
         title: { en: "What it demonstrates", es: "Qué demuestra" },
         body: {
           en: ["The report shows model selection as an evidence-based comparison rather than a single algorithm choice, and documents why transformed targets can materially change model behaviour."],
-          es: ["El informe presenta la selección de modelos como una comparación basada en evidencia y documenta por qué transformar la variable objetivo puede cambiar de forma importante el comportamiento del modelo."]
+          es: ["El informe plantea la elección del modelo como una comparación basada en evidencia y explica por qué transformar la variable objetivo puede cambiar bastante el comportamiento del modelo."]
         }
       }
     ],
@@ -308,44 +308,44 @@ const PROJECTS = {
 
   pharmasys: {
     title: { en: "PharmaSys", es: "PharmaSys" },
-    context: { en: "Relational data · Cloud deployment", es: "Datos relacionales · Despliegue cloud" },
+    context: { en: "Relational data · Cloud deployment", es: "Datos relacionales · Despliegue en la nube" },
     year: "2024",
     cover: "assets/project-pharmasys-v1.jpg",
     alt: {
       en: "Editorial illustration of a relational pharmacy database",
-      es: "Ilustración editorial de una base de datos relacional farmacéutica"
+      es: "Ilustración de la base de datos relacional de una farmacia"
     },
     lead: {
       en: "A relational database system designed, deployed and queried to support inventory, prescription and operational analysis.",
-      es: "Un sistema de base de datos relacional diseñado, desplegado y consultado para apoyar el análisis de inventario, prescripciones y operaciones."
+      es: "Una base de datos relacional que diseñé, desplegué y consulté para analizar inventario, recetas y operaciones."
     },
     stack: ["MySQL", "AWS RDS", "SQL", "Python", "Plotly"],
     facts: [
       [{ en: "Model", es: "Modelo" }, { en: "Relational database", es: "Base de datos relacional" }],
       [{ en: "Deployment", es: "Despliegue" }, { en: "AWS RDS", es: "AWS RDS" }],
       [{ en: "Analysis", es: "Análisis" }, { en: "SQL · Python · Plotly", es: "SQL · Python · Plotly" }],
-      [{ en: "Evidence", es: "Evidencia" }, { en: "Schema · Queries · Report", es: "Esquema · Consultas · Informe" }]
+      [{ en: "Includes", es: "Incluye" }, { en: "Schema · Queries · Report", es: "Esquema · Consultas · Informe" }]
     ],
     story: [
       {
         title: { en: "The system", es: "El sistema" },
         body: {
           en: ["Pharmacy operations connect medicines, suppliers, customers, prescriptions and transactions. The project turns those relationships into a normalised relational model with explicit constraints."],
-          es: ["Las operaciones farmacéuticas conectan medicamentos, proveedores, clientes, prescripciones y transacciones. El proyecto convierte esas relaciones en un modelo relacional normalizado con restricciones explícitas."]
+          es: ["La operativa de una farmacia conecta medicamentos, proveedores, clientes, recetas y transacciones. El proyecto convierte esas relaciones en un modelo relacional normalizado con restricciones explícitas."]
         }
       },
       {
         title: { en: "From schema to analysis", es: "Del esquema al análisis" },
         body: {
           en: ["The database was implemented in MySQL, deployed through AWS RDS and queried from Python to produce operational views and interactive Plotly analysis."],
-          es: ["La base de datos se implementó en MySQL, se desplegó mediante AWS RDS y se consultó desde Python para producir vistas operativas y análisis interactivos con Plotly."]
+          es: ["La base de datos se implementó en MySQL, se desplegó en AWS RDS y se consultó desde Python para generar vistas operativas y análisis interactivos con Plotly."]
         }
       },
       {
         title: { en: "What it demonstrates", es: "Qué demuestra" },
         body: {
           en: ["The project connects data modelling decisions to the questions a real operation needs to answer, from entity integrity through cloud access and downstream reporting."],
-          es: ["El proyecto conecta las decisiones de modelado con las preguntas que una operación real necesita responder, desde la integridad de las entidades hasta el acceso cloud y el reporting."]
+          es: ["El proyecto une las decisiones de modelado con las preguntas que una operación real tiene que responder, desde la integridad de las entidades hasta el acceso desde la nube y los informes."]
         }
       }
     ],
@@ -356,45 +356,45 @@ const PROJECTS = {
   },
 
   walmart: {
-    title: { en: "Walmart Sales Forecasting", es: "Predicción de ventas de Walmart" },
+    title: { en: "Walmart Sales Forecasting", es: "Previsión de ventas de Walmart" },
     context: { en: "Time series · Academic study", es: "Series temporales · Estudio académico" },
     year: "2024",
     cover: "assets/project-walmart-v1.jpg",
     alt: {
       en: "Editorial illustration of seasonal retail sales forecasting",
-      es: "Ilustración editorial de predicción estacional de ventas minoristas"
+      es: "Ilustración de la previsión estacional de ventas de un comercio"
     },
     lead: {
       en: "A focused SARIMA comparison for weekly sales at Store 13, separating recurring seasonality from forecast uncertainty.",
-      es: "Una comparación específica de modelos SARIMA para las ventas semanales de la tienda 13, separando la estacionalidad recurrente de la incertidumbre de predicción."
+      es: "Una comparación de modelos SARIMA para las ventas semanales de la tienda 13, separando la estacionalidad recurrente de la incertidumbre de la previsión."
     },
     stack: ["R", "SARIMA", "Time series", "Forecasting"],
     facts: [
       [{ en: "Target", es: "Objetivo" }, { en: "Weekly sales", es: "Ventas semanales" }],
       [{ en: "Scope", es: "Alcance" }, { en: "Store 13", es: "Tienda 13" }],
       [{ en: "Method", es: "Método" }, { en: "Seasonal ARIMA", es: "ARIMA estacional" }],
-      [{ en: "Evidence", es: "Evidencia" }, { en: "16-page report", es: "Informe de 16 páginas" }]
+      [{ en: "Report", es: "Informe" }, { en: "16 pages", es: "16 páginas" }]
     ],
     story: [
       {
-        title: { en: "The forecasting problem", es: "El problema de predicción" },
+        title: { en: "The forecasting problem", es: "El problema de la previsión" },
         body: {
           en: ["Weekly retail sales contain strong recurring patterns and exceptional peaks. The task is to model that structure without treating every fluctuation as a lasting trend."],
-          es: ["Las ventas semanales contienen patrones recurrentes intensos y picos excepcionales. La tarea consiste en modelar esa estructura sin tratar cada fluctuación como una tendencia permanente."]
+          es: ["Las ventas semanales tienen patrones recurrentes muy marcados y picos excepcionales. La tarea es modelar esa estructura sin tomar cada fluctuación por una tendencia permanente."]
         }
       },
       {
         title: { en: "The approach", es: "El enfoque" },
         body: {
           en: ["The workflow isolates one store, inspects stationarity and seasonal behaviour, compares a focused set of SARIMA specifications and diagnoses the resulting residuals."],
-          es: ["El flujo aísla una tienda, analiza la estacionariedad y el comportamiento estacional, compara un conjunto específico de modelos SARIMA y diagnostica los residuos."]
+          es: ["El flujo aísla una tienda, analiza la estacionariedad y la estacionalidad, compara un conjunto acotado de modelos SARIMA y diagnostica los residuos."]
         }
       },
       {
         title: { en: "What it demonstrates", es: "Qué demuestra" },
         body: {
           en: ["The project emphasises disciplined model specification and diagnostics over an unnecessarily broad algorithm search."],
-          es: ["El proyecto prioriza una especificación y un diagnóstico disciplinados frente a una búsqueda innecesariamente amplia de algoritmos."]
+          es: ["El proyecto apuesta por especificar y diagnosticar bien los modelos en lugar de probar algoritmos sin necesidad."]
         }
       }
     ],
@@ -408,39 +408,39 @@ const PROJECTS = {
     cover: "assets/project-mental-health-v1.jpg",
     alt: {
       en: "Editorial illustration of overlapping multivariate observations",
-      es: "Ilustración editorial de observaciones multivariantes superpuestas"
+      es: "Ilustración de observaciones multivariantes que se solapan"
     },
     lead: {
       en: "A multivariate study where weak separation and limited predictive signal became the important methodological result.",
-      es: "Un estudio multivariante donde la débil separación y la limitada señal predictiva se convirtieron en el resultado metodológico importante."
+      es: "Un estudio multivariante en el que la poca separación entre grupos y la escasa señal predictiva acabaron siendo el resultado metodológico más importante."
     },
     stack: ["R", "PCA", "ANOVA", "Clustering", "Classification"],
     facts: [
       [{ en: "Methods", es: "Métodos" }, { en: "PCA · ANOVA · Clustering", es: "PCA · ANOVA · Clustering" }],
       [{ en: "Question", es: "Pregunta" }, { en: "Technology and survey outcomes", es: "Tecnología y resultados de encuesta" }],
-      [{ en: "Finding", es: "Hallazgo" }, { en: "Weak predictive separation", es: "Débil separación predictiva" }],
-      [{ en: "Evidence", es: "Evidencia" }, { en: "29-page report", es: "Informe de 29 páginas" }]
+      [{ en: "Finding", es: "Hallazgo" }, { en: "Weak predictive separation", es: "Poca separación predictiva" }],
+      [{ en: "Report", es: "Informe" }, { en: "29 pages", es: "29 páginas" }]
     ],
     story: [
       {
         title: { en: "The question", es: "La pregunta" },
         body: {
           en: ["The study explores whether patterns in technology-related survey responses reveal stable multivariate structure or useful predictive separation."],
-          es: ["El estudio explora si los patrones de respuestas relacionadas con la tecnología revelan una estructura multivariante estable o una separación predictiva útil."]
+          es: ["El estudio explora si los patrones en las respuestas de una encuesta sobre tecnología muestran una estructura multivariante estable o una separación predictiva útil."]
         }
       },
       {
         title: { en: "The analysis", es: "El análisis" },
         body: {
           en: ["PCA, clustering, ANOVA and classification are used as complementary views rather than as a search for one convenient positive result."],
-          es: ["PCA, clustering, ANOVA y clasificación se utilizan como perspectivas complementarias, no como una búsqueda de un único resultado positivo conveniente."]
+          es: ["PCA, clustering, ANOVA y clasificación se usan como enfoques complementarios, no para buscar un único resultado positivo que convenga."]
         }
       },
       {
-        title: { en: "Why the weak result matters", es: "Por qué importa el resultado débil" },
+        title: { en: "Why the weak result matters", es: "Por qué importa un resultado flojo" },
         body: {
           en: ["The available variables do not support a strong predictive claim. Reporting that limitation clearly is the central methodological outcome and avoids turning exploratory associations into overconfident conclusions."],
-          es: ["Las variables disponibles no respaldan una afirmación predictiva fuerte. Comunicar claramente esa limitación es el resultado metodológico central y evita convertir asociaciones exploratorias en conclusiones excesivas."]
+          es: ["Las variables disponibles no permiten afirmar nada fuerte sobre predicción. Contar esa limitación con claridad es el resultado metodológico central, y evita convertir asociaciones exploratorias en conclusiones exageradas."]
         }
       }
     ],
@@ -454,11 +454,11 @@ const PROJECTS = {
     cover: "assets/project-p5-game-v1.jpg",
     alt: {
       en: "Editorial illustration of motion and collision in an interactive game",
-      es: "Ilustración editorial de movimiento y colisiones en un juego interactivo"
+      es: "Ilustración de movimiento y colisiones en un juego interactivo"
     },
     lead: {
       en: "A small interactive archery game for learning the p5.js drawing loop, input events, gravity and collision logic.",
-      es: "Un pequeño juego interactivo de tiro con arco para aprender el bucle de dibujo de p5.js, los eventos de entrada, la gravedad y la lógica de colisiones."
+      es: "Un juego sencillo de tiro con arco para aprender el bucle de dibujo de p5.js, los eventos de entrada, la gravedad y las colisiones."
     },
     stack: ["p5.js", "JavaScript", "Interaction", "Collision logic"],
     facts: [
@@ -472,14 +472,14 @@ const PROJECTS = {
         title: { en: "The exercise", es: "El ejercicio" },
         body: {
           en: ["The project translates the first principles of p5.js into an interactive game: aim at a target, launch an arrow, account for gravity and manage a limited number of attempts."],
-          es: ["El proyecto traduce los principios iniciales de p5.js en un juego interactivo: apuntar a un objetivo, lanzar una flecha, tener en cuenta la gravedad y gestionar un número limitado de intentos."]
+          es: ["El proyecto lleva los primeros conceptos de p5.js a un juego: apuntar a una diana, lanzar una flecha, tener en cuenta la gravedad y gestionar un número limitado de intentos."]
         }
       },
       {
         title: { en: "What I learned", es: "Qué aprendí" },
         body: {
           en: ["The drawing loop, event handling and collision logic become easier to understand when their state changes are visible and directly controlled."],
-          es: ["El bucle de dibujo, la gestión de eventos y la lógica de colisiones resultan más fáciles de entender cuando los cambios de estado son visibles y se controlan directamente."]
+          es: ["El bucle de dibujo, los eventos y las colisiones se entienden mucho mejor cuando los cambios de estado se ven y se controlan directamente."]
         }
       }
     ],
@@ -501,16 +501,16 @@ const PROJECTS = {
     cover: "assets/project-campus-map-v1.jpg",
     alt: {
       en: "Editorial illustration of a searchable university campus map",
-      es: "Ilustración editorial de un mapa universitario con búsqueda"
+      es: "Ilustración de un mapa universitario con buscador"
     },
     lead: {
       en: "A zoomable and searchable SDSU campus map with building-level information, photographs and multiple-resolution source imagery.",
-      es: "Un mapa ampliable y con búsqueda del campus de SDSU con información por edificio, fotografías e imágenes de origen a varias resoluciones."
+      es: "Un mapa del campus de SDSU con zoom y buscador, con información de cada edificio, fotos e imágenes de origen a varias resoluciones."
     },
     stack: ["p5.js", "Maps", "Search", "SVG", "Interaction"],
     facts: [
       [{ en: "Area", es: "Área" }, { en: "SDSU campus", es: "Campus de SDSU" }],
-      [{ en: "Navigation", es: "Navegación" }, { en: "Zoom · Pan · Search", es: "Zoom · Desplazamiento · Búsqueda" }],
+      [{ en: "Navigation", es: "Navegación" }, { en: "Zoom · Pan · Search", es: "Zoom · Arrastre · Búsqueda" }],
       [{ en: "Detail", es: "Detalle" }, { en: "Building information", es: "Información por edificio" }],
       [{ en: "Source", es: "Código" }, { en: "GitHub", es: "GitHub" }]
     ],
@@ -519,14 +519,14 @@ const PROJECTS = {
         title: { en: "The interaction", es: "La interacción" },
         body: {
           en: ["Visitors can pan and zoom across the campus, search for a building and reveal names, information or photography attached to selected locations."],
-          es: ["Los visitantes pueden desplazarse y ampliar el campus, buscar un edificio y mostrar nombres, información o fotografías asociadas a las ubicaciones seleccionadas."]
+          es: ["Puedes moverte por el campus, hacer zoom, buscar un edificio y ver nombres, información o fotos de los lugares que selecciones."]
         }
       },
       {
         title: { en: "The data", es: "Los datos" },
         body: {
           en: ["The project combines aerial imagery and building layers supplied at multiple resolutions, including SVG geometry for interactive selection."],
-          es: ["El proyecto combina imágenes aéreas y capas de edificios proporcionadas a varias resoluciones, incluyendo geometría SVG para la selección interactiva."]
+          es: ["El proyecto combina imágenes aéreas y capas de edificios a varias resoluciones, con geometría SVG para poder seleccionarlos."]
         }
       }
     ],
@@ -542,22 +542,22 @@ const PROJECTS = {
   },
 
   "news-geo": {
-    title: { en: "News Geovisualization", es: "Geovisualización de noticias" },
-    context: { en: "APIs and geocoding · Lab", es: "APIs y geocodificación · Práctica" },
+    title: { en: "News Geovisualisation", es: "Geovisualización de noticias" },
+    context: { en: "APIs and geocoding · Lab", es: "APIs y geolocalización · Práctica" },
     year: "2023",
     cover: "assets/project-news-geo-v1.jpg",
     alt: {
       en: "Editorial world map connecting news stories to locations",
-      es: "Mapa editorial mundial que conecta noticias con ubicaciones"
+      es: "Ilustración de un mapamundi que conecta noticias con lugares"
     },
     lead: {
       en: "A map that searches recent news, geocodes the results and connects each story to its geographic context.",
-      es: "Un mapa que busca noticias recientes, geocodifica los resultados y conecta cada historia con su contexto geográfico."
+      es: "Un mapa que busca noticias recientes, las geolocaliza y conecta cada historia con su contexto geográfico."
     },
     stack: ["p5.js", "REST APIs", "Geocoding", "Maps"],
     facts: [
       [{ en: "Input", es: "Entrada" }, { en: "News search", es: "Búsqueda de noticias" }],
-      [{ en: "Enrichment", es: "Enriquecimiento" }, { en: "Location geocoding", es: "Geocodificación de ubicaciones" }],
+      [{ en: "Enrichment", es: "Enriquecimiento" }, { en: "Location geocoding", es: "Geolocalización de lugares" }],
       [{ en: "Output", es: "Resultado" }, { en: "Interactive map", es: "Mapa interactivo" }],
       [{ en: "Source", es: "Código" }, { en: "GitHub", es: "GitHub" }]
     ],
@@ -566,14 +566,14 @@ const PROJECTS = {
         title: { en: "The idea", es: "La idea" },
         body: {
           en: ["A news result carries more meaning when the reader can see where the story takes place and how nearby results relate spatially."],
-          es: ["Una noticia aporta más significado cuando el lector puede ver dónde ocurre y cómo se relacionan espacialmente los resultados cercanos."]
+          es: ["Una noticia dice más cuando puedes ver dónde ocurre y cómo se relacionan en el espacio las noticias cercanas."]
         }
       },
       {
         title: { en: "The workflow", es: "El flujo" },
         body: {
           en: ["The application searches a recent-news API, extracts or resolves place information, geocodes the result and displays it in an interactive p5.js map."],
-          es: ["La aplicación consulta una API de noticias recientes, extrae o resuelve la información de lugar, geocodifica el resultado y lo muestra en un mapa interactivo con p5.js."]
+          es: ["La aplicación consulta una API de noticias recientes, extrae o deduce el lugar, lo geolocaliza y lo muestra en un mapa interactivo hecho con p5.js."]
         }
       }
     ],
@@ -589,17 +589,17 @@ const PROJECTS = {
   },
 
   "us-crime": {
-    title: { en: "US Crime Trend Explorer", es: "Explorador de tendencias delictivas de EE. UU." },
+    title: { en: "US Crime Trend Explorer", es: "Explorador de la delincuencia en EE. UU." },
     context: { en: "Multitemporal geovisualisation · Lab", es: "Geovisualización multitemporal · Práctica" },
     year: "2023",
     cover: "assets/project-us-crime-v1.jpg",
     alt: {
       en: "Editorial map of changing US crime-rate centroids",
-      es: "Mapa editorial de centroides cambiantes de tasas delictivas en EE. UU."
+      es: "Ilustración de un mapa con los centroides de las tasas de criminalidad en EE. UU. desplazándose"
     },
     lead: {
       en: "Multivariate and multitemporal views of state crime rates, choropleth patterns and moving geographic centroids.",
-      es: "Vistas multivariantes y multitemporales de tasas estatales, patrones coropléticos y centroides geográficos móviles."
+      es: "Vistas multivariantes y multitemporales de las tasas por estado, con mapas coropléticos y centroides geográficos que se mueven."
     },
     stack: ["p5.js", "Time", "Choropleth", "Geospatial data"],
     facts: [
@@ -613,21 +613,21 @@ const PROJECTS = {
         title: { en: "The visual question", es: "La pregunta visual" },
         body: {
           en: ["How do state-level patterns change over time, and how does the geographic centre associated with a selected measure move as those values change?"],
-          es: ["¿Cómo cambian los patrones estatales con el tiempo y cómo se desplaza el centro geográfico asociado a una medida a medida que cambian sus valores?"]
+          es: ["¿Cómo cambian con el tiempo los patrones por estado y cómo se desplaza el centro geográfico de una medida a medida que cambian sus valores?"]
         }
       },
       {
         title: { en: "The views", es: "Las vistas" },
         body: {
           en: ["The project combines choropleth encoding, temporal controls, multiple measures and moving centroids so that geography and time can be inspected together."],
-          es: ["El proyecto combina codificación coroplética, controles temporales, varias medidas y centroides móviles para analizar conjuntamente la geografía y el tiempo."]
+          es: ["El proyecto combina mapas coropléticos, controles de tiempo, varias medidas y centroides móviles para ver a la vez la geografía y el tiempo."]
         }
       },
       {
         title: { en: "Interpretation", es: "Interpretación" },
         body: {
           en: ["The visualisation is descriptive. It supports pattern exploration while avoiding causal claims about crime or individual communities."],
-          es: ["La visualización es descriptiva. Facilita la exploración de patrones sin realizar afirmaciones causales sobre la delincuencia o comunidades concretas."]
+          es: ["La visualización es descriptiva. Ayuda a explorar patrones sin hacer afirmaciones causales sobre la delincuencia ni sobre comunidades concretas."]
         }
       }
     ],
@@ -671,11 +671,11 @@ const UI = {
   es: {
     allWork: "Todos los proyectos",
     caseStudy: "Caso de estudio",
-    demonstration: "Demostración",
-    seeIt: "Ver el sistema en contexto.",
-    mediaNote: "Una mirada más cercana a la interfaz y al funcionamiento del proyecto.",
+    demonstration: "Demo",
+    seeIt: "Mira el sistema en acción.",
+    mediaNote: "Una mirada de cerca a la interfaz y a cómo funciona el proyecto.",
     tryIt: "Prueba el proyecto.",
-    interactiveNote: "El sketch original de p5.js está activo abajo. Interactúa aquí o ábrelo en otra pestaña.",
+    interactiveNote: "El sketch original de p5.js funciona aquí abajo. Pruébalo desde aquí o ábrelo en otra pestaña.",
     livePreview: "Vista previa en directo",
     recordedDemo: "Recorrido en vídeo",
     openNewTab: "Abrir en otra pestaña",
@@ -683,10 +683,10 @@ const UI = {
     openWebsite: "Abrir la web completa",
     fullReport: "Informe completo",
     readResearch: "Leer la investigación",
-    reportNote: "El documento completo está embebido abajo. También puedes abrir o descargar el PDF original.",
+    reportNote: "El documento completo está aquí abajo. También puedes abrir o descargar el PDF original.",
     openPdf: "Abrir PDF",
     downloadPdf: "Descargar",
-    pdfFallback: "Este navegador no puede mostrar el PDF embebido.",
+    pdfFallback: "Tu navegador no puede mostrar el PDF aquí.",
     previous: "Proyecto anterior",
     next: "Proyecto siguiente",
     backPortfolio: "Volver al portfolio",
@@ -945,7 +945,7 @@ function renderReport(language) {
   object.setAttribute(
     "aria-label",
     language === "es"
-      ? `Informe embebido: ${localized(currentProject.title, language)}`
+      ? `Informe: ${localized(currentProject.title, language)}`
       : `Embedded report: ${localized(currentProject.title, language)}`
   );
 
