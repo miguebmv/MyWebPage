@@ -166,20 +166,22 @@
   let lastPlace = null;
   let lastLanguage = null;
 
-  let slotHeight = wheelItems[0]?.offsetHeight || 100;
+  let slotHeight = wheelItems[0]?.offsetHeight || 72;
+  let centerOffset = ((wheelViewport?.clientHeight || 132) - slotHeight) / 2;
   let lastSlot = -1;
   const measureWheel = () => {
     slotHeight = wheelItems[0]?.offsetHeight || slotHeight;
+    centerOffset = ((wheelViewport?.clientHeight || 132) - slotHeight) / 2;
   };
 
   const applyWheel = (position, opacity) => {
     if (!wheelList) return;
-    wheelList.style.setProperty("--wheel-shift", `${(slotHeight * (1 - position)).toFixed(1)}px`);
+    wheelList.style.setProperty("--wheel-shift", `${(centerOffset - slotHeight * position).toFixed(1)}px`);
     wheelViewport.style.setProperty("--wheel-opacity", opacity.toFixed(3));
     wheelItems.forEach((item, index) => {
       const distance = Math.min(1, Math.abs(index - position));
-      item.style.opacity = (1 - 0.68 * distance).toFixed(3);
-      item.style.transform = `scale(${(1 - 0.2 * distance).toFixed(3)})`;
+      item.style.opacity = (1 - 0.74 * distance).toFixed(3);
+      item.style.transform = `scale(${(1 - 0.18 * distance).toFixed(3)})`;
       item.style.transformOrigin = "left center";
     });
     const slot = Math.round(position);

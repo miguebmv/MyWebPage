@@ -2819,19 +2819,17 @@ footer a:hover {
 
 .career-wheel {
   display: grid;
-  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
-  gap: 24px 48px;
+  grid-template-columns: minmax(200px, 240px) minmax(0, 1fr);
+  gap: 16px 40px;
   align-items: center;
-  margin-top: 56px;
-  padding-top: 8px;
-  border-top: 1px solid var(--line-strong);
+  margin-top: 28px;
 }
 
 .career-wheel__viewport {
   position: relative;
-  height: 300px;
+  height: 132px;
   overflow: hidden;
-  mask-image: linear-gradient(transparent 0%, #000 30%, #000 70%, transparent 100%);
+  mask-image: linear-gradient(transparent 0%, #000 34%, #000 66%, transparent 100%);
   opacity: var(--wheel-opacity, 1);
 }
 
@@ -2839,13 +2837,13 @@ footer a:hover {
   margin: 0;
   padding: 0;
   list-style: none;
-  transform: translateY(var(--wheel-shift, 100px));
+  transform: translateY(var(--wheel-shift, 30px));
   will-change: transform;
 }
 
 .career-wheel__item {
   display: flex;
-  height: 100px;
+  height: 72px;
   align-items: center;
   justify-content: flex-start;
 }
@@ -2870,7 +2868,7 @@ footer a:hover {
 .wheel-text {
   color: var(--ink-strong);
   font-family: var(--mono);
-  font-size: 26px;
+  font-size: 20px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -2882,16 +2880,16 @@ footer a:hover {
 
 .career-wheel__detail strong {
   color: var(--ink-strong);
-  font-size: clamp(20px, 2.2vw, 28px);
+  font-size: clamp(18px, 1.8vw, 22px);
   font-weight: 600;
   letter-spacing: -0.03em;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .career-wheel__detail span {
   max-width: 460px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
 }
 
@@ -2924,11 +2922,11 @@ footer a:hover {
   }
 
   .career-wheel__viewport {
-    height: 228px;
+    height: 120px;
   }
 
   .career-wheel__item {
-    height: 76px;
+    height: 64px;
   }
 
   .career-wheel__item img {
