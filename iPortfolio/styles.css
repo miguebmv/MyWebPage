@@ -124,8 +124,17 @@ img {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  min-height: 680px;
+  height: 100dvh;
+  min-height: 0;
   padding: 72px 0 42px;
+  /* On short screens the column scrolls on its own instead of cutting off the links at the bottom. */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+.identity::-webkit-scrollbar {
+  display: none;
 }
 
 .wordmark {
@@ -2971,4 +2980,62 @@ footer a:hover {
 
 .career-wheel .logo-dark {
   height: var(--logo-h-dark, var(--logo-h, 40px));
+}
+
+@media (min-width: 901px) and (max-height: 860px) {
+  .identity {
+    padding: 44px 0 28px;
+  }
+
+  .identity .wordmark {
+    margin-bottom: 26px;
+  }
+
+  .identity-meta {
+    margin-bottom: 20px;
+  }
+
+  .identity .section-nav {
+    gap: 11px;
+    margin: 20px 0;
+  }
+
+  .identity .identity-footer {
+    gap: 16px;
+  }
+}
+
+@media (min-width: 901px) and (max-height: 720px) {
+  .identity {
+    padding: 30px 0 22px;
+  }
+
+  .identity .wordmark {
+    margin-bottom: 16px;
+  }
+
+  .identity .avatar {
+    width: 76px;
+    height: 76px;
+  }
+
+  .identity h1 {
+    font-size: clamp(34px, 3.4vw, 46px);
+  }
+
+  .identity .role {
+    margin-top: 8px;
+    font-size: 16px;
+  }
+
+  .identity .intro {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .identity .section-nav {
+    gap: 8px;
+    margin: 14px 0;
+  }
 }
