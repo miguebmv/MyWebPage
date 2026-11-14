@@ -170,11 +170,11 @@
   let lastLanguage = null;
 
   let slotHeight = wheelItems[0]?.offsetHeight || 72;
-  let centerOffset = ((wheelViewport?.clientHeight || 132) - slotHeight) / 2;
+  let centerOffset = ((wheelViewport?.clientHeight || 110) - slotHeight) / 2;
   let lastSlot = -1;
   const measureWheel = () => {
     slotHeight = wheelItems[0]?.offsetHeight || slotHeight;
-    centerOffset = ((wheelViewport?.clientHeight || 132) - slotHeight) / 2;
+    centerOffset = ((wheelViewport?.clientHeight || 110) - slotHeight) / 2;
   };
 
   const applyWheel = (position, opacity) => {
@@ -185,7 +185,7 @@
       const distance = Math.min(1, Math.abs(index - position));
       item.style.opacity = (1 - 0.74 * distance).toFixed(3);
       item.style.transform = `scale(${(1 - 0.18 * distance).toFixed(3)})`;
-      item.style.transformOrigin = "left center";
+      item.style.transformOrigin = "center center";
     });
     const slot = Math.round(position);
     if (slot !== lastSlot || lastLanguage !== wheelLanguage) {

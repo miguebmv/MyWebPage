@@ -2819,15 +2819,16 @@ footer a:hover {
 
 .career-wheel {
   display: grid;
-  grid-template-columns: minmax(200px, 240px) minmax(0, 1fr);
-  gap: 16px 40px;
+  grid-template-columns: 260px minmax(0, 420px);
+  gap: 12px 44px;
   align-items: center;
+  justify-content: center;
   margin-top: 28px;
 }
 
 .career-wheel__viewport {
   position: relative;
-  height: 132px;
+  height: 110px;
   overflow: hidden;
   mask-image: linear-gradient(transparent 0%, #000 34%, #000 66%, transparent 100%);
   opacity: var(--wheel-opacity, 1);
@@ -2837,15 +2838,17 @@ footer a:hover {
   margin: 0;
   padding: 0;
   list-style: none;
-  transform: translateY(var(--wheel-shift, 30px));
+  transform: translateY(var(--wheel-shift, 19px));
   will-change: transform;
 }
 
 .career-wheel__item {
   display: flex;
   height: 72px;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  gap: 4px;
 }
 
 .career-wheel__item img {
@@ -2853,7 +2856,7 @@ footer a:hover {
   max-width: 100%;
   height: var(--logo-h, 40px);
   object-fit: contain;
-  object-position: left center;
+  object-position: center;
 }
 
 .career-wheel .logo-dark,
@@ -2919,14 +2922,19 @@ footer a:hover {
   .career-wheel {
     grid-template-columns: 1fr;
     gap: 4px;
+    text-align: center;
+  }
+
+  .career-wheel__detail span {
+    margin: 0 auto;
   }
 
   .career-wheel__viewport {
-    height: 120px;
+    height: 100px;
   }
 
   .career-wheel__item {
-    height: 64px;
+    height: 62px;
   }
 
   .career-wheel__item img {
