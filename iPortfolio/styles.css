@@ -1889,6 +1889,7 @@ footer a:hover {
   .portrait__disc {
     cursor: default;
     transform: translate(-50%, -50%);
+    touch-action: auto;
   }
 
   .resume-viewer__shell {
@@ -2666,4 +2667,11 @@ footer a:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+  .portrait__disc {
+    width: 120px;
+    padding: 6px;
+  }
 }
