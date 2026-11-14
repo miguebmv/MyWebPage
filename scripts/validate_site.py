@@ -24,6 +24,7 @@ REQUIRED_FILES = {
     "speaking.html",
     "speaking.js",
     "site.js",
+    "journey.js",
 }
 URL_ATTRIBUTES = {"href", "src", "data", "poster"}
 

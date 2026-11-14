@@ -432,6 +432,20 @@ if (portraitStage && draggablePortrait) {
   });
 
   updateBounds();
+
+  window.portraitControl = {
+    getOffset: () => ({ x: state.x, y: state.y }),
+    setOffset: (x, y) => {
+      updateBounds();
+      state.x = Math.max(-bounds.maxX, Math.min(bounds.maxX, x));
+      state.y = Math.max(-bounds.maxY, Math.min(bounds.maxY, y));
+      state.targetX = state.x;
+      state.targetY = state.y;
+      state.velocityX = 0;
+      state.velocityY = 0;
+      renderPortrait();
+    }
+  };
 }
 
 document.querySelectorAll("[data-current-year]").forEach((element) => {

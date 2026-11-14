@@ -58,6 +58,8 @@ def run() -> None:
         assert page.get_by_role("heading", level=1).inner_text() == "Miguel Bravo"
         assert page.locator(".project").count() == 3
         assert page.locator(".archive-card").count() == 9
+        assert page.locator("[data-journey-hud]").count() == 1
+        assert page.evaluate("window.mabravoJourney.total") > 10
         assert_page_health(page)
 
         page.locator("[data-language-toggle]").click()

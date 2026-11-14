@@ -580,15 +580,21 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 200px;
+  width: 160px;
   aspect-ratio: 1;
-  padding: 8px;
+  padding: 7px;
   border: 1px solid color-mix(in srgb, var(--data-field-accent) 72%, var(--line-strong));
   border-radius: 50%;
   background: var(--bg);
   box-shadow: 0 24px 55px color-mix(in srgb, var(--data-field-accent) 20%, transparent);
   cursor: grab;
-  transform: translate(calc(-50% + var(--portrait-x)), calc(-50% + var(--portrait-y)));
+  transform:
+    translate(
+      calc(-50% + var(--portrait-x) + var(--journey-x, 0px)),
+      calc(-50% + var(--portrait-y) + var(--journey-y, 0px))
+    )
+    scale(var(--journey-scale, 1));
+  opacity: var(--journey-opacity, 1);
   transition: box-shadow 180ms ease, scale 180ms ease;
   touch-action: none;
   user-select: none;
@@ -1888,7 +1894,6 @@ footer a:hover {
 
   .portrait__disc {
     cursor: default;
-    transform: translate(-50%, -50%);
     touch-action: auto;
   }
 
@@ -2671,7 +2676,131 @@ footer a:hover {
 
 @media (max-width: 600px) {
   .portrait__disc {
-    width: 120px;
-    padding: 6px;
+    width: 100px;
+    padding: 5px;
+  }
+}
+
+.journey-map .jm-trail {
+  fill: none;
+  opacity: var(--trail-opacity, 1);
+  stroke: var(--data-field-accent);
+  stroke-dashoffset: 9999;
+  stroke-linecap: round;
+  stroke-width: 1.6;
+}
+
+.journey-map .jm-pulse {
+  animation: jm-pulse 1.4s ease-out forwards;
+  fill: none;
+  stroke: var(--data-field-accent);
+  stroke-width: 1.4;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes jm-pulse {
+  from {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(5);
+  }
+}
+
+.journey-hud {
+  position: absolute;
+  top: 14px;
+  right: 17px;
+  max-width: 46%;
+  font-family: var(--mono);
+  pointer-events: none;
+  text-align: right;
+}
+
+.journey-hud__date {
+  display: block;
+  min-height: 1.3em;
+  color: var(--ink-strong);
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.journey-hud__place {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.journey-toggle {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 180ms ease, color 180ms ease;
+}
+
+.journey-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.journey-toggle svg {
+  width: 10px;
+  height: 10px;
+  fill: currentColor;
+}
+
+.journey-toggle .icon-play,
+.journey-toggle[aria-pressed="true"] .icon-pause {
+  display: none;
+}
+
+.journey-toggle[aria-pressed="true"] .icon-play {
+  display: block;
+}
+
+.journey-static .journey-hud,
+.journey-static .journey-toggle,
+.journey-static .jm-trail {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .journey-hud {
+    top: auto;
+    bottom: 12px;
+    left: 17px;
+    right: auto;
+    max-width: 64%;
+    text-align: left;
+  }
+
+  .journey-hud__date {
+    font-size: 15px;
+  }
+
+  .journey-toggle {
+    top: 12px;
+    right: 12px;
+    bottom: auto;
+    left: auto;
   }
 }
