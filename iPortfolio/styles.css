@@ -2601,17 +2601,14 @@ footer a:hover {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
 }
 
 .pub-metrics > div {
-  padding: 14px 12px 14px 0;
+  padding: 4px 12px 4px 0;
 }
 
 .pub-metrics > div + div {
   padding-left: 14px;
-  border-left: 1px solid var(--line);
 }
 
 .pub-metrics dt {
