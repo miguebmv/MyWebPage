@@ -113,14 +113,14 @@ const PROJECTS = {
         },
         bullets: {
           en: ["Process hourly RTMA files with xarray, rioxarray and SciPy.", "Serve compact payloads through FastAPI and ORJSON.", "Render interactive layers with React and Deck.gl.", "Connect a LLaMA 3.2 Vision assistant to screenshots and map context."],
-          es: ["Procesar archivos RTMA horarios con xarray, rioxarray y SciPy.", "Servir respuestas ligeras con FastAPI y ORJSON.", "Pintar capas interactivas con React y Deck.gl.", "Conectar un asistente LLaMA 3.2 Vision con capturas y con el contexto del mapa."]
+          es: ["Procesar archivos RTMA horarios con xarray, rioxarray y SciPy.", "Servir respuestas ligeras con FastAPI y ORJSON.", "Dibujar capas interactivas con React y Deck.gl.", "Conectar un asistente LLaMA 3.2 Vision con capturas y con el contexto del mapa."]
         }
       },
       {
         title: { en: "What it proves", es: "Qué demuestra" },
         body: {
           en: ["Open environmental data, containerised services and modest hardware can form a useful end-to-end product when storage, payload size and deployment constraints are treated as design inputs."],
-          es: ["Con datos ambientales abiertos, servicios en contenedores y un hardware modesto se puede montar un producto completo si el almacenamiento, el tamaño de las respuestas y el despliegue se tratan como decisiones de diseño."]
+          es: ["Con datos ambientales abiertos, servicios en contenedores y un hardware modesto se puede construir un producto completo si el almacenamiento, el tamaño de las respuestas y el despliegue se tratan como decisiones de diseño."]
         }
       }
     ],
@@ -437,7 +437,7 @@ const PROJECTS = {
         }
       },
       {
-        title: { en: "Why the weak result matters", es: "Por qué importa un resultado flojo" },
+        title: { en: "Why the weak result matters", es: "Por qué importa un resultado débil" },
         body: {
           en: ["The available variables do not support a strong predictive claim. Reporting that limitation clearly is the central methodological outcome and avoids turning exploratory associations into overconfident conclusions."],
           es: ["Las variables disponibles no permiten afirmar nada fuerte sobre predicción. Contar esa limitación con claridad es el resultado metodológico central, y evita convertir asociaciones exploratorias en conclusiones exageradas."]

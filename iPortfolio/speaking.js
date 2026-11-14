@@ -28,7 +28,7 @@ const translations = {
     wuss24Alt: "Gráfico de barras que compara la puntuación F1 macro de los modelos de predicción de retrasos de vuelos, del paper de WUSS 2024",
     wuss24Meta: "WUSS 2024 · Estudiante becado y ponente",
     wuss24Title: "Análisis de retrasos y cancelaciones de vuelos",
-    wuss24Copy: "Presenté una comparación de siete modelos sobre un dataset enorme de aviación y meteorología, con el efecto práctico que tiene el desequilibrio de clases al evaluar.",
+    wuss24Copy: "Presenté una comparación de siete modelos sobre un gran dataset de aviación y meteorología, con el efecto práctico que tiene el desequilibrio de clases al evaluar.",
     rvaNote: "No publico aquí las diapositivas de RVAtech porque su aviso de copyright no permite redistribuirlas. El evento y la charla están documentados en la página oficial.",
     writingLabel: "Artículos y papers",
     pubHeatMeta: "Revisión por pares · IJDRR 2026 · Primer autor",
