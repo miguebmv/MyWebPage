@@ -220,6 +220,9 @@ resumeDialog?.addEventListener("close", () => {
 const portraitStage = document.querySelector("[data-portrait-stage]");
 const draggablePortrait = document.querySelector("[data-draggable-portrait]");
 const desktopPortrait = window.matchMedia("(min-width: 901px)");
+// Visitors can grab and throw the portrait on desktop when this is true.
+// It is switched off so the journey animation always runs uninterrupted.
+const portraitDragEnabled = false;
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 if (portraitStage && draggablePortrait) {
@@ -338,6 +341,7 @@ if (portraitStage && draggablePortrait) {
   draggablePortrait.addEventListener("pointerdown", (event) => {
     if (
       drag ||
+      !portraitDragEnabled ||
       !desktopPortrait.matches ||
       reducedMotion.matches ||
       (event.pointerType === "mouse" && event.button !== 0)
@@ -434,6 +438,7 @@ if (portraitStage && draggablePortrait) {
   updateBounds();
 
   window.portraitControl = {
+    dragEnabled: portraitDragEnabled,
     getOffset: () => ({ x: state.x, y: state.y }),
     setOffset: (x, y) => {
       updateBounds();

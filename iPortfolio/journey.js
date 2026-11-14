@@ -355,7 +355,7 @@
 
   // Hand the portrait over to the drag physics, then resume the journey after a while.
   disc.addEventListener("pointerdown", () => {
-    if (!desktopPortrait.matches || !window.portraitControl) return;
+    if (!desktopPortrait.matches || !window.portraitControl?.dragEnabled) return;
     clearTimeout(idleTimer);
     held = true;
     glide = null;

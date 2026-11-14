@@ -587,7 +587,7 @@ main {
   border-radius: 50%;
   background: var(--bg);
   box-shadow: 0 24px 55px color-mix(in srgb, var(--data-field-accent) 20%, transparent);
-  cursor: grab;
+  cursor: default; /* "grab" while dragging is enabled (see portraitDragEnabled in site.js) */
   transform:
     translate(
       calc(-50% + var(--portrait-x) + var(--journey-x, 0px)),
@@ -596,7 +596,7 @@ main {
     scale(var(--journey-scale, 1));
   opacity: var(--journey-opacity, 1);
   transition: box-shadow 180ms ease, scale 180ms ease;
-  touch-action: none;
+  touch-action: auto; /* "none" while dragging is enabled */
   user-select: none;
   will-change: transform;
 }
