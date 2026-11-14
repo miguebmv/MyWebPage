@@ -7,11 +7,18 @@
   const placeElement = stage?.querySelector("[data-journey-place]");
   const toggle = stage?.querySelector("[data-journey-toggle]");
   const trails = svg ? [...svg.querySelectorAll(".jm-trail")] : [];
+  const wheel = document.querySelector("[data-career-wheel]");
+  const wheelViewport = wheel?.querySelector(".career-wheel__viewport");
+  const wheelList = wheel?.querySelector("[data-wheel-list]");
+  const wheelName = wheel?.querySelector("[data-wheel-name]");
+  const wheelRole = wheel?.querySelector("[data-wheel-role]");
+  const wheelItems = wheelList ? [...wheelList.children] : [];
   if (!stage || !disc || !svg || !hud || trails.length !== 4) return;
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   if (reducedMotion.matches) {
     stage.classList.add("journey-static");
+    wheel?.classList.add("is-static");
     return;
   }
 
@@ -39,13 +46,26 @@
       place: { en: "Ohio · Exchange at Miami University", es: "Ohio · Intercambio en Miami University" }
     },
     {
-      city: "San Diego", point: [177.8, 307.5], from: monthIndex(2023, 6), to: monthIndex(2026, 3), hold: 2.0,
+      city: "San Diego", point: [177.8, 307.5], from: monthIndex(2023, 6), to: monthIndex(2026, 3), hold: 3.3,
       place: { en: "San Diego · MSc at SDSU, iHeatApp and Premier", es: "San Diego · Máster en SDSU, iHeatApp y Premier" }
     },
     {
       city: "Madrid", point: [710.1, 199.5], from: monthIndex(2026, 3), to: currentMonth, hold: 2.6,
       place: { en: "Madrid · Celonis", es: "Madrid · Celonis" }
     }
+  ];
+  // Which logos in the wheel belong to each stop, and when they step in (seconds into the stay).
+  const STOP_SLOTS = [[0], [1], [2], [3, 4, 5], [6]];
+  const SLOT_STEPS = [[0], [0], [0], [0, 1.1, 2.2], [0]];
+  const WHEEL_TRANSITION = 0.7;
+  const SLOT_INFO = [
+    { name: "Granada", role: { en: "Where it all started", es: "Donde empezó todo" } },
+    { name: "Universidad de Málaga", role: { en: "BSc in Electronics, Robotics & Mechatronics Engineering", es: "Grado en Ingeniería Electrónica, Robótica y Mecatrónica" } },
+    { name: "Miami University", role: { en: "Exchange year · College of Engineering and Computing", es: "Año de intercambio · Facultad de Ingeniería y Computación" } },
+    { name: "San Diego State University", role: { en: "MSc in Big Data Analytics", es: "Máster en Big Data Analytics" } },
+    { name: "SDSU Research Foundation", role: { en: "Research assistant at CICS · AI & Data Scientist on iHeatApp", es: "Asistente de investigación en CICS · Científico de datos e IA en iHeatApp" } },
+    { name: "Premier Analytics Consulting", role: { en: "AI & Data Science Consultant", es: "Consultor de IA y ciencia de datos" } },
+    { name: "Celonis", role: { en: "Applied Value Engineer", es: "Applied Value Engineer" } }
   ];
   const TRAVEL_SECONDS = [1.1, 2.2, 1.7, 2.4];
   const RESET_SECONDS = 0.8;
@@ -77,6 +97,24 @@
     return `${MONTHS[language()][month]} ${Math.floor(Math.round(index) / 12)}`;
   };
 
+  const lastSlotOf = (index) => STOP_SLOTS[index][STOP_SLOTS[index].length - 1];
+
+  const wheelFor = (segment, seconds) => {
+    if (segment.kind === "hold") {
+      const slots = STOP_SLOTS[segment.index];
+      const steps = SLOT_STEPS[segment.index];
+      let step = 0;
+      steps.forEach((startAt, position) => {
+        if (seconds >= startAt) step = position;
+      });
+      const previous = step > 0 ? slots[step - 1] : segment.index > 0 ? lastSlotOf(segment.index - 1) : 0;
+      const amount = easeInOut(Math.min(1, (seconds - steps[step]) / WHEEL_TRANSITION));
+      return mix(previous, slots[step], amount);
+    }
+    if (segment.kind === "travel") return lastSlotOf(segment.index);
+    return seconds / segment.duration < 0.5 ? lastSlotOf(STOPS.length - 1) : 0;
+  };
+
   const pointAt = (leg, progress) => {
     const point = trails[leg].getPointAtLength(legLengths[leg] * progress);
     return [point.x, point.y];
@@ -85,8 +123,9 @@
   const poseAt = (time) => {
     const segment = segments.find((item) => time < item.start + item.duration) || segments[segments.length - 1];
     const local = Math.min(1, Math.max(0, (time - segment.start) / segment.duration));
-    const pose = { x: 0, y: 0, scale: CITY_SCALE, opacity: 1, trailOpacity: 1, completed: 0, progress: 0, date: "", place: "" };
+    const pose = { x: 0, y: 0, scale: CITY_SCALE, opacity: 1, trailOpacity: 1, completed: 0, progress: 0, date: "", place: "", wheel: 0, wheelOpacity: 1 };
     const stop = STOPS[segment.index];
+    pose.wheel = wheelFor(segment, local * segment.duration);
 
     if (segment.kind === "hold") {
       [pose.x, pose.y] = stop.point;
@@ -115,6 +154,7 @@
         pose.date = formatMonth(target.to);
       }
       pose.place = target.place[language()];
+      pose.wheelOpacity = pose.opacity;
       if (!fadingOut) pose.completed = -1;
     }
     return pose;
@@ -125,6 +165,33 @@
   let lastDate = null;
   let lastPlace = null;
   let lastLanguage = null;
+
+  let slotHeight = wheelItems[0]?.offsetHeight || 100;
+  let lastSlot = -1;
+  const measureWheel = () => {
+    slotHeight = wheelItems[0]?.offsetHeight || slotHeight;
+  };
+
+  const applyWheel = (position, opacity) => {
+    if (!wheelList) return;
+    wheelList.style.setProperty("--wheel-shift", `${(slotHeight * (1 - position)).toFixed(1)}px`);
+    wheelViewport.style.setProperty("--wheel-opacity", opacity.toFixed(3));
+    wheelItems.forEach((item, index) => {
+      const distance = Math.min(1, Math.abs(index - position));
+      item.style.opacity = (1 - 0.68 * distance).toFixed(3);
+      item.style.transform = `scale(${(1 - 0.2 * distance).toFixed(3)})`;
+      item.style.transformOrigin = "left center";
+    });
+    const slot = Math.round(position);
+    if (slot !== lastSlot || lastLanguage !== wheelLanguage) {
+      lastSlot = slot;
+      wheelLanguage = lastLanguage;
+      wheelName.textContent = SLOT_INFO[slot].name;
+      wheelRole.textContent = SLOT_INFO[slot].role[language()];
+    }
+  };
+
+  let wheelLanguage = null;
 
   const applyPose = (pose, withHud = true) => {
     const matrix = svg.getScreenCTM();
@@ -145,6 +212,8 @@
     current = { x: offsetX, y: offsetY, scale: pose.scale, opacity: pose.opacity };
 
     if (!withHud) return;
+
+    applyWheel(pose.wheel ?? 0, pose.wheelOpacity ?? 1);
 
     svg.style.setProperty("--trail-opacity", (pose.trailOpacity ?? 1).toFixed(3));
     trails.forEach((trail, index) => {
@@ -224,7 +293,7 @@
       const start = poseAt(0);
       applyPose({
         x: start.x, y: start.y, scale: start.scale, opacity: 1, trailOpacity: 0, completed: -1, progress: 0,
-        date: "", place: start.place
+        date: "", place: start.place, wheel: 0, wheelOpacity: 1
       }, true);
       const matrixPose = current;
       disc.style.setProperty("--journey-x", `${mix(glide.from.x, matrixPose.x, amount).toFixed(1)}px`);
@@ -266,6 +335,7 @@
   });
 
   window.addEventListener("resize", () => {
+    measureWheel();
     if (!running && !held && !glide) draw();
   });
 

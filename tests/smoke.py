@@ -59,6 +59,7 @@ def run() -> None:
         assert page.locator(".project").count() == 3
         assert page.locator(".archive-card").count() == 9
         assert page.locator("[data-journey-hud]").count() == 1
+        assert page.locator(".career-wheel__item").count() == 7
         assert page.evaluate("window.mabravoJourney.total") > 10
         assert_page_health(page)
 

@@ -2804,3 +2804,134 @@ footer a:hover {
     left: auto;
   }
 }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.career-wheel {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  gap: 24px 48px;
+  align-items: center;
+  margin-top: 56px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.career-wheel__viewport {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  mask-image: linear-gradient(transparent 0%, #000 30%, #000 70%, transparent 100%);
+  opacity: var(--wheel-opacity, 1);
+}
+
+.career-wheel__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transform: translateY(var(--wheel-shift, 100px));
+  will-change: transform;
+}
+
+.career-wheel__item {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.career-wheel__item img {
+  width: auto;
+  max-width: 100%;
+  height: var(--logo-h, 40px);
+  object-fit: contain;
+  object-position: left center;
+}
+
+.career-wheel .logo-dark,
+:root[data-theme="dark"] .career-wheel .logo-light {
+  display: none;
+}
+
+:root[data-theme="dark"] .career-wheel .logo-dark {
+  display: block;
+}
+
+.wheel-text {
+  color: var(--ink-strong);
+  font-family: var(--mono);
+  font-size: 26px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.career-wheel__detail {
+  display: grid;
+  gap: 8px;
+}
+
+.career-wheel__detail strong {
+  color: var(--ink-strong);
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.career-wheel__detail span {
+  max-width: 460px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.career-wheel.is-static .career-wheel__viewport {
+  height: auto;
+  mask-image: none;
+}
+
+.career-wheel.is-static .career-wheel__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 36px;
+  transform: none;
+}
+
+.career-wheel.is-static .career-wheel__item {
+  height: auto;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.career-wheel.is-static .career-wheel__detail {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .career-wheel {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .career-wheel__viewport {
+    height: 228px;
+  }
+
+  .career-wheel__item {
+    height: 76px;
+  }
+
+  .career-wheel__item img {
+    height: calc(var(--logo-h, 40px) * 0.82);
+  }
+}
