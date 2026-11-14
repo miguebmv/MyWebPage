@@ -99,7 +99,7 @@
 
   const lastSlotOf = (index) => STOP_SLOTS[index][STOP_SLOTS[index].length - 1];
 
-  const wheelFor = (segment, seconds) => {
+  const wheelFor = (segment, seconds, local) => {
     if (segment.kind === "hold") {
       const slots = STOP_SLOTS[segment.index];
       const steps = SLOT_STEPS[segment.index];
@@ -107,11 +107,14 @@
       steps.forEach((startAt, position) => {
         if (seconds >= startAt) step = position;
       });
-      const previous = step > 0 ? slots[step - 1] : segment.index > 0 ? lastSlotOf(segment.index - 1) : 0;
+      if (step === 0) return slots[0];
       const amount = easeInOut(Math.min(1, (seconds - steps[step]) / WHEEL_TRANSITION));
-      return mix(previous, slots[step], amount);
+      return mix(slots[step - 1], slots[step], amount);
     }
-    if (segment.kind === "travel") return lastSlotOf(segment.index);
+    if (segment.kind === "travel") {
+      // The logos turn while the photo travels, so the next one is in place on arrival.
+      return mix(lastSlotOf(segment.index), STOP_SLOTS[segment.index + 1][0], easeInOut(local));
+    }
     return seconds / segment.duration < 0.5 ? lastSlotOf(STOPS.length - 1) : 0;
   };
 
@@ -125,7 +128,7 @@
     const local = Math.min(1, Math.max(0, (time - segment.start) / segment.duration));
     const pose = { x: 0, y: 0, scale: CITY_SCALE, opacity: 1, trailOpacity: 1, completed: 0, progress: 0, date: "", place: "", wheel: 0, wheelOpacity: 1 };
     const stop = STOPS[segment.index];
-    pose.wheel = wheelFor(segment, local * segment.duration);
+    pose.wheel = wheelFor(segment, local * segment.duration, local);
 
     if (segment.kind === "hold") {
       [pose.x, pose.y] = stop.point;
