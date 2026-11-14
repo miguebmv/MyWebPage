@@ -73,6 +73,7 @@
   const TRAVEL_SCALE = 0.85;
   const GLIDE_SECONDS = 1;
   const IDLE_RESUME_MS = 7000;
+  const SPEED = 1.2;
 
   const legLengths = trails.map((trail) => trail.getTotalLength());
   const segments = [];
@@ -310,7 +311,7 @@
         lastCity = -1;
       }
     } else {
-      time = (time + delta) % total;
+      time = (time + delta * SPEED) % total;
       draw();
     }
     frameId = requestAnimationFrame(frame);
