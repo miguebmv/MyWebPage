@@ -94,16 +94,17 @@
 
       <main id="content">
         <section class="section section--opening" id="top">
-          <p class="opening-line" data-i18n="opening">
-            My work starts with messy real-world data and ends with something people can understand,
-            trust and use.
-          </p>
+          <p class="opening-line" data-i18n="opening">My work starts with <span class="hl">messy real-world data</span> and ends with something people can <span class="hl">understand, trust and use.</span></p>
           <div class="opening-note">
             <span data-i18n="focusLabel">Current focus</span>
             <p data-i18n="focus">
               Process intelligence, applied AI and measurable enterprise value at Celonis.
             </p>
           </div>
+          <a class="opening-note opening-note--link" href="#publications">
+            <span data-i18n="publishedLabel">Published</span>
+            <p data-i18n="publishedNote">Two peer-reviewed papers on AI-driven heat-risk systems, in Elsevier journals.</p>
+          </a>
           <a class="down-link" href="#about"><span data-i18n="explore">Explore the work</span><b aria-hidden="true">↓</b></a>
           <div class="data-field" data-field aria-hidden="true"></div>
         </section>
@@ -121,6 +122,11 @@
               grounded in what people and organisations actually need.
             </p>
           </div>
+          <ul class="how-i-work" aria-label="How I work">
+            <li><span data-i18n="hw1Label">Executive communication</span><p data-i18n="hw1Copy">Presenting technical solutions and value cases to C-level stakeholders.</p></li>
+            <li><span data-i18n="hw2Label">Customer-facing</span><p data-i18n="hw2Copy">Working directly with enterprise customers to turn process data into measurable outcomes.</p></li>
+            <li><span data-i18n="hw3Label">On stage</span><p data-i18n="hw3Copy">Talks and papers at WUSS, MWSUG and the RVAtech Data + AI Summit.</p></li>
+          </ul>
           <figure class="portrait">
             <div class="portrait__stage" data-portrait-stage>
               <svg class="journey-map" viewBox="0 0 860 410" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
@@ -151,15 +157,27 @@
           </figure>
         </section>
 
-        <section class="section" id="experience" aria-labelledby="experience-title">
+        <section class="section experience-section" id="experience" aria-labelledby="experience-title">
           <p class="section-label" id="experience-title"><span>02</span><span data-i18n="experienceLabel">Experience</span></p>
+                    <a class="resume-callout" href="assets/docs/miguel-bravo-resume.pdf" target="_blank" aria-label="View Miguel Bravo's full résumé PDF" data-resume-callout data-resume-preview aria-haspopup="dialog">
+            <span class="resume-callout__meta">
+              <span data-i18n="resumeDocument">Résumé</span>
+              <span data-i18n="resumeUpdated">Updated November 2026 · PDF · 1 page</span>
+            </span>
+            <strong data-i18n="fullResume">View the full résumé</strong>
+            <span class="resume-callout__arrow" aria-hidden="true">↗︎</span>
+          </a>
           <div class="experience-list">
             <article class="experience-item experience-item--current">
               <p class="date" data-i18n="dateCelonis">Mar 2026 — Present</p>
               <div>
                 <h2 data-i18n="celonisRole">Applied Value Engineer</h2>
                 <p class="company">Celonis</p>
-                <p data-i18n="celonisCopy">Analysing enterprise processes, quantifying operational value, and prototyping AI agents and automations on Celonis’ process intelligence platform.</p>
+                <ul class="exp-points">
+                  <li data-i18n="celonisB1">Diagnosing operational inefficiencies in the end-to-end processes of large enterprises from process data, and quantifying their financial impact as measurable value and ROI.</li>
+                  <li data-i18n="celonisB2">Designing and prototyping AI agents and orchestrated automations on Celonis’ process intelligence and context layer, in domains such as supply chain.</li>
+                  <li data-i18n="celonisB3">Presenting solutions and value cases directly to customers and C-level stakeholders, translating complex AI and data concepts into clear business outcomes.</li>
+                </ul>
                 <ul class="stack" aria-label="Technologies">
                   <li>Process Intelligence</li><li>AI Agents</li><li>Value Engineering</li>
                 </ul>
@@ -170,7 +188,12 @@
               <div>
                 <h2 data-i18n="premierRole">AI &amp; Data Science Consultant</h2>
                 <p class="company">Premier Analytics Consulting</p>
-                <p data-i18n="premierCopy">Building production data pipelines, FastAPI backends, containerised AI systems and multilingual assistants across cloud and on-premise environments.</p>
+                <ul class="exp-points">
+                  <li data-i18n="premierB1">Designed data pipelines and FastAPI backends to automate ingestion and transformation of large research and environmental datasets across AWS S3 and on-premise servers.</li>
+                  <li data-i18n="premierB2">Built and deployed containerised AI systems with Docker and Ubuntu, improving reproducibility and deployment efficiency.</li>
+                  <li data-i18n="premierB3">Developed a localised multilingual assistant for summarisation, translation and retrieval using open-source LLMs (Mistral-7B, LLaMA 3), tuning latency and cross-lingual accuracy.</li>
+                  <li data-i18n="premierB4">Collaborated on end-to-end product delivery, integrating ML components with React frontends and REST APIs.</li>
+                </ul>
                 <ul class="stack" aria-label="Technologies">
                   <li>Python</li><li>FastAPI</li><li>Docker</li><li>LLMs</li>
                 </ul>
@@ -181,7 +204,11 @@
               <div>
                 <h2 data-i18n="iheatRole">AI &amp; Data Scientist</h2>
                 <p class="company">iHeatApp · SDSU Climate Informatics Lab</p>
-                <p data-i18n="iheatCopy">Developed hourly heat-risk forecasts, geospatial pipelines and a bilingual AI-assisted product for communities in California’s Imperial Valley.</p>
+                <ul class="exp-points">
+                  <li data-i18n="iheatB1">Built a bilingual AI-driven product for agricultural communities that maps real-time WBGT heat risk and gives contextual safety guidance through a custom LLM chatbot.</li>
+                  <li data-i18n="iheatB2">Built and validated hourly forecasting pipelines on NOAA NBM data (Herbie/xarray), with geospatial rendering for the Imperial Valley.</li>
+                  <li data-i18n="iheatB3">First author of the paper on the system architecture and modelling framework (IJDRR, Elsevier) and co-author of a second paper on the AI chatbot (Climate Services).</li>
+                </ul>
                 <ul class="stack" aria-label="Technologies">
                   <li>Python</li><li>xarray</li><li>Geospatial</li><li>AI</li>
                 </ul>
@@ -192,47 +219,47 @@
               <div>
                 <h2 data-i18n="cicsRole">Data Science Research Assistant</h2>
                 <p class="company">Center for Information Convergence and Strategy</p>
-                <p data-i18n="cicsCopy">Built reproducible R workflows for cleaning and analysing spatiotemporal nutrient data from Irish agricultural catchments.</p>
+                <ul class="exp-points">
+                  <li data-i18n="cicsB1">Applied multivariate statistics and time-series analysis to nutrient dynamics and eutrophication in Irish agricultural catchments.</li>
+                  <li data-i18n="cicsB2">Developed automated R pipelines for cleaning, interpolation and quality-flagging, improving reproducibility.</li>
+                  <li data-i18n="cicsB3">Supported predictive modelling of nutrient trends with regression and spatial-temporal clustering.</li>
+                </ul>
                 <ul class="stack" aria-label="Technologies">
                   <li>R</li><li>Research</li><li>Spatiotemporal data</li>
                 </ul>
               </div>
             </article>
           </div>
-          <a class="resume-callout" href="assets/docs/miguel-bravo-resume.pdf" target="_blank" aria-label="View Miguel Bravo's full résumé PDF" data-resume-callout data-resume-preview aria-haspopup="dialog">
-            <span class="resume-callout__meta">
-              <span data-i18n="resumeDocument">Résumé</span>
-              <span data-i18n="resumeUpdated">Updated November 2026 · PDF · 1 page</span>
-            </span>
-            <strong data-i18n="fullResume">View the full résumé</strong>
-            <span class="resume-callout__arrow" aria-hidden="true">↗︎</span>
-          </a>
         </section>
 
         <section class="section" id="publications" aria-labelledby="publications-title">
           <p class="section-label" id="publications-title"><span>03</span><span data-i18n="publicationsLabel">Publications</span></p>
-          <div class="experience-list publication-list">
-            <article class="experience-item publication-item">
-              <p class="date">2026</p>
-              <div>
+          <div class="pub-list">
+            <article class="pub-card">
+              <div class="pub-card__media"><img src="assets/img/paper-iheatapp.jpg" alt="" width="1500" height="1000" loading="lazy"></div>
+              <div class="pub-card__body">
+                <div class="pub-card__top"><span class="status-pill"><i aria-hidden="true"></i><span data-i18n="pubStatus">Published</span></span><span class="pub-card__role" data-i18n="pubFirst">First author</span></div>
                 <h2>iHeatApp: A climate data visualization and delivery technology for mitigating heat exposure and risks in agriculture</h2>
-                <p class="company">International Journal of Disaster Risk Reduction · Article 106534</p>
-                <p data-i18n="pubOneCopy">First-authored paper on the architecture and modelling framework behind iHeatApp, the bilingual heat-risk platform for agricultural communities.</p>
-                <ul class="stack" aria-label="Publication details">
-                  <li data-i18n="pubFirst">First author</li><li data-i18n="pubPeer">Peer-reviewed</li><li>Elsevier</li>
-                </ul>
+                <p class="pub-card__copy" data-i18n="pubOneCopy">First-authored paper on the architecture and modelling framework behind iHeatApp, the bilingual heat-risk platform for agricultural communities.</p>
+                <div class="pub-venue">
+                  <span class="pub-venue__label" data-i18n="publishedIn">Published in</span>
+                  <img class="pub-venue__elsevier" src="assets/img/logos/elsevier.svg" alt="Elsevier" height="26" loading="lazy">
+                  <span class="pub-venue__journal"><img src="assets/img/logos/ijdrr-cover.jpg" alt="" width="44" height="60" loading="lazy"><span><strong>International Journal of Disaster Risk Reduction</strong><small>Article 106534 · 2026</small></span></span>
+                </div>
                 <a class="publication-link" href="https://doi.org/10.1016/j.ijdrr.2026.106534" target="_blank" rel="noreferrer"><span>doi.org/10.1016/j.ijdrr.2026.106534</span><b aria-hidden="true">↗︎</b></a>
               </div>
             </article>
-            <article class="experience-item publication-item">
-              <p class="date">2026</p>
-              <div>
+            <article class="pub-card">
+              <div class="pub-card__media"><img src="assets/img/paper-chatbot.jpg" alt="" width="1500" height="1000" loading="lazy"></div>
+              <div class="pub-card__body">
+                <div class="pub-card__top"><span class="status-pill"><i aria-hidden="true"></i><span data-i18n="pubStatus">Published</span></span><span class="pub-card__role" data-i18n="pubSecond">Second author</span></div>
                 <h2>An AI visual chatbot system for climate heat risk communication and decision-making in at-risk agricultural communities</h2>
-                <p class="company">Climate Services · Vol. 44, Article 100736</p>
-                <p data-i18n="pubTwoCopy">Co-authored paper on the AI visual chatbot that communicates heat risk and supports decisions in at-risk agricultural communities.</p>
-                <ul class="stack" aria-label="Publication details">
-                  <li data-i18n="pubSecond">Second author</li><li data-i18n="pubPeer">Peer-reviewed</li><li>Elsevier</li>
-                </ul>
+                <p class="pub-card__copy" data-i18n="pubTwoCopy">Co-authored paper on the AI visual chatbot that communicates heat risk and supports decisions in at-risk agricultural communities.</p>
+                <div class="pub-venue">
+                  <span class="pub-venue__label" data-i18n="publishedIn">Published in</span>
+                  <img class="pub-venue__elsevier" src="assets/img/logos/elsevier.svg" alt="Elsevier" height="26" loading="lazy">
+                  <span class="pub-venue__journal"><img src="assets/img/logos/climate-services-cover.jpg" alt="" width="44" height="58" loading="lazy"><span><strong>Climate Services</strong><small>Vol. 44 · Article 100736 · 2026</small></span></span>
+                </div>
                 <a class="publication-link" href="https://doi.org/10.1016/j.cliser.2026.100736" target="_blank" rel="noreferrer"><span>doi.org/10.1016/j.cliser.2026.100736</span><b aria-hidden="true">↗︎</b></a>
               </div>
             </article>
