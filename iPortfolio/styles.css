@@ -2828,9 +2828,9 @@ footer a:hover {
 
 .career-wheel__viewport {
   position: relative;
-  height: 110px;
+  height: 116px;
   overflow: hidden;
-  mask-image: linear-gradient(transparent 0%, #000 34%, #000 66%, transparent 100%);
+  mask-image: linear-gradient(transparent 0%, #000 10%, #000 90%, transparent 100%);
   opacity: var(--wheel-opacity, 1);
 }
 
@@ -2838,7 +2838,7 @@ footer a:hover {
   margin: 0;
   padding: 0;
   list-style: none;
-  transform: translateY(var(--wheel-shift, 19px));
+  transform: translateY(var(--wheel-shift, 22px));
   will-change: transform;
 }
 
