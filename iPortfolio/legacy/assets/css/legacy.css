@@ -19,3 +19,6 @@ body{padding-top:44px}
 .legacy-cv i.s{width:62%}
 .legacy-cv__note{margin:18px 0 0;text-align:center;font:italic 14px/1.4 "Open Sans",sans-serif;color:#888}
 @media(max-width:600px){.legacy-cv__body{grid-template-columns:1fr}}
+
+/* Amber dashed frame so the archived version is unmistakable */
+body::after{content:"";position:fixed;inset:0;z-index:99998;pointer-events:none;border:6px dashed #e0a458;box-shadow:inset 0 0 0 2px rgba(20,22,26,.55)}
