@@ -1276,9 +1276,9 @@ footer a:hover {
 
 .detail-shell {
   display: grid;
-  grid-template-columns: 210px minmax(0, 1fr);
-  gap: clamp(48px, 6vw, 96px);
-  width: min(1280px, calc(100% - 80px));
+  grid-template-columns: 196px minmax(0, 1fr);
+  gap: clamp(28px, 3vw, 48px);
+  width: min(1560px, calc(100% - 64px));
   margin: 0 auto;
 }
 
@@ -1289,8 +1289,17 @@ footer a:hover {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  min-height: 680px;
+  height: 100dvh;
+  min-height: 0;
   padding: 56px 0 36px;
+  /* Short screens: the sidebar scrolls on its own instead of cutting off the links. */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+.detail-sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .detail-sidebar .wordmark {
@@ -1334,8 +1343,8 @@ footer a:hover {
   padding: 4px 0;
   color: var(--faint);
   font-family: var(--mono);
-  font-size: 8px;
-  letter-spacing: 0.035em;
+  font-size: 9px;
+  letter-spacing: 0.03em;
   line-height: 1.35;
   text-transform: uppercase;
   transition: color 180ms ease, transform 180ms ease;
@@ -1356,10 +1365,8 @@ footer a:hover {
 }
 
 .project-index a b {
-  overflow: hidden;
   font-weight: 500;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 .detail-sidebar .identity-footer {
@@ -1377,7 +1384,7 @@ footer a:hover {
 }
 
 .project-main > article {
-  padding-left: clamp(44px, 5vw, 80px);
+  padding-left: clamp(32px, 3.4vw, 56px);
 }
 
 .detail-hero {
@@ -3080,5 +3087,26 @@ footer a:hover {
 @media (max-width: 900px) {
   .note-image {
     aspect-ratio: auto;
+  }
+}
+
+@media (min-width: 1500px) {
+  .detail-cover img {
+    aspect-ratio: 2 / 1;
+  }
+}
+
+@media (min-width: 901px) and (max-height: 820px) {
+  .detail-sidebar {
+    padding: 32px 0 22px;
+  }
+
+  .detail-sidebar .project-index {
+    gap: 1px;
+    margin: 14px 0;
+  }
+
+  .detail-sidebar .detail-position {
+    margin-top: 16px;
   }
 }
