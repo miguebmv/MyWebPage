@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+  <title>Miguel Bravo Webpage</title>
+  <meta content="" name="description" />
+  <meta content="" name="keywords" />
+
+
+  <!--CSS para embed y otras cosas creadas por mi-->
+  <link href="assets/css/my_style.css" rel="stylesheet" />
+
+  <!-- añadimos nuestro archivo functions.js-->
+  <script src="functions.js"></script>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon2.png" rel="icon" />
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+  <!-- Agrega los estilos y scripts de Bootstrap -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link href="assets/css/style.css" rel="stylesheet" />
+  <link href="assets/css/legacy.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div class="legacy-banner" role="note">
+    <span class="legacy-banner__tag">legacy</span>
+    <span class="legacy-banner__text" data-en="My first website, built by hand in 2024. Kept here as it was." data-es="Mi primera web, hecha a mano en 2024. Se queda aquí tal cual era.">My first website, built by hand in 2024. Kept here as it was.</span>
+    <a class="legacy-banner__back" href="/" data-en="Back to the current site &rarr;" data-es="Volver a la web actual &rarr;">Back to the current site &rarr;</a>
+  </div>
+  <script>
+    try {
+      if (localStorage.getItem("mabravo-mockup-language") === "es") {
+        document.querySelectorAll(".legacy-banner [data-es]").forEach(function (el) { el.innerHTML = el.getAttribute("data-es"); });
+      }
+    } catch (e) {}
+  </script>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+
+  <header id="header">
+    <div class="d-flex flex-column">
+      <div class="profile">
+        <img src="assets/img/profile-img.jpg" alt=""
+          style="border-radius: 150px; width: 150px; height: 150px; object-fit: cover; object-position: 80% 20%;">
+        <h1 class="text-light">
+          <a href="index.html">Miguel Angel Bravo</a>
+        </h1>
+        <div class="social-links mt-3 text-center">
+          <!-- he quitado la funtion de instagram, ya que no se si es muy profesional-->
+          <!--<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a> -->
+
+          <!--hasta aqui _________________________________________________________ -->
+          <a href="https://www.linkedin.com/in/miguel-angel-bravo" target="_blank" class="linkedin"><i
+              class="bx bxl-linkedin"></i></a>
+
+          <!-- funcion y todo para poder hacer al usuario que copie mi gmail -->
+          <a class="gmail" onclick="copyEmail()">
+            <i class="bx bxl-gmail"></i>
+          </a>
+          <span id="copyMessage" style="display: none">Copied to Clipboard!</span>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li>
+            <a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a>
+          </li>
+          <li>
+            <a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a>
+          </li>
+          <li>
+            <a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a>
+          </li>
+          <li>
+            <a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a>
+          </li>
+          <li>
+            <a href="#conferences" class="nav-link scrollto active"><i class="bx bx-book"></i>
+              <span>Conferences</span></a>
+          </li>
+          <!--<li>
+            <a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a>
+          </li>
+          <li>
+            <a href="/#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a>
+          </li>-->
+        </ul>
+      </nav>
+      <!-- .nav-menu -->
+    </div>
+  </header>
+
+  <!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>Miguel Bravo</h1>
+      <p>
+        Thanks for visiting!<br>
+        <span class="typed" data-typed-items="Join me as I open up about my personal and professional story."></span>
+      </p>
+    </div>
+  </section>
+  <!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About</h2>
+          <p>
+            <strong>Learn a little more about me, about my academic and professional career!</strong>
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="assets/img/hero-bg.jpg" class="img-fluid" alt="" width="350" />
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3>Robotics Engineer &amp; Big Data Scientist</h3>
+            <p class="fst-italic">
+              I was born in Granada, Spain, in 2000, and spent my childhood there, attending school in my hometown.
+              Later, I pursued
+              my studies in Malaga, specializing in Robotics Engineering. After a year of exchange at Miami University
+              in Oxford,
+              Ohio, I decided to pursue my passion for data by completing my master's in Big Data Analytics in San
+              Diego, California.
+            </p>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li>
+                    <span class="la--birthday-cake"></span>
+                    <strong> &nbsp;Birthday:</strong> <span>29 Dec 2000</span>
+                  </li>
+
+                  <li>
+                    <i class="bx bxl-gmail"></i>
+                    <strong>eMail:</strong> <span>miguelangelbravo2000@gmail.com</span>
+                  </li>
+                  <li>
+                    <span class="la--flag-usa"></span>
+                    <strong>&nbsp;Current City:</strong> <span>San Diego, California, USA</span>
+                  </li>
+                  <li>
+                    <span class="mdi--university"></span>
+                    <strong>&nbsp;Studies:</strong> <span>Bachelor's, Master's</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li>
+                    <span class="el--person"></span>
+                    <strong>Age:</strong>
+                    <span id="age"></span>
+                  </li>
+                  <li><br></li>
+
+                  <li>
+                    <span class="game-icons--spain"></span>
+                    <strong>&nbsp;Born City:</strong> <span>Granada, Spain</span>
+                  </li>
+                  <!--<li>
+                    <i class="bi bi-chevron-right"></i>
+                    <strong>PhEmailone:</strong>
+                    <span>email@example.com</span>
+                  </li>-->
+                  <!--<li>
+                    <i class="bi bi-chevron-right"></i>
+                    <strong>Freelance:</strong> <span>Available</span>
+                  </li>-->
+                </ul>
+              </div>
+              <div class="col-lg-12">
+                <ul>
+                  <li>
+                    <i class="bx bxl-linkedin"></i>
+                    <strong>LinkedIn:</strong><a href="https://www.linkedin.com/in/miguel-angel-bravo"
+                      target="_blank">www.linkedin.com/in/miguel-angel-bravo</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <p>
+              Since a young age, I've been passionate about engineering, computing, and coding. I've always been
+              fascinated by how
+              machines can solve problems and simplify complex tasks. My interest in programming and software
+              development naturally
+              stemmed from this curiosity. Additionally, I discovered my fascination with the power of data to reveal
+              insights and
+              make informed decisions. This passion led me to focus my career on data analysis and artificial
+              intelligence, seeking to
+              understand and harness the full potential that data offers in solving real-world problems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End About Section -->
+    <!-- End Facts Section -->
+    <!-- End Skills Section -->
+
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container">
+        <div class="section-title">
+          <h2>Resume</h2>
+          <p>
+            This is where my résumé used to live. The old versions are retired, so this page only keeps the
+            spot, like a template résumé waiting to be filled in.
+          </p>
+        </div>
+        <div class="legacy-cv" aria-label="Résumé placeholder">
+          <div class="legacy-cv__head">
+            <span class="legacy-cv__name">YOUR NAME</span>
+            <span class="legacy-cv__role">Aspiring Data Scientist</span>
+          </div>
+          <div class="legacy-cv__body">
+            <div class="legacy-cv__col">
+              <h3>Education</h3>
+              <i></i><i></i><i class="s"></i>
+              <h3>Skills</h3>
+              <i></i><i class="s"></i><i></i>
+            </div>
+            <div class="legacy-cv__col">
+              <h3>Experience</h3>
+              <i></i><i></i><i class="s"></i>
+              <i></i><i class="s"></i>
+              <h3>Projects</h3>
+              <i></i><i class="s"></i>
+            </div>
+          </div>
+          <p class="legacy-cv__note">Here would be my résumé.</p>
+        </div>
+        <div style="text-align: center; margin-top: 18px;">
+          <a href="/">See my current résumé on the new site &rarr;</a>
+        </div>
+        <hr>
+      </div>
+    </section>
+    <!-- End Resume Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <p>
+            <strong>Welcome</strong> to my portfolio! Here, you'll discover a collection of projects spanning data
+            visualization, machine
+            learning,
+            big data, and SQL projects. Each project is crafted to provide an interactive and insightful experience.
+            Click on each
+            one to delve deeper, explore further, and even run the applications created. Moreover, for ease of
+            exploration, you can
+            filter projects by specific topics. Enjoy exploring and uncovering the stories behind my projects!
+          </p>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-capstone">Capstone Project</li>
+              <li data-filter=".filter-datavisualization">
+                Data Visualization
+              </li>
+              <li data-filter=".filter-bigdata">Big Data Project</li>
+              <li data-filter=".filter-sql">SQL-Project</li>
+              <li data-filter=".filter-machinelearning">Machine Learning</li>
+              <li data-filter=".filter-timeseries">Timeseries</li>
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+          <!--Trabajo Fin De Master-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-capstone">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/capstone_project.png" class="img-fluid" alt="" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="capstone_project.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More information</a>
+              </div>
+            </div>
+          </div>
+          <!--Hasta aqui________________________________________ -->
+          <!--Primer proyecto Lab 1 de Data Visualization -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-datavisualization">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/lab1.png" class="img-fluid" alt="" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="lab1-datavis.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More Information</a>
+              </div>
+            </div>
+          </div>
+
+          <!--Hasta aqui________________________________________ -->
+          <!--Segundo proyecto Lab 2 de Data Visualization -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-datavisualization">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/lab2.png" class="img-fluid" alt="" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="lab2-datavis.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More Information</a>
+              </div>
+            </div>
+          </div>
+
+          <!--Hasta aqui________________________________________ -->
+          <!--Tercer proyecto Lab 3 de Data Visualization -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-datavisualization">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/lab3.png" class="img-fluid" alt="" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="lab3-datavis.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More information</a>
+              </div>
+            </div>
+          </div>
+          <!--Hasta aqui________________________________________ -->
+          <!--Cuarto proyecto Lab 4 de Data Visualization -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-datavisualization">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/final_project.png" class="img-fluid" alt="" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="lab4-datavis.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More information</a>
+              </div>
+            </div>
+          </div>
+          <!--Hasta aqui________________________________________ -->
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <!-- Carga el contenido del iframe dentro del modal -->
+                <iframe src="" id="modalFrame" class="modal-body" style="width: 100%; height: 550px"></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!--Primer proyecto  Big Data Analytics-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-bigdata">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/BDA Project.png" class="img-fluid" alt="" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="bda_project.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More information</a>
+              </div>
+            </div>
+          </div>
+          <!--Hasta aqui________________________________________ -->
+          <!--Primer proyecto  SQL-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-sql">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/MIS project.png" class="img-fluid" alt="" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="mis_project.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More information</a>
+              </div>
+            </div>
+          </div>
+          <!--Hasta aqui________________________________________ -->
+          <!--Primer proyecto  Machine Learning-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-machinelearning">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/Machine Learning.png" class="img-fluid" alt="" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="machine_learning.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More information</a>
+              </div>
+            </div>
+          </div>
+          <!--Hasta aqui________________________________________ -->
+
+          <!-- ________________________ -->
+          <!--Primer proyecto  stat520, applied multivariate analysis-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-machinelearning">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/stat520.png" class="img-fluid" alt="" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="stat520.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More information</a>
+              </div>
+            </div>
+          </div>
+          <!--Hasta aqui________________________________________ -->
+
+          <!--Primer proyecto AI, course called MIS720-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-machinelearning">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/mis720.png" class="img-fluid" alt="" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="mis720.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More information</a>
+              </div>
+            </div>
+          </div>
+          <!--Hasta aqui________________________________________ -->
+
+          <!--Primer proyecto Time series forecasting, course called MIS748-->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-timeseries">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/time-series.png" class="img-fluid" alt="" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="time-series-project.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More information</a>
+              </div>
+            </div>
+          </div>
+          <!--Hasta aqui________________________________________ -->
+
+
+          <!-- ________________________ -->
+
+        </div>
+      </div>
+    </section>
+    <!-- End Portfolio Section -->
+
+
+
+    <section id="conferences" class="portfolio section-bg">
+      <div class="container">
+        <div class="section-title">
+          <h2>Conferences</h2>
+          <p>This section highlights the conferences I have participated in, where I have shared knowledge and
+            experiences in the
+            field of data analysis and related technologies. These opportunities have allowed me to learn from experts
+            and
+            collaborate with other professionals in the industry.</p>
+
+        </div>
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+          <!-- WUSS 2024 -->
+          <div class="col-lg-3 col-md-5 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/conferences/wuss2024.png" class="img-fluid" alt="Wuss Conference"
+                style="width: 100%; height: auto;" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="wuss_conference2024.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More information</a>
+              </div>
+            </div>
+          </div>
+          <!--______________________________________ -->
+          <!-- MidWest 2024 -->
+          <div class="col-lg-3 col-md-5 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/conferences/midwest2024.png" class="img-fluid" alt="MWSUG 2024 Conference"
+                style="width: 100%; height: auto;" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="mwsug2024.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More information</a>
+              </div>
+            </div>
+          </div>
+          <!--______________________________________ -->
+          <!-- Richmond Virginia Technology (RVATech) Data + AI Summit 2025 -->
+          <div class="col-lg-3 col-md-5 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/conferences/aisummit2025.png" class="img-fluid" alt="RVATech Data + AI Summit"
+                style="width: 100%; height: auto;" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="aisummit2025.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More information</a>
+              </div>
+            </div>
+          </div>
+          <!--______________________________________ -->
+          <!-- WUSS 2025 -->
+          <div class="col-lg-3 col-md-5 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/conferences/wuss2025.png" class="img-fluid" alt="Wuss 2025 Conference"
+                style="width: 100%; height: auto;" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="wuss_conference2025_comingsoon.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More information</a>
+              </div>
+            </div>
+          </div>
+          <!--______________________________________ -->
+          <!-- MidWest 2025 -->
+          <div class="col-lg-3 col-md-5 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/conferences/midwest2025.png" class="img-fluid" alt="MWSUG 2025 Conference"
+                style="width: 100%; height: auto;" />
+              <div class="portfolio-links" style="height: 100%;">
+                <a href="mwsug2025_comingsoon.html" title="More Details"
+                  style="font-size: 1.3em; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  More information</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <!-- End Services Section -->
+    <!-- End Testimonials Section -->
+    <!-- End Contact Section -->
+  </main>
+  <!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

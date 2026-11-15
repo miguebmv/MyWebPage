@@ -3110,3 +3110,11 @@ footer a:hover {
     margin-top: 16px;
   }
 }
+
+/* Legacy (v1) link in the footer */
+.legacy-link{display:inline-flex;align-items:center;gap:8px;padding:5px 11px;border:1px dashed color-mix(in srgb,currentColor 38%,transparent);border-radius:6px;font:500 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em;text-decoration:none;opacity:.72;transition:opacity .2s,border-color .2s,transform .2s}
+.legacy-link s{text-decoration-thickness:1px}
+.legacy-link span{padding-left:8px;border-left:1px solid color-mix(in srgb,currentColor 25%,transparent);font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:#c98a2e}
+.legacy-link:hover,.legacy-link:focus-visible{opacity:1;border-style:solid;border-color:#c98a2e;transform:translateY(-1px)}
+.legacy-link:hover s{text-decoration:none}
+@media(prefers-reduced-motion:reduce){.legacy-link{transition:none}}

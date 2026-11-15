@@ -1,0 +1,21 @@
+/* Banner shown on every page of the archived first version */
+.legacy-banner{position:fixed;top:0;left:0;right:0;z-index:99999;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 14px;padding:8px 16px;background:#14161a;color:#e9e9e9;font:500 13px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;border-bottom:1px solid #2c2f36}
+.legacy-banner__tag{padding:1px 8px;border:1px dashed #e0a458;border-radius:4px;color:#e0a458;text-decoration:line-through;text-decoration-thickness:1px;letter-spacing:.04em}
+.legacy-banner__back{color:#8ec5ff;text-decoration:none;white-space:nowrap}
+.legacy-banner__back:hover{text-decoration:underline}
+body{padding-top:44px}
+@media(max-width:600px){body{padding-top:70px}}
+#header{top:44px}
+@media(max-width:600px){#header{top:70px}}
+.legacy-banner~#header,body>#header{margin-top:0}
+/* Résumé placeholder */
+.legacy-cv{max-width:640px;margin:0 auto;padding:26px 28px;background:#fff;color:#444;border:1px solid #ddd;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.12);text-align:left}
+.legacy-cv__head{border-bottom:2px solid #149ddd;padding-bottom:10px;margin-bottom:14px}
+.legacy-cv__name{display:block;font:700 22px/1.2 "Open Sans",sans-serif;letter-spacing:.08em;color:#222}
+.legacy-cv__role{display:block;font:400 13px/1.4 "Open Sans",sans-serif;color:#777}
+.legacy-cv__body{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.legacy-cv h3{margin:10px 0 6px;font:700 12px/1 "Open Sans",sans-serif;text-transform:uppercase;letter-spacing:.1em;color:#149ddd}
+.legacy-cv i{display:block;height:7px;margin:7px 0;border-radius:4px;background:#e4e6ea}
+.legacy-cv i.s{width:62%}
+.legacy-cv__note{margin:18px 0 0;text-align:center;font:italic 14px/1.4 "Open Sans",sans-serif;color:#888}
+@media(max-width:600px){.legacy-cv__body{grid-template-columns:1fr}}
