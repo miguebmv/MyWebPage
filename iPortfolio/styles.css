@@ -3119,5 +3119,5 @@ footer a:hover {
 .legacy-link:hover s{text-decoration:none}
 @media(prefers-reduced-motion:reduce){.legacy-link{transition:none}}
 #content{position:relative}
-.legacy-link--top{position:absolute;top:30px;right:clamp(20px,5.5vw,80px);z-index:5;background:color-mix(in srgb,var(--bg,transparent) 70%,transparent)}
+.legacy-link--top{position:absolute;top:30px;right:clamp(16px,2.6vw,36px);z-index:5;background:color-mix(in srgb,var(--bg,transparent) 70%,transparent)}
 @media(max-width:900px){.legacy-link--top{top:18px;right:16px}}
