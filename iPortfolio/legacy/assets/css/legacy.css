@@ -1,13 +1,11 @@
-/* Banner shown on every page of the archived first version */
-.legacy-banner{position:fixed;top:0;left:0;right:0;z-index:99999;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 14px;padding:8px 16px;background:#14161a;color:#e9e9e9;font:500 13px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;border-bottom:1px solid #2c2f36}
+/* Banner sits in a gap of the dashed frame, like a legend on a fieldset */
+.legacy-banner{position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:100001;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 14px;width:max-content;max-width:calc(100% - 28px);box-sizing:border-box;padding:9px 18px;background:#14161a;color:#e9e9e9;font:500 13px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;border-radius:8px}
 .legacy-banner__tag{padding:1px 8px;border:1px dashed #e0a458;border-radius:4px;color:#e0a458;text-decoration:line-through;text-decoration-thickness:1px;letter-spacing:.04em}
 .legacy-banner__back{padding:1px 8px;border:1px dashed #8ec5ff;border-radius:4px;color:#8ec5ff;text-decoration:none;white-space:nowrap;letter-spacing:.04em;transition:background .2s}
 .legacy-banner__back:hover{background:rgba(142,197,255,.14);border-style:solid}
 body{padding-top:44px}
-@media(max-width:600px){body{padding-top:70px}}
 #header{top:44px}
-@media(max-width:600px){#header{top:70px}}
-.legacy-banner~#header,body>#header{margin-top:0}
+@media(max-width:700px){body{padding-top:76px}#header{top:76px}}
 /* Résumé placeholder */
 .legacy-cv{max-width:640px;margin:0 auto;padding:26px 28px;background:#fff;color:#444;border:1px solid #ddd;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.12);text-align:left}
 .legacy-cv__head{border-bottom:2px solid #149ddd;padding-bottom:10px;margin-bottom:14px}
@@ -20,5 +18,6 @@ body{padding-top:44px}
 .legacy-cv__note{margin:18px 0 0;text-align:center;font:italic 14px/1.4 "Open Sans",sans-serif;color:#888}
 @media(max-width:600px){.legacy-cv__body{grid-template-columns:1fr}}
 
-/* Amber dashed frame so the archived version is unmistakable */
-body::after{content:"";position:fixed;inset:0;z-index:100000;pointer-events:none;border:6px dashed #e0a458;box-shadow:inset 0 0 0 2px rgba(20,22,26,.55)}
+/* Amber dashed frame so the archived version is unmistakable (top edge runs behind the banner) */
+body::after{content:"";position:fixed;left:0;right:0;bottom:0;top:17px;z-index:100000;pointer-events:none;border:6px dashed #e0a458;box-shadow:inset 0 0 0 2px rgba(20,22,26,.55)}
+@media(max-width:700px){body::after{top:30px}}
