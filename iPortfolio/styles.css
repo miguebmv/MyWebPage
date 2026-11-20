@@ -3121,3 +3121,13 @@ footer a:hover {
 #content{position:relative}
 .legacy-link--top{position:absolute;top:30px;right:clamp(16px,2.6vw,36px);z-index:5;background:color-mix(in srgb,var(--bg,transparent) 70%,transparent)}
 @media(max-width:900px){.legacy-link--top{top:18px;right:16px}}
+
+/* Whole journal card opens the DOI (stretched link) */
+.pub-aside{position:relative;transition:border-color .2s ease,background-color .2s ease,box-shadow .2s ease}
+.pub-aside .publication-link::after{content:"";position:absolute;inset:0;z-index:1}
+.pub-aside:hover,.pub-aside:focus-within{border-color:var(--ok);box-shadow:0 6px 22px color-mix(in srgb,var(--ok) 14%,transparent)}
+.pub-aside:hover .publication-link b{transform:translate(2px,-2px)}
+.pub-aside .publication-link b{display:inline-block;transition:transform .2s ease}
+.pub-aside .publication-link:focus-visible{outline:none}
+.pub-aside:has(.publication-link:focus-visible){outline:2px solid var(--ok);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.pub-aside,.pub-aside .publication-link b{transition:none}}
